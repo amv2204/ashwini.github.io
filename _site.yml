@@ -4,7 +4,9 @@ navbar:
   title: "Home"
   right:
     - text: "About"
-      href: about.html
+      href: experience.html
+    - text: "Dashboard"
+      href: dashboard.html
     - icon: fa-envelope fa-lg
       href: mailto:ashwini.varghese@gmail.com
     - icon: fa-brands fa-linkedin

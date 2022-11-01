@@ -1,0 +1,76 @@
+---
+title: "Dashboard"
+output: 
+  flexdashboard::flex_dashboard:
+    orientation: columns
+    vertical_layout: fill
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r setup, include=FALSE}
+library(flexdashboard)
+library(tidyverse)
+library(p8105.datasets)
+library(plotly)
+```
+
+```{r, include=FALSE}
+data("ny_noaa")
+
+ny_noaa = 
+  ny_noaa %>% 
+  janitor::clean_names() %>%
+  separate(date, sep = "-", into = c("year", "month", "day")) %>%
+  mutate_at(c(2:9), as.numeric) %>% 
+  mutate(prcp = prcp/10) %>% 
+  mutate(tmin = tmin/10, tmax = tmax/10) %>% 
+  mutate(month = month.name[as.numeric(month)]) %>% 
+  filter(
+    day == 15,
+    year >= 2000,
+    prcp != 0,
+    month %in% c("January", "June")) %>% 
+  drop_na(tmin, tmax)
+ny_noaa
+
+```
+
+
+Column {data-width=650}
+-----------------------------------------------------------------------
+
+### Minimum and Maximum temperatures
+
+```{r}
+ny_noaa %>%
+  mutate(
+    text_label = str_c("ID: ", id, "\nYear: ", year)) %>% 
+  plot_ly(
+    x = ~tmin, y = ~tmax, color = ~month,
+    type = "scatter", mode = "markers",
+    alpha = .5, text = ~text_label)
+```
+
+Column {data-width=350}
+-----------------------------------------------------------------------
+
+### Summary of minimum temperatures
+
+```{r}
+ny_noaa %>%
+  plot_ly(
+    y = ~tmin, color = ~month,
+          type = "box", colors = "viridis")
+```
+
+### Precipitation counts
+
+```{r}
+ny_noaa %>%
+  count(prcp) %>%
+  plot_ly(
+    x = ~prcp, y = ~n,
+    type = "bar")
+```
+
