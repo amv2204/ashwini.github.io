@@ -1,0 +1,19 @@
+---
+title: "Ashwini M. Varghese"
+output: 
+  html_document:
+    toc: true
+    toc_float: true
+    theme: cerulean
+---
+
+<center>
+<img src="images/profile.jpg" style="width:75%">
+</center>
+
+# About me
+
+I am a second year Master's in Public Health student in the Epidemiology department at the Mailman School of Public Health at Columbia University in New York City. I am also completing a certificate in Infectious Disease Epidemiology. 
+
+
+
