@@ -7,7 +7,7 @@ output:
 ---
 
 <center>
-<img src="images/profile.jpg" style="width:75%">
+<img src="images/profile.jpg" style="width:65%">
 </center>
 
 # About me
