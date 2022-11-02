@@ -7,12 +7,18 @@ output:
 ---
 
 <center>
-<img src="images/profile.jpg" style="width:65%">
+<img src="images/profile.jpg" style="width:45%">
 </center>
+
+
 
 # About me
 
-I am a second year Master's in Public Health student in the Epidemiology department at the Mailman School of Public Health at Columbia University in New York City. I am also completing a certificate in Infectious Disease Epidemiology. 
 
+I am currently a second year Master's in Public Health candidate in the Epidemiology department at the Columbia University Mailman School of Public Health in New York City. I am also completing a certificate in Infectious Disease Epidemiology. I will be graduating in May 2023 and am looking for full time opportunities!
+
+I am the oldest of 3 and grew up in Edison, New Jersey. I went to Rutgers University - New Brunswick for my undergrad and completed a Bachelor of Science degree in Public Health with a minor in Biological Sciences and a certificate in Health Disparities. 
+
+My favorite activities are to try cooking new recipes and touring NYC restaurants and activities. One of my life goals is to travel to one new country every year and explore!
 
 

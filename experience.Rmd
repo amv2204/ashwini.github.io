@@ -1,12 +1,107 @@
 ---
-title: "Experiences"
+title: "Academic and Professional History"
 output: 
   html_document:
     toc: true
     toc_float: true
 ---
 
-# A look into the past and present:
 
+## Education:
+
+**Columbia University Mailman School of Public Health - New York, NY**  
+Expected Graduation: May 2023  
+Master of Public Health in Epidemiology, Certificate in Infectious Disease Epidemiology  
+Columbia Public Health Scholarship Award  
+Cumulative GPA: 3.900
+
+	
+**Rutgers University - New Brunswick, NJ**  
+May 2020  
+Bachelor of Science in Public Health, Minor in Biological Sciences, Certificate in Health Disparities  
+Magna Cum Laude, Highest Honors, and Dean’s List  
+Cumulative GPA: 3.727
+
+
+## Work Experiences:
+
+**Herbert Irving Comprehensive Cancer Center, NYP/CUIMC – New York, NY**  
+July 2022 – present  
+Recruiter and Data Analyst for the DISCover cohort  							
+
+* Build and maintain a repository of biological samples, clinical data, and epidemiologic data for distribution to investigators by enrolling and obtaining informed consent of patients who are at risk or who have cancer
+* Coordinate the collection and transfer of blood, saliva, tissues, and other biospecimens from the clinic to their designated laboratories for analysis.
+* Clean and analyze data that has been collected from questionnaires and the electronic health record of individuals who have consented to the DBSR protocol
+
+**Public Health Environmental Laboratories, NJ Department of Health - Ewing, NJ**  
+July 2020 – July 2021  
+Newborn Screening Laboratory Technician
+
+* Mastered the workflow of 3 different genetic test units (Receiving, MS/MS, Lysosomal Storage Disease) via bi-monthly rotations to conduct the appropriate test for a disorder  
+* Processed more than 250 and up to 800 specimens daily for the appropriate assay to test for genetic disorders 
+* Operated and maintained the function of essential screening equipment (Panthera Puncher, Waters ACQUITY TQD Mass Spectrometry, etc.) to facilitate daily testing procedures 
+	      
+Molecular Virology Intern  
+January 2020 – May 2020
+
+* Improved the surveillance informatics system of the Molecular Virology department by creating an interactive database of over 400 historical arboviral and influenza specimens stored in the freezers and merged qualitative data of test results from JerseySurv (VectorSurv) with the new database
+* Attained knowledge of the routine lab procedures by shadowing extractions and PCR tests 
+
+**Digestive Disease Consultants - Metuchen, NJ**  
+January 2019 – March 2020  
+Office assistant
+	
+* Analyzed Medicare and Medicaid insurance payments for discrepancies and ensure accuracy to maximize revenue
+* Guided patients in successful preparation for their consultations and gastroenterology procedures  
+
+
+## Volunteer Experience:
+
+**Rutgers University Global Brigades - Nicaragua**  
+January 2018  
+Medical and Public Health Brigader 
+
+* Served the community of Sabana De En Medio in Nicaragua by building latrines for access to sanitation
+* Performed patient care for over 1,000 community members of El Charco in a medical clinic where free consultations, medications, and dental health education were given. Tasks included data informatics, patient triaging, pharmacy rotations, and health education	
+
+
+## Other Experience:
+
+**Institute for Health, Health Care Policy, and Aging Research - New Brunswick, NJ**  
+Summer 2019  
+Community Engagement Project Intern 
+
+* Evaluated the history of CBPR in the African American population via literature searches
+* Composed a reference list of over 20 African American organizations based in NJ that  
+serve or advocate for this community   
+* Established points of communication with these organizations via emails and phone calls to discuss opportunities for future collaborations 
+*  Engaged in journal club by analyzing peer-reviewed, scientific articles and participating in discussions of the assigned text
+*  Participated in holistic seminar series led by distinguished faculty of the Institute to explore research processes and possibilities
+
+
+## Projects:
+
+* Analysis of NHANES 2015-2016 data: The association of ever being diagnosed with having an STI with age at first intercourse – Tools used: SAS, CDC NHANES data, MS Word and Excel
+* The effect of artificial sweeteners on water quality – Tools used: MS PowerPoint, Word and Excel, LabQuest
+
+
+## Certifications/Trainings:
+
+* Preconception Peer Educator certified – US Department of Health and Human Services, Office of Minority Health 
+* CITI program certifications: Good Clinical Practice (GCP), Clinical Research Coordinator (CRC), Human Subjects Protection Training, HIPAA, Bloodborne Pathogens, FDA Regulated Research  
+* NYC DOHMH Team Epi Outbreak Investigator 
+
+
+## Skills:
+
+* Laboratory skills: PerkinElmer NeoBase2 and NeoLSD assays for Newborn Genetic Screening, cell culturing, sterilization techniques, pipetting, microscopy, aseptic technique, fume hood work, etc. 
+* Operation of: Panthera Puncher, Waters ACQUITY TQD Mass Spectrometry, TriNest, Centrifuge, Sonicator, Apricot S1 and S2 Multi-channel pipettors 
+* Software skills: Screening Center on Specimen Gate, JerseySurv (VectorSurv), EPIC, Velos, Qualtrics, RMarkdown, GitHub
+* Statistical software skills: SAS, R 
+* Microsoft Office (Word, PowerPoint, Excel) 
+* Literature Reviews 
+* Public Speaking 
+* Writing skills via development of lab reports and research papers 
+* Meticulous, detail oriented, organized 
 
 
