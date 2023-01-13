@@ -1,5 +1,5 @@
 ---
-title: "NY NOAA Dashboard"
+title: "New York State Weather Stations Dashboard - Jan. 15 and June 15 of each year from 2000 to 2010"
 output: 
   flexdashboard::flex_dashboard:
     orientation: columns
@@ -40,7 +40,7 @@ ny_noaa
 Column {data-width=650}
 -----------------------------------------------------------------------
 
-### Minimum and Maximum temperatures
+### Minimum and Maximum temperatures in January and June by NY weather station
 
 ```{r}
 ny_noaa %>%
@@ -49,28 +49,36 @@ ny_noaa %>%
   plot_ly(
     x = ~tmin, y = ~tmax, color = ~month,
     type = "scatter", mode = "markers",
-    alpha = .5, text = ~text_label)
+    alpha = .5, text = ~text_label) %>%
+    layout(xaxis = list(title = 'Minimum Temperature (°C)'), font=t, plot_bgcolor = "#e5ecf6",
+           yaxis = list(title = 'Maximum Temperature (°C)'))
 ```
 
 Column {data-width=350}
 -----------------------------------------------------------------------
 
-### Summary of minimum temperatures
+### Summary of minimum temperatures in January and June
 
 ```{r}
 ny_noaa %>%
   plot_ly(
     y = ~tmin, color = ~month,
-          type = "box", colors = "viridis")
+          type = "box", colors = "viridis") %>%
+    layout(xaxis = list(title = 'Month'), font=t, plot_bgcolor = "#e5ecf6",
+           yaxis = list(title = 'Minimum Temperature (°C)'))
 ```
 
-### Precipitation counts
+### Counts of precipitation numbers that is 30 mm or less
 
 ```{r}
 ny_noaa %>%
+  filter(prcp <= 30) %>% 
   count(prcp) %>%
+  mutate(text_label = str_c("Precip: ", prcp, "\nCount: ", n)) %>% 
   plot_ly(
     x = ~prcp, y = ~n,
-    type = "bar")
+    type = "bar", text = ~text_label) %>%
+    layout(xaxis = list(title = 'Precipitation (mm)'), font=t, plot_bgcolor = "#e5ecf6",
+           yaxis = list(title = 'Count'))
 ```
 

@@ -5,7 +5,7 @@ navbar:
   right:
     - text: "Resume"
       href: experience.html
-    - text: "Dashboard"
+    - text: "Interactive Flex-Dashboard example"
       href: dashboard.html
     - icon: fa-envelope fa-lg
       href: mailto:ashwini.varghese@gmail.com
