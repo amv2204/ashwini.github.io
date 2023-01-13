@@ -6,15 +6,15 @@ navbar:
     - text: "Deliverables from Experiences"
       menu: 
       - text: "NYP Cancer Center"
-        href: HICCC.html
+        href: poster.pdf
       - text: "NJ DOH"
-        href: doh.html
+        href: Abstract.pdf
       - text: "NHANES Analysis"
-        href: nhanes.html
+        href: NHANES.pdf
       - text: "CBPR Initiative"
-        href: cbpr.html
+        href: CBPR.pdf
       - text: "Artificial Sweetners and water analysis"
-        href: sweet.html
+        href: sweet.pdf
     - text: "Resume"
       href: experience.html
     - text: "Interactive Flex-Dashboard example"
