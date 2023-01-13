@@ -3,6 +3,18 @@ output_dir: "."
 navbar:
   title: "Home"
   right:
+    - text: "Deliverables from Experiences"
+      menu: 
+      - text: "NYP Cancer Center"
+        href: HICCC.html
+      - text: "NJ DOH"
+        href: doh.html
+      - text: "NHANES Analysis"
+        href: nhanes.html
+      - text: "CBPR Initiative"
+        href: cbpr.html
+      - text: "Artificial Sweetners and water analysis"
+        href: sweet.html
     - text: "Resume"
       href: experience.html
     - text: "Interactive Flex-Dashboard example"

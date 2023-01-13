@@ -7,7 +7,7 @@ output:
 ---
 
 <center>
-<img src="images/profile.jpg" style="width:45%">
+<img src="images/profile.jpg" style="width:50%">
 </center>
 
 
@@ -15,10 +15,21 @@ output:
 # About me
 
 
-I am currently a second year Master's in Public Health candidate in the Epidemiology department at the Columbia University Mailman School of Public Health in New York City. I am also completing a certificate in Infectious Disease Epidemiology. I will be graduating in May 2023 and am looking for full time opportunities!
+I am a second year Master's in Public Health candidate in the Epidemiology department at the Columbia University Mailman School of Public Health in New York City. I am also completing a certificate in Infectious Disease Epidemiology. I also work as a Recruiter and Data Analyst at the Herbert Irving Comprehensive Cancer Center at New-York Presbyterian/CUIMC. I will be graduating in May 2023 and am looking forward to working in the public health field after graduation.
 
-I am the oldest of 3 and grew up in Edison, New Jersey. I went to Rutgers University - New Brunswick for my undergrad and completed a Bachelor of Science degree in Public Health with a minor in Biological Sciences and a certificate in Health Disparities. 
+<center>
+<img src="images/mailman.png" style="width:35%">
+</center>
 
-My favorite activities are to try cooking new recipes and touring NYC restaurants and activities. One of my life goals is to travel to one new country every year and explore!
+Raised across the river in the sister state of New Jersey, I am the oldest of 3 and grew up in Edison, New Jersey. I completed a Bachelor of Science in Public Health with a minor in Biological Sciences and a certificate in Health Disparities at Rutgers University - New Brunswick in 2020.
 
+<center>                                               
+<img src="images/rut.png" style="width:35%">          
+</center> 
+
+My favorite activities are to cook new recipes and touring NYC restaurants and all the activities the city has to offer. One of my life goals is to travel to one new country every year and explore the world!
+
+<center>                                               
+<img src="images/travel.jpg" style="width:35%">          
+</center> 
 
