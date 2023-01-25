@@ -98,7 +98,7 @@ serve or advocate for this community
 * Laboratory skills: PerkinElmer NeoBase2 and NeoLSD assays for Newborn Genetic Screening, cell culturing, sterilization techniques, pipetting, microscopy, aseptic technique, fume hood work, etc. 
 * Operation of: Panthera Puncher, Waters ACQUITY TQD Mass Spectrometry, TriNest, Centrifuge, Sonicator, Apricot S1 and S2 Multi-channel pipettors 
 * Software skills: Screening Center on Specimen Gate, JerseySurv (VectorSurv), EPIC, Velos, Qualtrics, GitHub
-* Statistical software skills: SAS, R, R Markdown, Flex-dashboards, Plotly, Shiny App, GIS
+* Statistical software skills: SAS, R, R Markdown, Flex-dashboards, Plotly, Shiny App, QGIS, GeoDa, SaTScan
 * Microsoft Office (Word, PowerPoint, Excel) 
 * Literature Reviews 
 * Public Speaking 
