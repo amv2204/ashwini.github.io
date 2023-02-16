@@ -4,9 +4,9 @@ output:
   html_document:
     toc: true
     toc_float: true
-editor_options: 
-  chunk_output_type: console
 ---
+
+
 
 ## Preparation:
 
@@ -42,9 +42,12 @@ scale_colour_discrete = scale_colour_viridis_d
 scale_fill_discrete = scale_fill_viridis_d
 ```
 
+
+
 ## Data cleaning and Tidying:
 
-### NYC Transit dataset cleaning:
+
+### Example 1: NYC Transit dataset cleaning:
 
 This dataset contains information related to each entrance and exit for each subway station in NYC.
 
@@ -125,7 +128,7 @@ subway %>%
 
 There are 60 stations that serve the A train and of those, 17 are ADA compliant.
 
-### Mr. Trash Wheel Dataset cleaning:
+### Example 2: Mr. Trash Wheel Dataset cleaning:
 
 Let's start by reading and cleaning the Mr. Trash Wheel and Professor Trash Wheel datasets. 
 
@@ -160,7 +163,7 @@ To find the total weight of trash collected by Professor Trash Wheel, we can use
 To find the total number of sports balls collected by Mr. Trash Wheel in 2020, we can use the following code: `sum(subset(combo, ID == "A" & year == "2020")$sports_balls)`, which gives us the sum of the _sports_balls_ variable restricted to the observations from the **Trash** dataset, identified by _ID = A_, and only in the year 2020. The answer is 856 sports balls.
 
 
-### Code to merge multiple datasets:
+### Example 3: Merging multiple datasets:
 
 Clean up the pols-month file:
 
@@ -226,7 +229,10 @@ The **snp** dataset has just 3 variables: the _close_ variable, which was untouc
 
 The final dataset **total** has 822 observations (`nrow(total`) and 11 variables (`ncol(total`). We can find the range of years with the following code: `range(total$year)`, which is from 1947 to 2015. The key variables are _year_ and _month_ which was present in all 3 datafiles and was used to perform all the merges. 
 
+
+
 ## Exploratory Data Analysis (EDA):
+
 
 ### NOAA National Climatic Data Center for all weather stations in New York State:
 
@@ -318,6 +324,8 @@ temp_plot + snow_plot
 ```
 
 In these plots, we see that there is large number of days in which the maximum temperature and minimum temperatures were between 15 for tmin and 30 for tmax and -15 for tmin and -5 for tmax. For the snowfall plot, from 1981 to 2010, most of the days with snowfall have a value between 0 and 30 mm. There is also another large set of days that had snowfall values between 40 and 60 mm and another between 70 and 80 mm.
+
+
 
 ## Iteration coding:
 
@@ -426,7 +434,8 @@ final %>%
 
 The above plot shows the proportion of unsolved homicides in each city with its corresponding confidence interval. There was an error in the data where Tulsa, AL was incorrected entered for Tulsa, OK. Instead of completely removing it from the dataset, I filtered it out of the plot.
 
-## Regression coding:
+
+## Logistic Regression coding:
 
 ### Homicide data:
 
