@@ -1,6 +1,9 @@
 ---
 title: "R Programming Code"
-output: github_document
+output: 
+  html_document:
+    toc: true
+    toc_float: true
 editor_options: 
   chunk_output_type: console
 ---
@@ -16,6 +19,9 @@ library(p8105.datasets)
 library(hexbin)
 library(ggridges)
 library(patchwork)
+library(mgcv)
+library(modelr)
+library(viridis)
 
 knitr::opts_chunk$set(
   echo = TRUE,
@@ -313,5 +319,208 @@ temp_plot + snow_plot
 
 In these plots, we see that there is large number of days in which the maximum temperature and minimum temperatures were between 15 for tmin and 30 for tmax and -15 for tmin and -5 for tmax. For the snowfall plot, from 1981 to 2010, most of the days with snowfall have a value between 0 and 30 mm. There is also another large set of days that had snowfall values between 40 and 60 mm and another between 70 and 80 mm.
 
+## Iteration coding:
+
+### Homicide data:
+
+The Washington Post has gathered data on homicides in 50 large U.S. cities and that is the data used in this analysis.
+
+```{r}
+homicides = read.csv("./data/homicide-data.csv")
+
+```
+
+The raw dataset `homicides` contains `r ncol(homicides)` variables and `r nrow(homicides)` observations. It describes information on homicides from 50 large US cities. Variables of interest include the case ID, the date of the incident, information on the victim (name, race, age and sex), information on the location of the homicide, and the disposition of the case. 
+
+We will create a new variable `city_state`.
+
+```{r}
+new_homi <- homicides %>%
+  unite("city_state", city:state, sep = ", ", remove = FALSE)
+```
+
+We will first look at the total number of homicides in a city and then at the number of homicides that are unsolved in a city.
+
+```{r}
+new_homi %>% 
+  group_by(city) %>%
+  summarize(count = n()) %>%
+  knitr::kable(digits = 1)
+
+new_homi %>% 
+  filter(disposition %in% c("Closed without arrest", "Open/No arrest")) %>%
+  group_by(city) %>%
+  summarize(count = n()) %>%
+  knitr::kable(digits = 1)
+```
 
 
+Let's focus on crime in just Baltimore, MD:
+
+
+```{r}
+new_homi %>%
+  filter(city_state == "Baltimore, MD") %>%
+  summarize(count = n())
+
+new_homi %>%
+  filter(city_state == "Baltimore, MD") %>%
+  filter(disposition %in% c("Closed without arrest", "Open/No arrest")) %>%
+  summarize(count = n())
+
+```
+
+From the above code, we see that in the city of Baltimore, MD, there were a total of 2827 homicides and of those homicides, 1825 were unsolved.
+
+Let's use the `prop.test` function on just Baltimore, MD to estimate the proportion of homicides that are unsolved and its confidence interval.
+
+```{r}
+Balt_test <- prop.test(1825, 2827) %>%
+  broom::tidy() %>%
+  select(estimate, starts_with("conf"))
+```
+
+The proportion of homicides that are unsolved is 0.646 with a confidence interval of 0.628 and 0.663.
+
+Now we will create a function to do this for all the cities in the dataset:
+
+```{r}
+homi_nest =
+  new_homi %>% 
+  relocate(city_state) %>% 
+  nest(data = uid:disposition)
+
+prop = function(df) {
+
+  data_result = df %>% 
+    summarize(total = n(),
+              unsolved = sum(disposition %in% c("Closed without arrest", "Open/No arrest")))
+    
+  prop_results = 
+    prop.test(x = data_result %>% pull(unsolved), 
+              n = data_result %>% pull(total))
+
+  return(prop_results)
+}
+
+
+final <- homi_nest %>% 
+  mutate(results = map(data, prop),
+         estimates = map(results, broom::tidy)) %>% 
+  select(city_state, estimates) %>% 
+  unnest(estimates) %>%
+  select(city_state, estimate, starts_with("conf"))
+
+
+final %>% 
+  filter(city_state != "Tulsa, AL") %>% 
+  mutate(city_state = fct_reorder(city_state, estimate)) %>% 
+  ggplot(aes(x = city_state, y = estimate)) + 
+    geom_line() +
+    geom_point()+
+    geom_errorbar(aes(ymin = conf.low, ymax = conf.high), width=.2,
+                 position=position_dodge(0.05))+
+    theme(axis.text.x = element_text(angle = 90))
+
+```
+
+The above plot shows the proportion of unsolved homicides in each city with its corresponding confidence interval. There was an error in the data where Tulsa, AL was incorrected entered for Tulsa, OK. Instead of completely removing it from the dataset, I filtered it out of the plot.
+
+## Regression coding:
+
+### Homicide data:
+
+We will start by loading the homicide data. 
+
+```{r}
+homicides_two = read.csv("./data/homicide-data.csv")
+```
+
+Next we will do some data cleaning as below:
+
+```{r}
+homicides_two =   
+  homicides_two %>%
+  unite("city_state", city:state, sep = ", ", remove = FALSE) %>% 
+  mutate(solved = as.numeric(disposition == "Closed by arrest")) %>%
+  filter(!(city %in% c("Dallas", "Phoenix", "Kansas City"))) %>%
+  filter(city_state != "Tulsa, AL") %>%
+  mutate(victim_age = as.numeric(victim_age)) %>%
+  filter(victim_race %in% c("White", "Black")) %>%
+  mutate(victim_race = fct_relevel(victim_race, "White")) %>%
+  filter(victim_sex != "Unknown")
+
+```
+
+Now for just the city of Baltimore, we will fit a logistic model with homicide being solved as the outcome and with victim age, sex, and race as predictors. 
+
+```{r}
+
+Balt =
+  homicides_two %>%
+  filter(city == "Baltimore") %>%
+  select(solved, victim_age, victim_race, victim_sex)
+
+fit_balt = 
+  Balt %>% 
+  glm(solved ~ victim_age + victim_race + victim_sex, data = ., family = binomial()) 
+
+fit_balt %>% 
+  broom::tidy() %>%
+  mutate(lower_CI = exp(estimate - 1.96*std.error),
+         upper_CI = exp(estimate + 1.96*std.error),
+         OR = exp(estimate)) %>%
+  select(term, OR, lower_CI, upper_CI) %>% 
+  knitr::kable(digits = 3)
+
+
+```
+
+Let's repeat this for all the cities and get the OR with their 95% CI for solving homicides comparing males to females, adjusting for race and age.  
+
+```{r}
+homi_nest =
+  homicides_two %>% 
+  select(city_state, solved, victim_age, victim_race, victim_sex) %>% 
+  relocate(city_state) %>% 
+  nest(data = solved:victim_sex)
+
+
+fit_all = 
+  homi_nest %>% 
+  mutate(
+    models = map(.x = data, ~glm(solved ~ victim_age + victim_race + victim_sex, data = .x, family = binomial())),
+    results = map(models, broom::tidy)) %>% 
+  select(-data, -models) %>% 
+  unnest(results) %>% 
+  mutate(lower_CI = exp(estimate - 1.96*std.error),
+         upper_CI = exp(estimate + 1.96*std.error),
+         OR = exp(estimate)) %>%
+  select(city_state, term, OR, lower_CI, upper_CI) %>%
+  filter(term == "victim_sexMale")
+
+fit_all %>%
+  knitr::kable(digits = 3)
+
+```
+
+Now we will make a plot showing the OR and 95% CI for each city.
+
+```{r}
+
+fit_all %>% 
+  mutate(city_state = fct_reorder(city_state, OR)) %>% 
+  ggplot(aes(x = city_state, y = OR)) +        
+    geom_point() +
+    geom_errorbar(aes(ymin = lower_CI, ymax = upper_CI)) +
+    theme(axis.text.x = element_text(angle = 80, hjust = 1))
+
+```
+
+From this plot, we can see the city with the lowest OR for solved homicides comparing male victims to females while adjusting for race and age is New York at 0.26 and the highest is Albuquerque at 1.77.
+
+**The interpretations are as follows:**
+
+**In New York City, the odds of solving a homicide case for a male is 0.26 times the odds of solving a homicide case for a female, adjusting for race and age. In Albuquerque, the odds of solving a homicide case for a male is 1.77 times the odds of solving a homicide case for a female, adjusting for race and age.**
+
+**However, the confidence interval for Albuquerque includes the null value of 1 making the OR not statistically significant whereas 1 is not in the confidence interval for New York, which means the OR is statistically significant. We would need to double check with the p-values.**

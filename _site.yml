@@ -6,7 +6,7 @@ navbar:
     - text: "Statistical Software Coding"
       menu:
       - text: "R programming"
-        href: 
+        href: tidy_data.html
       - text: "SAS programming"
         href: 
       - text: "GIS"
