@@ -3,13 +3,23 @@ output_dir: "."
 navbar:
   title: "Home"
   right:
+    - text: "Statistical Software Coding"
+      menu:
+      - text: "R programming"
+        href: 
+      - text: "SAS programming"
+        href: 
+      - text: "GIS"
+        href:
+      - text: "Interactive Flex-Dashboard example"
+        href: dashboard.html
     - text: "Deliverables from Experiences"
       menu: 
-      - text: "NYP Cancer Center"
+      - text: "NYP Cancer Center Poster"
         href: poster.pdf
-      - text: "NJ DOH"
+      - text: "NJ DOH Abstract"
         href: Abstract.pdf
-      - text: "NHANES Analysis"
+      - text: "NHANES Analysis using SAS"
         href: NHANES.pdf
       - text: "CBPR Initiative"
         href: CBPR.pdf
@@ -17,8 +27,6 @@ navbar:
         href: sweet.pdf
     - text: "Resume"
       href: experience.html
-    - text: "Interactive Flex-Dashboard example"
-      href: dashboard.html
     - icon: fa-envelope fa-lg
       href: mailto:ashwini.varghese@gmail.com
     - icon: fa-brands fa-linkedin

@@ -83,7 +83,7 @@ serve or advocate for this community
 
 * Analysis of NHANES 2015-2016 data: The association of ever being diagnosed with having an STI with age at first intercourse – Tools used: SAS, CDC NHANES data, MS Word and Excel
 * The effect of artificial sweeteners on water quality – Tools used: MS PowerPoint, Word and Excel, LabQuest  
-* Master's Thesis pending: Pancreatic cancer risk and the DASH diet, in collaboration with Harvard University
+* **Master's Thesis pending: Pancreatic cancer risk and the DASH diet, in collaboration with Harvard University Pooling Project of Prospective Studies of Diet and Cancer**
 
 
 ## Certifications/Trainings:
