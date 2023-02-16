@@ -8,9 +8,9 @@ navbar:
       - text: "R programming"
         href: tidy_data.html
       - text: "SAS programming"
-        href: 
+        href: SAS_code.html
       - text: "GIS"
-        href:
+        href: GIS.html
       - text: "Interactive Flex-Dashboard example"
         href: dashboard.html
     - text: "Deliverables from Experiences"
