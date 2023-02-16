@@ -1,5 +1,5 @@
 ---
-title: "R Programming Code"
+title: "R Programming Coding Skills"
 output: 
   html_document:
     toc: true
@@ -7,12 +7,11 @@ output:
 ---
 
 
-
 ## Preparation:
 
 We'll start by having a code chunk in the beginning that loads all the packages we will need and set up formatting for visualizations:
 
-```{r setup, include = FALSE}
+```{r setup}
 library(tidyverse)
 library(readxl)
 library(p8105.datasets)
@@ -130,6 +129,8 @@ There are 60 stations that serve the A train and of those, 17 are ADA compliant.
 
 ### Example 2: Mr. Trash Wheel Dataset cleaning:
 
+Mr. Trash Wheel is "a water-wheel vessel that removes trash from the Inner Harbor in Baltimore, Maryland."
+
 Let's start by reading and cleaning the Mr. Trash Wheel and Professor Trash Wheel datasets. 
 
 **Make sure to import the correct sheet from the Excel file:**
@@ -156,85 +157,16 @@ combo = merge(x = trash, y = professor, all = TRUE) %>%
   select(ID, everything())
 ```
 
-The new and combined dataset is a full merge and has 641 observations (`nrow(combo)`) and 15 variables (`ncol(combo)`). All the variables exist in both sets except for the _sports_balls_ variable; it came from the **trash** dataset. We can distinguish which observation is from which dataset by the _ID_ variable; an _ID_ value equal to A is for the **trash** dataset and an _ID_ value of B is for the **professor** dataset. 
+The new and combined dataset is a full merge and has 641 observations and 15 variables. All the variables exist in both sets except for the _sports_balls_ variable; it came from the **trash** dataset. We can distinguish which observation is from which dataset by the _ID_ variable; an _ID_ value equal to A is for the **trash** dataset and an _ID_ value of B is for the **professor** dataset. 
 
 To find the total weight of trash collected by Professor Trash Wheel, we can use the following code: `sum(subset(combo, ID == "B")$weight_tons)`, which gives us the sum of the _weight_tons_ variable restricted to the observations from the **Professor** dataset, identified by _ID = B_. The answer is 190.12 tons.
 
 To find the total number of sports balls collected by Mr. Trash Wheel in 2020, we can use the following code: `sum(subset(combo, ID == "A" & year == "2020")$sports_balls)`, which gives us the sum of the _sports_balls_ variable restricted to the observations from the **Trash** dataset, identified by _ID = A_, and only in the year 2020. The answer is 856 sports balls.
 
 
-### Example 3: Merging multiple datasets:
-
-Clean up the pols-month file:
-
-```{r pols}
-pols = read_csv("./data/fivethirtyeight_datasets/pols-month.csv") %>% 
-    janitor::clean_names() %>% 
-    separate(mon, sep = "-", into = c("year", "month", "day")) %>%
-    mutate(month = month.name[as.numeric(month)]) %>% 
-    mutate(year = as.numeric(year)) %>% 
-    mutate(month = factor(month, levels = month.name)) %>% 
-    mutate(president = case_when(prez_gop == 1 ~ "gop", TRUE ~ "dem")) %>% 
-    select(-day, -prez_gop, -prez_dem) %>% 
-    arrange(year, month)
-```
-
-Clean up the snp file:
-
-```{r snp}
-snp = read_csv("./data/fivethirtyeight_datasets/snp.csv") %>% 
-    janitor::clean_names() %>% 
-    separate(date, sep = "/", into = c("month", "day", "year")) %>% 
-    mutate(month = month.name[as.numeric(month)]) %>% 
-    mutate(century = case_when(year < 16 ~ 2000, TRUE ~ 1900)) %>% 
-    mutate(year = as.numeric(year)) %>% 
-    mutate(year = year + century) %>% 
-    select(year, month, close) %>% 
-    mutate(month = factor(month, levels = month.name)) %>% 
-    arrange(year, month) 
-```
-
-Now tidy the unemployment file:
-
-```{r unemploy}
-unemploy = read_csv("./data/fivethirtyeight_datasets/unemployment.csv") %>% 
-    janitor::clean_names() %>% 
-    pivot_longer(
-      jan:dec,
-      names_to = "month",
-      values_to = "percent_unemploy") %>% 
-    mutate(month = as.factor(month)) %>% 
-    mutate(month = month.name[as.numeric(month)]) %>% 
-    mutate(month = as.factor(month)) %>% 
-    mutate(month = factor(month, levels = month.name)) %>% 
-    arrange(year, month)
-```
-
-
-Now we will create a merged dataset in 2 steps.
-
-First we will merge `snp` into `pols`:
-
-```{r first_merge}
-first = left_join(pols, snp, by = c("year", "month"))
-```
-
-Then we will merge the `unemploy` file into this new merged `first` file:
-
-```{r total}
-total = left_join(first, unemploy, by = c("year", "month"))
-```
-
-The **snp** dataset has just 3 variables: the _close_ variable, which was untouched, and then _month_ and _year_ that we created by separating the date. The **pols** dataset has the same _month_ and _year_ that we made like in the **snp** dataset. It also has many of the original variables, as well as a new variable called _president_ which was created logically based off the _prez_dem_ and _prez_gop_ variables. The **unemploy** dataset has also 3 variables, with the _month_ and _year_ variables made by separating the date and the _percent_unemploy_ variable made by the `pivot_longer` function. 
-
-The final dataset **total** has 822 observations (`nrow(total`) and 11 variables (`ncol(total`). We can find the range of years with the following code: `range(total$year)`, which is from 1947 to 2015. The key variables are _year_ and _month_ which was present in all 3 datafiles and was used to perform all the merges. 
-
-
-
 ## Exploratory Data Analysis (EDA):
 
-
-### NOAA National Climatic Data Center for all weather stations in New York State:
+NOAA National Climatic Data Center for all weather stations in New York State:
 
 Let's load the data:
 
@@ -244,7 +176,7 @@ data("ny_noaa")
 ny_noaa
 ```
 
-The dataset has 7 variables (`ncol(ny_noaa)`) and 2,595,176 observations (`nrow(ny_noaa)`). It has a combination of integer and character variables, with also a date variable. The variables that make up the dataset are an ID variable of the weather station, date of observation, precipitation (mm), snowfall (mm), snow depth (mm), and the maximum and minimum temperatures in Celsius. There is a large number of missing data because each weather station may collect only a subset of these variables, so the dataset has observations with missing data. 
+The dataset has 7 variables and 2,595,176 observations. It has a combination of integer and character variables, with also a date variable. The variables that make up the dataset are an ID variable of the weather station, date of observation, precipitation (mm), snowfall (mm), snow depth (mm), and the maximum and minimum temperatures in Celsius. There is a large number of missing data because each weather station may collect only a subset of these variables, so the dataset has observations with missing data. 
 
 Let's now do some data cleaning of this dataset:
 
@@ -329,7 +261,7 @@ In these plots, we see that there is large number of days in which the maximum t
 
 ## Iteration coding:
 
-### Homicide data:
+Homicide data:
 
 The Washington Post has gathered data on homicides in 50 large U.S. cities and that is the data used in this analysis.
 
@@ -437,7 +369,7 @@ The above plot shows the proportion of unsolved homicides in each city with its 
 
 ## Logistic Regression coding:
 
-### Homicide data:
+Homicide data:
 
 We will start by loading the homicide data. 
 

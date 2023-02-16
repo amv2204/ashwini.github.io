@@ -1,0 +1,52 @@
+---
+title: "GIS maps using QGIS"
+output: 
+  html_document:
+    toc: true
+    toc_float: true
+---
+
+_____________________________________________________________________________
+## Insured people in New Jersey 
+
+<center>
+<img src="images/insured.png" style="width:60%">
+</center>  
+
+_____________________________________________________________________________
+## NYC Covid Deaths
+
+<center>
+<img src="images/covid_deaths.png" style="width:100%">
+</center>
+
+_____________________________________________________________________________
+## Toxic Release in New Jersey 
+
+<center>
+<img src="images/TRI_release.png" style="width:60%">
+</center>
+
+_____________________________________________________________________________
+## Pounds of Toxic Emissions in New Jersey 
+
+<center>
+<img src="images/TRI_emissions.png" style="width:60%">
+</center>
+
+_____________________________________________________________________________
+## Soho Cholera outbreak, 1884 
+
+<center>
+<img src="images/cholera.png" style="width:100%">
+</center>
+
+_____________________________________________________________________________
+## Kernel Density May of Cholera outbreak, 1884
+
+<center>
+<img src="images/KDE.png" style="width:100%">
+</center>
+
+
+

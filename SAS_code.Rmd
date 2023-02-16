@@ -1,0 +1,170 @@
+---
+title: "SAS coding skills"
+output: 
+  html_document:
+    toc: true
+    toc_float: true
+---
+
+### NHANES Analysis 2015-2016:
+
+The full abstract for this project can be found [here](NHANES.pdf).
+
+**Research question of interest: Is age at first sex associated with ever being diagnosed with an STI?**
+
+* Data source: NHANES 2015-2016
+* Population: U.S. adults aged 18-59
+* Predictors: Sexual identity, monthly family income, and gender
+* EMM: current age
+
+#### Code:
+
+**IMPORTING NHANES 2015-16 DATA**; 
+
+filename A "/home/u60713693/sasuser.v94/SXQ_I.XPT";  
+filename B "/home/u60713693/sasuser.v94/DEMO_I.XPT";  
+filename C "/home/u60713693/sasuser.v94/INQ_I.XPT";  
+ 
+proc http url = "https://wwwn.cdc.gov/Nchs/Nhanes/2015-2016/SXQ_I.XPT"  
+out = A;  
+run;  
+
+proc http url = "https://wwwn.cdc.gov/Nchs/Nhanes/2015-2016/DEMO_I.XPT"  
+out = B;  
+run;  
+
+proc http url = "https://wwwn.cdc.gov/Nchs/Nhanes/2015-2016/INQ_I.XPT"  
+out = C;  
+run;  
+
+libname A xport "/home/u60713693/sasuser.v94/SXQ_I.XPT";  
+libname B xport "/home/u60713693/sasuser.v94/DEMO_I.XPT";  
+libname C xport "/home/u60713693/sasuser.v94/INQ_I.XPT";  
+
+**CREATING SAS DATASETS FROM THE XPT FILES**;  
+
+data sxq_i; set A.SXQ_I;  
+data demo_i; set B.DEMO_I;  
+data inq_i; set C.INQ_I;  
+
+**MERGING THE DATASETS AND KEEPING VARIABLES OF INTEREST**;  
+
+proc sort data = inq_i;  
+by SEQN;  
+run;  
+
+proc sort data = demo_i;  
+by SEQN;  
+run;  
+
+proc sort data = sxq_i;  
+by SEQN;  
+run;  
+
+data project;  
+merge sxq_i (in = a)  
+	    demo_i (in = b)  
+	    inq_i (in = c);  
+by SEQN;  
+if a and b and c;  
+keep SEQN RIDAGEYR RIAGENDR SXD031 SXQ260 SXQ265  
+	   SXQ270 SXQ272 SXQ295 SXQ296 IND235;  
+run;  
+
+*/obs = 4843    
+
+**EXPOSURE/OUTCOME**;  
+
+**DELETING MISSING/REFUSED/DON'T KNOW VALUES**;  
+
+data project; set project;  
+	if SXD031 in (77,99,.) then delete;  
+run;  
+
+*/ obs = 3983  
+
+**COMBINING STI STATUSES INTO ONE BINARY VAR**;  
+
+data project; set project;  
+if SXQ260 in (7,9,.) or SXQ265 in (7,9,.) or  
+   SXQ270 in (7,9,.) or SXQ272 in (7,9,.) then delete;  
+	if SXQ260 = 1 then STI_status = 1;  
+ 	else if SXQ265 = 1 then STI_status = 1;  
+ 	else if SXQ270 = 1 then STI_status = 1;  
+ 	else if SXQ272 = 1 then STI_status = 1;  
+ 	else STI_status = 0;  
+run;  
+
+**CONFOUNDERS/EMM**;  
+
+**OPERATIONALIZING INCOME**;  
+
+data project; set project;  
+if IND235 in (77,99,.) then delete;  
+if IND235 in (1,2,3) then monthly_inccat = 1;  
+	else if IND235 in (4,5,6) then monthly_inccat = 2;  
+	else if IND235 in (7,8,9) then monthly_inccat = 3;  
+	else if IND235 in (10,11,12) then monthly_inccat = 4;  
+run;  
+
+**OPERATIONALIZING SEXUAL IDENTITY**;  
+
+data project; set project;  
+if SXQ295 in (6,7,9,.) and SXQ296 in (6,7,9,.) then delete;  
+if SXQ295 = 2 or SXQ296 = 2 then sexual_id = 0;  
+	else sexual_id = 1;  
+run;  
+
+**OPERATIONALIZING CURRENT AGE**;  
+
+data project; set project;  
+if 18 le RIDAGEYR < 30  then age_cat = 1;  
+	else if 30 le RIDAGEYR < 40  then age_cat = 2;  
+	else if 40 le RIDAGEYR < 50  then age_cat = 3;  
+	else if 50 le RIDAGEYR < 60  then age_cat = 4;  
+run;  
+
+proc freq data = project;  
+table RIDAGEYR RIAGENDR SXD031 SXQ260 SXQ265  
+	    SXQ270 SXQ272 SXQ295 SXQ296 IND235;  
+run;  
+
+proc sort data = project;  
+by STI_status;  
+run;  
+
+proc freq data = project;  
+table RIAGENDR;  
+by STI_status;  
+run;  
+
+**CHECKS**  
+
+proc freq data=project;  
+tables RIDAGEYR;  
+
+proc freq data=project;  
+tables age_cat;  
+
+proc contents data=project;  
+*/
+
+**LOGISTIC REGRESSIONS**;  
+
+title 'Crude Model';  
+proc logistic data = project;  
+	class STI_status (ref = '0') / param = ref;  
+	model STI_status = SXD031 / cl scale = none;  
+run;  
+
+title 'Adjusted Model';  
+proc logistic data = project;  
+	class STI_status (ref = '0') / param = ref;  
+	class age_cat (ref = '1') / param = ref;  
+	class RIAGENDR (ref = '1') / param = ref;  
+	class monthly_inccat (ref = '1') / param = ref;  
+	class sexual_id (ref = '0') / param = ref;  	
+	model STI_status = SXD031 age_cat RIAGENDR monthly_inccat sexual_id SXD031*age_cat / cl scale = none;  
+run;  
+
+
