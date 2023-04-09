@@ -407,29 +407,44 @@ div.tocify {
 <h2>Preparation:</h2>
 <p>We’ll start by having a code chunk in the beginning that loads all
 the packages we will need and set up formatting for visualizations:</p>
-<pre class="r"><code>library(tidyverse)
-library(readxl)
+<pre class="r"><code>library(tidyverse)</code></pre>
+<pre><code>## ── Attaching packages ─────────────────────────────────────── tidyverse 1.3.2 ──
+## ✔ ggplot2 3.4.1      ✔ purrr   1.0.1 
+## ✔ tibble  3.1.8      ✔ dplyr   1.0.10
+## ✔ tidyr   1.3.0      ✔ stringr 1.5.0 
+## ✔ readr   2.1.3      ✔ forcats 0.5.2 
+## ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+## ✖ dplyr::filter() masks stats::filter()
+## ✖ dplyr::lag()    masks stats::lag()</code></pre>
+<pre class="r"><code>library(readxl)
 library(p8105.datasets)
 library(hexbin)
 library(ggridges)
 library(patchwork)
 library(mgcv)</code></pre>
-<pre><code>## Loading required package: nlme</code></pre>
-<pre><code>## 
-## Attaching package: &#39;nlme&#39;</code></pre>
-<pre><code>## The following object is masked from &#39;package:dplyr&#39;:
+<pre><code>## Loading required package: nlme
 ## 
-##     collapse</code></pre>
-<pre><code>## This is mgcv 1.8-41. For overview type &#39;help(&quot;mgcv-package&quot;)&#39;.</code></pre>
+## Attaching package: &#39;nlme&#39;
+## 
+## The following object is masked from &#39;package:dplyr&#39;:
+## 
+##     collapse
+## 
+## This is mgcv 1.8-41. For overview type &#39;help(&quot;mgcv-package&quot;)&#39;.</code></pre>
 <pre class="r"><code>library(modelr)
 library(viridis)</code></pre>
 <pre><code>## Loading required package: viridisLite</code></pre>
+<pre class="r"><code>library(forestplot)</code></pre>
+<pre><code>## Warning: package &#39;forestplot&#39; was built under R version 4.2.3</code></pre>
+<pre><code>## Loading required package: grid
+## Loading required package: checkmate
+## Loading required package: abind</code></pre>
 <pre class="r"><code>knitr::opts_chunk$set(
   echo = TRUE,
   warning = FALSE,
-  fig.width = 8,
-  fig.height = 6,
-  out.width = &quot;90%&quot;
+  fig.width = 10,
+  fig.height = 9,
+  out.width = &quot;100%&quot;
 )
 
 theme_set(theme_minimal() + theme(legend.position = &quot;bottom&quot;))
@@ -464,7 +479,7 @@ variable.</p>
     mutate(route10 = as.character(route10)) %&gt;% 
     mutate(route11 = as.character(route11)) </code></pre>
 <pre><code>## Rows: 1868 Columns: 32
-## ── Column specification ──────────────────────────────────────────────────────────────────
+## ── Column specification ────────────────────────────────────────────────────────
 ## Delimiter: &quot;,&quot;
 ## chr (22): Division, Line, Station Name, Route1, Route2, Route3, Route4, Rout...
 ## dbl  (8): Station Latitude, Station Longitude, Route8, Route9, Route10, Rout...
@@ -651,7 +666,8 @@ balls.</p>
 <h2>Exploratory Data Analysis (EDA):</h2>
 <p>NOAA National Climatic Data Center for all weather stations in New
 York State:</p>
-<p>Let’s load the data:</p>
+<div id="loadclean-data" class="section level3">
+<h3>Load/clean data:</h3>
 <pre class="r"><code>data(&quot;ny_noaa&quot;)
 
 ny_noaa</code></pre>
@@ -705,6 +721,9 @@ for date of observation into the year, month, and day, converting all
 the variables except the ID into a numeric variable, and converting the
 <code>prcp</code>, <code>tmix</code>, and <code>tmax</code> variables
 from it’s tenths value to it’s whole value by dividing by 10.</p>
+</div>
+<div id="two-panel-plots" class="section level3">
+<h3>Two-panel plots:</h3>
 <p>Now let’s make a two-panel plot showing the average max temperature
 in January and in July in each station across years.</p>
 <pre class="r"><code>avgtmax &lt;- ny_noaa_clean %&gt;% 
@@ -716,8 +735,8 @@ in January and in July in each station across years.</p>
   summarize(
     avg_tmax = mean(tmax, na.rm = TRUE)
   ) </code></pre>
-<pre><code>## `summarise()` has grouped output by &#39;year&#39;, &#39;id&#39;. You can override using the `.groups`
-## argument.</code></pre>
+<pre><code>## `summarise()` has grouped output by &#39;year&#39;, &#39;id&#39;. You can override using the
+## `.groups` argument.</code></pre>
 <pre class="r"><code>ggplot(avgtmax, (aes(x = year, y = avg_tmax, color = id))) +
   geom_point() +
   geom_line() +
@@ -728,7 +747,7 @@ in January and in July in each station across years.</p>
   ) +
   facet_grid(. ~ month) +
   theme(legend.position = &quot;none&quot;)</code></pre>
-<p><img src="tidy_data_files/figure-html/two_plot-1.png" width="90%" /></p>
+<p><img src="tidy_data_files/figure-html/two_plot-1.png" width="100%" /></p>
 <p>The overall trends in these graphs are that in January, the average
 maximum temperature from 1980 to 2010 was between -10 and 10 degrees
 Celsius. We have a few outliers at about 11, -9, -13, and -12. In July,
@@ -764,7 +783,7 @@ ggplot(snow, aes(x = snow, y = year)) +
 
 temp_plot + snow_plot</code></pre>
 <pre><code>## Picking joint bandwidth of 3.76</code></pre>
-<p><img src="tidy_data_files/figure-html/diff_two_plot-1.png" width="90%" /></p>
+<p><img src="tidy_data_files/figure-html/diff_two_plot-1.png" width="100%" /></p>
 <p>In these plots, we see that there is large number of days in which
 the maximum temperature and minimum temperatures were between 15 for
 tmin and 30 for tmax and -15 for tmin and -5 for tmax. For the snowfall
@@ -773,8 +792,11 @@ between 0 and 30 mm. There is also another large set of days that had
 snowfall values between 40 and 60 mm and another between 70 and 80
 mm.</p>
 </div>
+</div>
 <div id="iteration-coding" class="section level2">
 <h2>Iteration coding:</h2>
+<div id="read-in-and-explore-data" class="section level3">
+<h3>Read in and explore data:</h3>
 <p>Homicide data:</p>
 <p>The Washington Post has gathered data on homicides in 50 large U.S.
 cities and that is the data used in this analysis.</p>
@@ -1242,6 +1264,9 @@ confidence interval.</p>
   select(estimate, starts_with(&quot;conf&quot;))</code></pre>
 <p>The proportion of homicides that are unsolved is 0.646 with a
 confidence interval of 0.628 and 0.663.</p>
+</div>
+<div id="using-a-function" class="section level3">
+<h3>Using a function:</h3>
 <p>Now we will create a function to do this for all the cities in the
 dataset:</p>
 <pre class="r"><code>homi_nest =
@@ -1282,15 +1307,18 @@ final %&gt;%
     theme(axis.text.x = element_text(angle = 90))</code></pre>
 <pre><code>## `geom_line()`: Each group consists of only one observation.
 ## ℹ Do you need to adjust the group aesthetic?</code></pre>
-<p><img src="tidy_data_files/figure-html/unnamed-chunk-10-1.png" width="90%" /></p>
+<p><img src="tidy_data_files/figure-html/unnamed-chunk-10-1.png" width="100%" /></p>
 <p>The above plot shows the proportion of unsolved homicides in each
 city with its corresponding confidence interval. There was an error in
 the data where Tulsa, AL was incorrected entered for Tulsa, OK. Instead
 of completely removing it from the dataset, I filtered it out of the
 plot.</p>
 </div>
+</div>
 <div id="logistic-regression-coding" class="section level2">
 <h2>Logistic Regression coding:</h2>
+<div id="load-and-clean-data" class="section level3">
+<h3>Load and clean data:</h3>
 <p>Homicide data:</p>
 <p>We will start by loading the homicide data.</p>
 <pre class="r"><code>homicides_two = read.csv(&quot;./data/homicide-data.csv&quot;)</code></pre>
@@ -1305,6 +1333,9 @@ plot.</p>
   filter(victim_race %in% c(&quot;White&quot;, &quot;Black&quot;)) %&gt;%
   mutate(victim_race = fct_relevel(victim_race, &quot;White&quot;)) %&gt;%
   filter(victim_sex != &quot;Unknown&quot;)</code></pre>
+</div>
+<div id="fitting-a-logistic-model" class="section level3">
+<h3>Fitting a logistic model:</h3>
 <p>Now for just the city of Baltimore, we will fit a logistic model with
 homicide being solved as the outcome and with victim age, sex, and race
 as predictors.</p>
@@ -1734,7 +1765,7 @@ fit_all %&gt;%
     geom_point() +
     geom_errorbar(aes(ymin = lower_CI, ymax = upper_CI)) +
     theme(axis.text.x = element_text(angle = 80, hjust = 1))</code></pre>
-<p><img src="tidy_data_files/figure-html/unnamed-chunk-15-1.png" width="90%" /></p>
+<p><img src="tidy_data_files/figure-html/unnamed-chunk-15-1.png" width="100%" /></p>
 <p>From this plot, we can see the city with the lowest OR for solved
 homicides comparing male victims to females while adjusting for race and
 age is New York at 0.26 and the highest is Albuquerque at 1.77.</p>
@@ -1749,6 +1780,119 @@ null value of 1 making the OR not statistically significant whereas 1 is
 not in the confidence interval for New York, which means the OR is
 statistically significant. We would need to double check with the
 p-values.</strong></p>
+</div>
+</div>
+<div id="forest-plots" class="section level2">
+<h2>Forest plots:</h2>
+<div id="plot-1-proportion-of-unsolved-homicides-by-us-cities"
+class="section level3">
+<h3>Plot 1: Proportion of unsolved homicides by US cities:</h3>
+<pre class="r"><code>final_fp =
+  final %&gt;% 
+  filter(city_state != &quot;Tulsa, AL&quot;) %&gt;%
+  mutate_if(is.numeric,
+            round,
+            digits = 2) %&gt;%
+  arrange(desc(estimate))
+
+model &lt;- lm(estimate ~ 1, final_fp)
+model</code></pre>
+<pre><code>## 
+## Call:
+## lm(formula = estimate ~ 1, data = final_fp)
+## 
+## Coefficients:
+## (Intercept)  
+##      0.4688</code></pre>
+<pre class="r"><code>confint(model, level=0.95)</code></pre>
+<pre><code>##                 2.5 %    97.5 %
+## (Intercept) 0.4404521 0.4971479</code></pre>
+<pre class="r"><code>#Summary proportion is 0.47 and 95% CI: (0.44, 0.50)
+
+final_fp |&gt; 
+  forestplot(labeltext = c(city_state, estimate, conf.low, conf.high), 
+             mean = estimate, 
+             lower = conf.low, 
+             upper = conf.high,
+             cex = 5,
+             grid = c(0.25, 0.47, 0.5, 0.75),
+             zero = 0.8,
+             xticks = seq(from = 0.20, to = 0.80, by = 0.05),
+             lineheight = unit(2, &quot;cm&quot;),
+             line.margin = .2,
+             xlab = &quot;Proportion of Unsolved Homicides&quot;) |&gt;
+  fp_set_style(box = &quot;royalblue&quot;,
+               line = &quot;darkblue&quot;,
+               summary = &quot;royalblue&quot;) |&gt;
+  fp_add_header(city_state = c(&quot;US City&quot;),
+                estimate = c(&quot;Proportion&quot;),
+                conf.low = c(&quot;Lower CI&quot;),
+                conf.high = c(&quot;Upper CI&quot;)) |&gt;
+  fp_append_row(mean  = 0.47,
+                lower = 0.44,
+                upper = 0.50,
+                city_state = &quot;All Cities Average&quot;,
+                estimate = &quot;0.47&quot;,
+                conf.low = &quot;0.44&quot;,
+                conf.high = &quot;0.50&quot;,
+                is.summary = TRUE) |&gt;
+  fp_set_zebra_style(&quot;#EFEFEF&quot;)</code></pre>
+<p><img src="tidy_data_files/figure-html/unnamed-chunk-16-1.png" width="100%" /></p>
+</div>
+<div
+id="plot-2-odds-of-solving-homicides-comparing-males-to-females-and-adjusting-for-race-and-age-for-each-us-city"
+class="section level3">
+<h3>Plot 2: Odds of solving homicides, comparing males to females and
+adjusting for race and age, for each US city:</h3>
+<pre class="r"><code>fp_two =
+  fit_all %&gt;% 
+  mutate_if(is.numeric,
+            round,
+            digits = 2) %&gt;%
+  arrange(desc(OR))
+
+model_two &lt;- lm(OR ~ 1, fp_two)
+model_two</code></pre>
+<pre><code>## 
+## Call:
+## lm(formula = OR ~ 1, data = fp_two)
+## 
+## Coefficients:
+## (Intercept)  
+##      0.7111</code></pre>
+<pre class="r"><code>confint(model_two, level=0.95)</code></pre>
+<pre><code>##                 2.5 %    97.5 %
+## (Intercept) 0.6258149 0.7963127</code></pre>
+<pre class="r"><code>#Summary OR 0.71 with 95% CI: (0.63, 0.80)
+
+fp_two |&gt; 
+  forestplot(labeltext = c(city_state, OR, lower_CI, upper_CI), 
+             mean = OR, 
+             lower = lower_CI, 
+             upper = upper_CI,
+             lineheight = unit(2, &quot;cm&quot;),
+             line.margin = .2,
+             cex = 5,
+             grid = 1,
+             xlab = &quot;Odds Ratios&quot;) |&gt;
+  fp_set_style(box = &quot;royalblue&quot;,
+               line = &quot;darkblue&quot;,
+               summary = &quot;royalblue&quot;) |&gt;
+  fp_add_header(city_state = c(&quot;US City&quot;),
+                OR = c(&quot;Odds Ratio&quot;),
+                lower_CI = c(&quot;Lower CI&quot;),
+                upper_CI = c(&quot;Upper CI&quot;)) |&gt;
+  fp_append_row(mean  = 0.71,
+                lower = 0.63,
+                upper = 0.80,
+                city_state = &quot;Average OR&quot;,
+                OR = &quot;0.71&quot;,
+                lower_CI = &quot;0.63&quot;,
+                upper_CI = &quot;0.80&quot;,
+                is.summary = TRUE) |&gt;
+  fp_set_zebra_style(&quot;#EFEFEF&quot;)</code></pre>
+<p><img src="tidy_data_files/figure-html/unnamed-chunk-17-1.png" width="100%" /></p>
+</div>
 </div>
 
 

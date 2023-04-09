@@ -21,13 +21,14 @@ library(patchwork)
 library(mgcv)
 library(modelr)
 library(viridis)
+library(forestplot)
 
 knitr::opts_chunk$set(
   echo = TRUE,
   warning = FALSE,
-  fig.width = 8,
-  fig.height = 6,
-  out.width = "90%"
+  fig.width = 10,
+  fig.height = 9,
+  out.width = "100%"
 )
 
 theme_set(theme_minimal() + theme(legend.position = "bottom"))
@@ -168,7 +169,7 @@ To find the total number of sports balls collected by Mr. Trash Wheel in 2020, w
 
 NOAA National Climatic Data Center for all weather stations in New York State:
 
-Let's load the data:
+### Load/clean data:
 
 ```{r load_nynoaa}
 data("ny_noaa")
@@ -192,6 +193,8 @@ ny_noaa_clean
 ```
 
 We cleaned up the data by cleaning the names, separating the variable for date of observation into the year, month, and day, converting all the variables except the ID into a numeric variable, and converting the `prcp`, `tmix`, and `tmax` variables from it's tenths value to it's whole value by dividing by 10.  
+
+### Two-panel plots:
 
 Now let's make a two-panel plot showing the average max temperature in January and in July in each station across years.
 
@@ -261,6 +264,8 @@ In these plots, we see that there is large number of days in which the maximum t
 
 ## Iteration coding:
 
+### Read in and explore data:
+
 Homicide data:
 
 The Washington Post has gathered data on homicides in 50 large U.S. cities and that is the data used in this analysis.
@@ -322,6 +327,8 @@ Balt_test <- prop.test(1825, 2827) %>%
 
 The proportion of homicides that are unsolved is 0.646 with a confidence interval of 0.628 and 0.663.
 
+### Using a function:
+
 Now we will create a function to do this for all the cities in the dataset:
 
 ```{r}
@@ -369,6 +376,8 @@ The above plot shows the proportion of unsolved homicides in each city with its 
 
 ## Logistic Regression coding:
 
+### Load and clean data:
+
 Homicide data:
 
 We will start by loading the homicide data. 
@@ -393,6 +402,8 @@ homicides_two =
 
 ```
 
+### Fitting a logistic model:
+
 Now for just the city of Baltimore, we will fit a logistic model with homicide being solved as the outcome and with victim age, sex, and race as predictors. 
 
 ```{r}
@@ -414,12 +425,12 @@ fit_balt %>%
   select(term, OR, lower_CI, upper_CI) %>% 
   knitr::kable(digits = 3)
 
-
 ```
 
 Let's repeat this for all the cities and get the OR with their 95% CI for solving homicides comparing males to females, adjusting for race and age.  
 
 ```{r}
+
 homi_nest =
   homicides_two %>% 
   select(city_state, solved, victim_age, victim_race, victim_sex) %>% 
@@ -465,3 +476,103 @@ From this plot, we can see the city with the lowest OR for solved homicides comp
 **In New York City, the odds of solving a homicide case for a male is 0.26 times the odds of solving a homicide case for a female, adjusting for race and age. In Albuquerque, the odds of solving a homicide case for a male is 1.77 times the odds of solving a homicide case for a female, adjusting for race and age.**
 
 **However, the confidence interval for Albuquerque includes the null value of 1 making the OR not statistically significant whereas 1 is not in the confidence interval for New York, which means the OR is statistically significant. We would need to double check with the p-values.**
+
+## Forest plots:
+
+### Plot 1: Proportion of unsolved homicides by US cities:
+
+```{r}
+
+final_fp =
+  final %>% 
+  filter(city_state != "Tulsa, AL") %>%
+  mutate_if(is.numeric,
+            round,
+            digits = 2) %>%
+  arrange(desc(estimate))
+
+model <- lm(estimate ~ 1, final_fp)
+model
+confint(model, level=0.95)
+
+#Summary proportion is 0.47 and 95% CI: (0.44, 0.50)
+
+final_fp |> 
+  forestplot(labeltext = c(city_state, estimate, conf.low, conf.high), 
+             mean = estimate, 
+             lower = conf.low, 
+             upper = conf.high,
+             cex = 5,
+             grid = c(0.25, 0.47, 0.5, 0.75),
+             zero = 0.8,
+             xticks = seq(from = 0.20, to = 0.80, by = 0.05),
+             lineheight = unit(2, "cm"),
+             line.margin = .2,
+             xlab = "Proportion of Unsolved Homicides") |>
+  fp_set_style(box = "royalblue",
+               line = "darkblue",
+               summary = "royalblue") |>
+  fp_add_header(city_state = c("US City"),
+                estimate = c("Proportion"),
+                conf.low = c("Lower CI"),
+                conf.high = c("Upper CI")) |>
+  fp_append_row(mean  = 0.47,
+                lower = 0.44,
+                upper = 0.50,
+                city_state = "All Cities Average",
+                estimate = "0.47",
+                conf.low = "0.44",
+                conf.high = "0.50",
+                is.summary = TRUE) |>
+  fp_set_zebra_style("#EFEFEF")
+
+```
+
+### Plot 2: Odds of solving homicides, comparing males to females and adjusting for race and age, for each US city:
+
+```{r}
+
+fp_two =
+  fit_all %>% 
+  mutate_if(is.numeric,
+            round,
+            digits = 2) %>%
+  arrange(desc(OR))
+
+model_two <- lm(OR ~ 1, fp_two)
+model_two
+confint(model_two, level=0.95)
+
+#Summary OR 0.71 with 95% CI: (0.63, 0.80)
+
+fp_two |> 
+  forestplot(labeltext = c(city_state, OR, lower_CI, upper_CI), 
+             mean = OR, 
+             lower = lower_CI, 
+             upper = upper_CI,
+             lineheight = unit(2, "cm"),
+             line.margin = .2,
+             cex = 5,
+             grid = 1,
+             xlab = "Odds Ratios") |>
+  fp_set_style(box = "royalblue",
+               line = "darkblue",
+               summary = "royalblue") |>
+  fp_add_header(city_state = c("US City"),
+                OR = c("Odds Ratio"),
+                lower_CI = c("Lower CI"),
+                upper_CI = c("Upper CI")) |>
+  fp_append_row(mean  = 0.71,
+                lower = 0.63,
+                upper = 0.80,
+                city_state = "Average OR",
+                OR = "0.71",
+                lower_CI = "0.63",
+                upper_CI = "0.80",
+                is.summary = TRUE) |>
+  fp_set_zebra_style("#EFEFEF")
+
+
+```
+
+
