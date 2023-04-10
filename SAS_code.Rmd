@@ -214,12 +214,12 @@ The full results of the proc lifetest can be seen [here](survival.html).
 Below is the survival curve:
 
 <center>
-<img src="images/general_survival.jpg" style="width:90%">
+<img src="images/general_survival.jpg" style="width:95%">
 </center>
 
-There were 194 people who died and 135 were censored. The median survival time is 12.08 years, which is interpreted as: We expect 50% of people to survive beyond 12.08 years.
+The median survival time is 12.08 years, which is interpreted as: We expect 50% of people to survive beyond 12.08 years.
 
-Another interpreatation example: Using the table and the 'pyears' value closest to 5 (which is 4.9993), the 5-year survival probability is 0.8470, which means that probability of surviving beyond 5 years from the time of HIV diagnosis is 0.8470.
+Another interpretation example: Using the table and the 'pyears' value closest to 5 (which is 4.9993), the 5-year survival probability is 0.8470, which means that probability of surviving beyond 5 years from the time of HIV diagnosis is 0.8470.
 
 ### Survival curve by Hep. C diagnosis:
 
@@ -242,4 +242,85 @@ The median survival proportion for those with a Hep. C diagnosis is 11.33 years 
 
 The log-rank test has a null hypothesis that the two survival curves are homogeneous (not different from one another). Given the p-value of the statistic (p=0.0307), we can reject the null hypothesis and conclude that the survival curves ARE NOT HOMOGENOUS and are STATISTICALLY significantly different.
 
+### Univariable Cox Regression:
+
+**We will run a Cox regression model to investigate the association between survival and having a Hepatitis C diagnosis among HIV+ males.**
+
+proc phreg data=lab7;   
+model pyears*death(0)= hepc / ties=efron rl;    
+run;
+
+The full results of the regression can be seen [here](univariable.html).
+
+**The hazard ratio is 1.385 with a 95% CI (1.029, 1.863).**
+
+**The interpretation is: Among HIV+ males, those with Hep. C have a 38.5% higher hazard of death compared to those without Hep. C. We are 95% confident the true hazard is between 2.9% and 86.3%.**
+
+### Assessing the Proportional Hazard Assumption:
+
+**The assumption: At any point in time, the ratio of the hazards for any two individuals or groups is constant.**
+
+There are 3 ways to check the assumption:
+
+**1. Graph the curves and visually inspect to see if the curves are proportional**    
+**2. Model an interaction term between the log of time and the covariate**    
+**3. Use cumulative sums of martingale-based residuals** 
+
+#### Method 1:
+
+proc phreg data=lab7;   
+model pyears*death(0) = IVdruguse/ties =efron;    
+strata IVdruguse;   
+baseline out=c loglogs=lls survival=s;    
+run;    
+
+proc gplot data=c ;   
+plot lls*pyears  =IVdruguse;    
+symbol1 interpol=join color=magenta line=1;   
+symbol2 interpol=join color=navy line=1;    
+title 'Proportional Hazards Assumption for Variable IVdruguse';   
+run;    
+quit;   
+
+<center>
+<img src="images/graph_haz.jpg" style="width:80%">
+</center>
+
+Visually, the lines do not seem to be proportional; at some points they are close and at others, they diverge.
+
+#### Method 2:
+
+data survival;    
+set lab7;   
+LNpy=log(pyears);   
+run;    
+
+proc phreg data=survival;   
+model pyears*death(0) = IVdruguse LNpy*IVdruguse/ties=efron;    
+run;    
+
+<center>
+<img src="images/meth2.jpg" style="width:80%">
+</center>
+
+The interaction term has a p-value <.0001 which is less than 0.05, thus significant. This means that the hazard function changes over time and that the assumption is violated.
+
+#### Method 3:
+
+proc phreg data=lab7;   
+model pyears*death(0) = IVdruguse/ties =efron;    
+assess ph / resample seed=40262001;   
+run;    
+
+<center>
+<img src="images/assess.jpg" style="width:80%">
+</center>
+
+The observed path has deviated appreciably from the cloud of paths generated via simulations that followed the proportional hazard assumption. In addition, the p-value for the test of proportional hazards was 0.0180 which is less than 0.05. We can conclude again that the assumption is not met.
+
+#### Solutions to the violation of the assumption:
+
+1. Stratify by the levels of the variable for which the assumption fails
+2. Stratify by time (fit separate Cox models to different time intervals)
+3. Extensions of Cox models to allow for covariates that vary with time
 

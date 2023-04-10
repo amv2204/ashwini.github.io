@@ -577,12 +577,11 @@ run;</p>
 href="survival.html">here</a>.</p>
 <p>Below is the survival curve:</p>
 <center>
-<img src="images/general_survival.jpg" style="width:90%">
+<img src="images/general_survival.jpg" style="width:95%">
 </center>
-<p>There were 194 people who died and 135 were censored. The median
-survival time is 12.08 years, which is interpreted as: We expect 50% of
-people to survive beyond 12.08 years.</p>
-<p>Another interpreatation example: Using the table and the ‘pyears’
+<p>The median survival time is 12.08 years, which is interpreted as: We
+expect 50% of people to survive beyond 12.08 years.</p>
+<p>Another interpretation example: Using the table and the ‘pyears’
 value closest to 5 (which is 4.9993), the 5-year survival probability is
 0.8470, which means that probability of surviving beyond 5 years from
 the time of HIV diagnosis is 0.8470.</p>
@@ -611,6 +610,100 @@ are homogeneous (not different from one another). Given the p-value of
 the statistic (p=0.0307), we can reject the null hypothesis and conclude
 that the survival curves ARE NOT HOMOGENOUS and are STATISTICALLY
 significantly different.</p>
+</div>
+<div id="univariable-cox-regression" class="section level3">
+<h3>Univariable Cox Regression:</h3>
+<p><strong>We will run a Cox regression model to investigate the
+association between survival and having a Hepatitis C diagnosis among
+HIV+ males.</strong></p>
+<p>proc phreg data=lab7;<br />
+model pyears*death(0)= hepc / ties=efron rl;<br />
+run;</p>
+<p>The full results of the regression can be seen <a
+href="univariable.html">here</a>.</p>
+<p><strong>The hazard ratio is 1.385 with a 95% CI (1.029,
+1.863).</strong></p>
+<p><strong>The interpretation is: Among HIV+ males, those with Hep. C
+have a 38.5% higher hazard of death compared to those without Hep. C. We
+are 95% confident the true hazard is between 2.9% and
+86.3%.</strong></p>
+</div>
+<div id="assessing-the-proportional-hazard-assumption"
+class="section level3">
+<h3>Assessing the Proportional Hazard Assumption:</h3>
+<p><strong>The assumption: At any point in time, the ratio of the
+hazards for any two individuals or groups is constant.</strong></p>
+<p>There are 3 ways to check the assumption:</p>
+<p><strong>1. Graph the curves and visually inspect to see if the curves
+are proportional</strong><br />
+<strong>2. Model an interaction term between the log of time and the
+covariate</strong><br />
+<strong>3. Use cumulative sums of martingale-based
+residuals</strong></p>
+<div id="method-1" class="section level4">
+<h4>Method 1:</h4>
+<p>proc phreg data=lab7;<br />
+model pyears*death(0) = IVdruguse/ties =efron;<br />
+strata IVdruguse;<br />
+baseline out=c loglogs=lls survival=s;<br />
+run;</p>
+<p>proc gplot data=c ;<br />
+plot lls*pyears =IVdruguse;<br />
+symbol1 interpol=join color=magenta line=1;<br />
+symbol2 interpol=join color=navy line=1;<br />
+title ‘Proportional Hazards Assumption for Variable IVdruguse’;<br />
+run;<br />
+quit;</p>
+<center>
+<img src="images/graph_haz.jpg" style="width:80%">
+</center>
+<p>Visually, the lines do not seem to be proportional; at some points
+they are close and at others, they diverge.</p>
+</div>
+<div id="method-2" class="section level4">
+<h4>Method 2:</h4>
+<p>data survival;<br />
+set lab7;<br />
+LNpy=log(pyears);<br />
+run;</p>
+<p>proc phreg data=survival;<br />
+model pyears<em>death(0) = IVdruguse
+LNpy</em>IVdruguse/ties=efron;<br />
+run;</p>
+<center>
+<img src="images/meth2.jpg" style="width:80%">
+</center>
+<p>The interaction term has a p-value &lt;.0001 which is less than 0.05,
+thus significant. This means that the hazard function changes over time
+and that the assumption is violated.</p>
+</div>
+<div id="method-3" class="section level4">
+<h4>Method 3:</h4>
+<p>proc phreg data=lab7;<br />
+model pyears*death(0) = IVdruguse/ties =efron;<br />
+assess ph / resample seed=40262001;<br />
+run;</p>
+<center>
+<img src="images/assess.jpg" style="width:80%">
+</center>
+<p>The observed path has deviated appreciably from the cloud of paths
+generated via simulations that followed the proportional hazard
+assumption. In addition, the p-value for the test of proportional
+hazards was 0.0180 which is less than 0.05. We can conclude again that
+the assumption is not met.</p>
+</div>
+<div id="solutions-to-the-violation-of-the-assumption"
+class="section level4">
+<h4>Solutions to the violation of the assumption:</h4>
+<ol style="list-style-type: decimal">
+<li>Stratify by the levels of the variable for which the assumption
+fails</li>
+<li>Stratify by time (fit separate Cox models to different time
+intervals)</li>
+<li>Extensions of Cox models to allow for covariates that vary with
+time</li>
+</ol>
+</div>
 </div>
 </div>
 
