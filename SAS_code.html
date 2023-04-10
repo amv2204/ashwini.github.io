@@ -403,8 +403,8 @@ div.tocify {
 </div>
 
 
-<div id="nhanes-analysis-2015-2016" class="section level3">
-<h3>NHANES Analysis 2015-2016:</h3>
+<div id="nhanes-analysis-2015-2016" class="section level2">
+<h2>NHANES Analysis 2015-2016:</h2>
 <p>The full abstract for this project can be found <a
 href="NHANES.pdf">here</a>.</p>
 <p><strong>Research question of interest: Is age at first sex associated
@@ -415,8 +415,8 @@ with ever being diagnosed with an STI?</strong></p>
 <li>Predictors: Sexual identity, monthly family income, and gender</li>
 <li>EMM: current age</li>
 </ul>
-<div id="code" class="section level4">
-<h4>Code:</h4>
+<div id="code" class="section level3">
+<h3>Code:</h3>
 <p><strong>IMPORTING NHANES 2015-16 DATA</strong>;</p>
 <p>filename A “/home/u60713693/sasuser.v94/SXQ_I.XPT”;<br />
 filename B “/home/u60713693/sasuser.v94/DEMO_I.XPT”;<br />
@@ -536,6 +536,81 @@ class sexual_id (ref = ‘0’) / param = ref;<br />
 model STI_status = SXD031 age_cat RIAGENDR monthly_inccat sexual_id
 SXD031*age_cat / cl scale = none;<br />
 run;</p>
+</div>
+</div>
+<div id="survival-analysis-example" class="section level2">
+<h2>Survival Analysis Example:</h2>
+<p><strong>Dataset of Interest:</strong> This data is a subset of data
+from a cohort study on human immunodeficiency virus (HIV) infection. The
+study includes medical, epidemiologic, and behavioral information from
+individuals who are HIV positive. Below is the data dictionary:</p>
+<center>
+<img src="images/codebook.jpg" style="width:80%">
+</center>
+<p><strong>Research question: We will examine if having a diagnosis of
+hepatitis C is associated with a shorter median survival time compared
+to not having hepatitis C.</strong></p>
+<div id="code-1" class="section level3">
+<h3>Code:</h3>
+<p><strong>Creating a libname to refer to shared folder:</strong></p>
+<p>libname Epi3 “/home/u60713693/my_shared_file_links/u2704008”;</p>
+<p><strong>Copy and explore the data:</strong></p>
+<p>data hivhepc;<br />
+set Epi3.hivhepc;<br />
+run;</p>
+<p>proc contents data= hivhepc;<br />
+run;</p>
+<p><strong>Calculate person-time for each individual:</strong></p>
+<p>data hivhepc2;<br />
+set hivhepc;<br />
+if death=1 then days=death_date-cohort_date;<br />
+else if death=0 then days=last_alive_date-cohort_date;<br />
+pyears=days/365.25; *gives time-to-event in years;<br />
+run;</p>
+</div>
+<div id="general-survival-curve" class="section level3">
+<h3>General survival curve:</h3>
+<p>proc lifetest data= hivhepc2 method=km plots=(s) graphics;<br />
+time pyears*death(0);<br />
+run;</p>
+<p>The full results of the proc lifetest can be seen <a
+href="survival.html">here</a>.</p>
+<p>Below is the survival curve:</p>
+<center>
+<img src="images/general_survival.jpg" style="width:90%">
+</center>
+<p>There were 194 people who died and 135 were censored. The median
+survival time is 12.08 years, which is interpreted as: We expect 50% of
+people to survive beyond 12.08 years.</p>
+<p>Another interpreatation example: Using the table and the ‘pyears’
+value closest to 5 (which is 4.9993), the 5-year survival probability is
+0.8470, which means that probability of surviving beyond 5 years from
+the time of HIV diagnosis is 0.8470.</p>
+</div>
+<div id="survival-curve-by-hep.-c-diagnosis" class="section level3">
+<h3>Survival curve by Hep. C diagnosis:</h3>
+<p>proc lifetest data= hivhepc2 method=km plots=(s)graphics;<br />
+time pyears*death(0);<br />
+strata HepC;<br />
+run;</p>
+<p>The full results of the proc lifetest can be seen <a
+href="hepc.html">here</a>.</p>
+<p>Below is the survival curve:</p>
+<center>
+<img src="images/hepc.jpg" style="width:80%">
+</center>
+<p>The median survival proportion for those with a Hep. C diagnosis is
+11.33 years and for those without a Hep. C diagnosis is 14.33 years.
+This means that individuals who are HIV+ survive longer if they don’t
+have a Hep. C diagnosis.</p>
+</div>
+<div id="significance-of-survival-curves" class="section level3">
+<h3>Significance of survival curves:</h3>
+<p>The log-rank test has a null hypothesis that the two survival curves
+are homogeneous (not different from one another). Given the p-value of
+the statistic (p=0.0307), we can reject the null hypothesis and conclude
+that the survival curves ARE NOT HOMOGENOUS and are STATISTICALLY
+significantly different.</p>
 </div>
 </div>
 

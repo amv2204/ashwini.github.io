@@ -1,0 +1,4498 @@
+<!DOCTYPE html>
+<html class="ods_02ca8a08-ced6-47b1-b729-020eeede32b6" lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta charset="utf-8"/>
+<meta content="SAS 9.4" name="generator"/>
+<title>Results: Lab 6.sas</title>
+<style>
+/*<![CDATA[*/
+.ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .body.c section > table, .ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .body.c section > pre, .ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .body.c div > table,
+.ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .body.c div > pre, .ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .body.c article > table, .ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .body.c article > pre,
+.ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .body.j section > table, .ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .body.j section > pre, .ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .body.j div > table,
+.ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .body.j div > pre, .ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .body.j article > table, .ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .body.j article > pre,
+.ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .body.c p.note, .ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .body.c p.warning, .ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .body.c p.error, .ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .body.c p.fatal,
+.ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .body.j p.note, .ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .body.j p.warning, .ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .body.j p.error, .ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .body.j p.fatal,
+.ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .body.c > table.layoutcontainer, .ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .body.j > table.layoutcontainer { margin-left: auto; margin-right: auto }
+.ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .layoutregion.l table, .ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .layoutregion.l pre, .ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .layoutregion.l p.note,
+.ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .layoutregion.l p.warning, .ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .layoutregion.l p.error, .ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .layoutregion.l p.fatal { margin-left: 0 }
+.ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .layoutregion.c table, .ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .layoutregion.c pre, .ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .layoutregion.c p.note,
+.ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .layoutregion.c p.warning, .ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .layoutregion.c p.error, .ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .layoutregion.c p.fatal { margin-left: auto; margin-right: auto }
+.ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .layoutregion.r table, .ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .layoutregion.r pre, .ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .layoutregion.r p.note,
+.ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .layoutregion.r table, .ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .layoutregion.r pre, .ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .layoutregion.r p.note,
+.ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .layoutregion.r p.warning, .ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .layoutregion.r p.error, .ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .layoutregion.r p.fatal { margin-right: 0 }
+.ods_02ca8a08-ced6-47b1-b729-020eeede32b6 article, .ods_02ca8a08-ced6-47b1-b729-020eeede32b6 aside, .ods_02ca8a08-ced6-47b1-b729-020eeede32b6 details, .ods_02ca8a08-ced6-47b1-b729-020eeede32b6 figcaption, .ods_02ca8a08-ced6-47b1-b729-020eeede32b6 figure, .ods_02ca8a08-ced6-47b1-b729-020eeede32b6 footer, .ods_02ca8a08-ced6-47b1-b729-020eeede32b6 header, .ods_02ca8a08-ced6-47b1-b729-020eeede32b6 hgroup, .ods_02ca8a08-ced6-47b1-b729-020eeede32b6 nav, .ods_02ca8a08-ced6-47b1-b729-020eeede32b6 section { display: block }
+html.ods_02ca8a08-ced6-47b1-b729-020eeede32b6 { font-size: 100% }
+.ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .body { margin: 1em; font-size: 13px; line-height: 1.231 }
+.ods_02ca8a08-ced6-47b1-b729-020eeede32b6 sup { position: relative; vertical-align: baseline; bottom: 0.25em; font-size: 0.8em }
+.ods_02ca8a08-ced6-47b1-b729-020eeede32b6 sub { position: relative; vertical-align: baseline; top: 0.25em; font-size: 0.8em }
+.ods_02ca8a08-ced6-47b1-b729-020eeede32b6 ul, .ods_02ca8a08-ced6-47b1-b729-020eeede32b6 ol { margin: 1em 0; padding: 0 0 0 40px }
+.ods_02ca8a08-ced6-47b1-b729-020eeede32b6 dd { margin: 0 0 0 40px }
+.ods_02ca8a08-ced6-47b1-b729-020eeede32b6 nav ul, .ods_02ca8a08-ced6-47b1-b729-020eeede32b6 nav ol { list-style: none; list-style-image: none; margin: 0; padding: 0 }
+.ods_02ca8a08-ced6-47b1-b729-020eeede32b6 img { border: 0; vertical-align: middle }
+.ods_02ca8a08-ced6-47b1-b729-020eeede32b6 svg:not(:root) { overflow: hidden }
+.ods_02ca8a08-ced6-47b1-b729-020eeede32b6 figure { margin: 0 }
+.ods_02ca8a08-ced6-47b1-b729-020eeede32b6 table { border-collapse: collapse; border-spacing: 0 }
+.ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .layoutcontainer { border-collapse: separate; border-spacing: 0 }
+.ods_02ca8a08-ced6-47b1-b729-020eeede32b6 p { margin-top: 0; text-align: left }
+.ods_02ca8a08-ced6-47b1-b729-020eeede32b6 h1.heading1 { text-align: left }
+.ods_02ca8a08-ced6-47b1-b729-020eeede32b6 h2.heading2 { text-align: left }
+.ods_02ca8a08-ced6-47b1-b729-020eeede32b6 h3.heading3 { text-align: left }
+.ods_02ca8a08-ced6-47b1-b729-020eeede32b6 h4.heading4 { text-align: left }
+.ods_02ca8a08-ced6-47b1-b729-020eeede32b6 h5.heading5 { text-align: left }
+.ods_02ca8a08-ced6-47b1-b729-020eeede32b6 h6.heading6 { text-align: left }
+.ods_02ca8a08-ced6-47b1-b729-020eeede32b6 span { text-align: left }
+.ods_02ca8a08-ced6-47b1-b729-020eeede32b6 table { margin-bottom: 1em }
+.ods_02ca8a08-ced6-47b1-b729-020eeede32b6 td, .ods_02ca8a08-ced6-47b1-b729-020eeede32b6 th { text-align: left; padding: 3px 6px; vertical-align: top }
+.ods_02ca8a08-ced6-47b1-b729-020eeede32b6 td[class$="fixed"], .ods_02ca8a08-ced6-47b1-b729-020eeede32b6 th[class$="fixed"] { white-space: pre }
+.ods_02ca8a08-ced6-47b1-b729-020eeede32b6 section, .ods_02ca8a08-ced6-47b1-b729-020eeede32b6 article { padding-top: 1px; padding-bottom: 8px }
+.ods_02ca8a08-ced6-47b1-b729-020eeede32b6 hr.pagebreak { height: 0px; border: 0; border-bottom: 1px solid #c0c0c0; margin: 1em 0 }
+.ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .stacked-value { text-align: left; display: block }
+.ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .stacked-cell > .stacked-value, .ods_02ca8a08-ced6-47b1-b729-020eeede32b6 td.data > td.data, .ods_02ca8a08-ced6-47b1-b729-020eeede32b6 th.data > td.data, .ods_02ca8a08-ced6-47b1-b729-020eeede32b6 th.data > th.data, .ods_02ca8a08-ced6-47b1-b729-020eeede32b6 td.data > th.data, .ods_02ca8a08-ced6-47b1-b729-020eeede32b6 th.header > th.header { border: 0 }
+.ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .stacked-cell > div.data { border-width: 0 }
+.ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .systitleandfootercontainer { white-space: nowrap; margin-bottom: 1em }
+.ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .systitleandfootercontainer > p { margin: 0 }
+.ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .systitleandfootercontainer > p > span { display: inline-block; width: 100%; white-space: normal }
+.ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .batch { display: table }
+.ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .toc { display: none }
+.ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .proc_note_group, .ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .proc_title_group { margin-bottom: 1em }
+.ods_02ca8a08-ced6-47b1-b729-020eeede32b6 p.proctitle { margin: 0 }
+.ods_02ca8a08-ced6-47b1-b729-020eeede32b6 p.note, .ods_02ca8a08-ced6-47b1-b729-020eeede32b6 p.warning, .ods_02ca8a08-ced6-47b1-b729-020eeede32b6 p.error, .ods_02ca8a08-ced6-47b1-b729-020eeede32b6 p.fatal { display: table }
+.ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .notebanner, .ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .warnbanner, .ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .errorbanner, .ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .fatalbanner,
+.ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .notecontent, .ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .warncontent, .ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .errorcontent, .ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .fatalcontent { display: table-cell; padding: 0.5em }
+.ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .notebanner, .ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .warnbanner, .ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .errorbanner, .ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .fatalbanner { padding-right: 0 }
+.ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .body > div > ol li { text-align: left }
+.ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .beforecaption > h4 { margin-top: 0; margin-bottom: 0 }
+.ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .c { text-align: center }
+.ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .r { text-align: right }
+.ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .l { text-align: left }
+.ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .j { text-align: justify }
+.ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .d { text-align: right }
+.ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .b { vertical-align: bottom }
+.ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .m { vertical-align: middle }
+.ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .t { vertical-align: top }
+.ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .accessiblecaption {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_02ca8a08-ced6-47b1-b729-020eeede32b6 a:active { color: #800080 }
+.ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .aftercaption {
+    background-color: #fafbfe;
+    border-spacing: 0;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+    padding-top: 4pt;
+}
+.ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .batch > colgroup {
+    border-left: 1px solid #c1c1c1;
+    border-right: 1px solid #c1c1c1;
+}
+.ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .batch > tbody, .ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .batch > thead, .ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .batch > tfoot {
+    border-top: 1px solid #c1c1c1;
+    border-bottom: 1px solid #c1c1c1;
+}
+.ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .batch { border: hidden; }
+.ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .batch {
+    background-color: #fafbfe;
+    border: 1px solid #c1c1c1;
+    border-collapse: separate;
+    border-spacing: 1px;
+    color: #000000;
+    font-family: 'SAS Monospace', 'Courier New', Courier, monospace;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    padding: 7px;
+    }
+.ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .beforecaption {
+    background-color: #fafbfe;
+    border-spacing: 0;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .body {
+    background-color: #fafbfe;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    margin-left: 8px;
+    margin-right: 8px;
+}
+.ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .bodydate {
+    background-color: #fafbfe;
+    border-spacing: 0;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    text-align: right;
+    vertical-align: top;
+    width: 100%;
+}
+.ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .bycontentfolder {
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    list-style-type: none;
+    margin-left: 6pt;
+}
+.ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .byline {
+    background-color: #fafbfe;
+    border-spacing: 0;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .bylinecontainer > col, .ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .bylinecontainer > colgroup > col, .ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .bylinecontainer > colgroup, .ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .bylinecontainer > tr, .ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .bylinecontainer > * > tr, .ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .bylinecontainer > thead, .ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .bylinecontainer > tbody, .ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .bylinecontainer > tfoot { border: none; }
+.ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .bylinecontainer {
+    background-color: #fafbfe;
+    border: none;
+    border-spacing: 1px;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    width: 100%;
+}
+.ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .caption {
+    background-color: #fafbfe;
+    border-spacing: 0;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .cell, .ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .container {
+    background-color: #fafbfe;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+}
+.ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .contentfolder, .ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .contentitem {
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    list-style-type: none;
+    margin-left: 6pt;
+}
+.ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .contentproclabel, .ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .contentprocname {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .contents {
+    background-color: #fafbfe;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    list-style-type: decimal;
+    margin-left: 8px;
+    margin-right: 8px;
+}
+.ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .contentsdate {
+    background-color: #fafbfe;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    width: 100%;
+}
+.ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .contenttitle {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: italic;
+    font-weight: bold;
+}
+.ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .continued {
+    background-color: #fafbfe;
+    border-spacing: 0;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+    width: 100%;
+}
+.ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .data, .ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .dataemphasis {
+    background-color: #ffffff;
+    border-color: #c1c1c1;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+}
+.ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .dataemphasisfixed {
+    background-color: #ffffff;
+    border-color: #c1c1c1;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: x-small;
+    font-style: italic;
+    font-weight: normal;
+}
+.ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .dataempty {
+    background-color: #ffffff;
+    border-color: #c1c1c1;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+}
+.ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .datafixed {
+    background-color: #ffffff;
+    border-color: #c1c1c1;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    font-family: 'Courier New', Courier;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+}
+.ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .datastrong {
+    background-color: #ffffff;
+    border-color: #c1c1c1;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .datastrongfixed {
+    background-color: #ffffff;
+    border-color: #c1c1c1;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #000000;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .date {
+    background-color: #fafbfe;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    width: 100%;
+}
+.ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .document {
+    background-color: #fafbfe;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+}
+.ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .errorbanner {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .errorcontent {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+}
+.ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .errorcontentfixed {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: 'Courier New', Courier;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+}
+.ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .extendedpage {
+    background-color: #fafbfe;
+    border-style: solid;
+    border-width: 1pt;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: italic;
+    font-weight: normal;
+    text-align: center;
+}
+.ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .fatalbanner {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .fatalcontent {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+}
+.ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .fatalcontentfixed {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: 'Courier New', Courier;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+}
+.ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .folderaction {
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    list-style-type: none;
+    margin-left: 6pt;
+}
+.ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .footer {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .footeremphasis {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: italic;
+    font-weight: normal;
+}
+.ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .footeremphasisfixed {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: x-small;
+    font-style: italic;
+    font-weight: normal;
+}
+.ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .footerempty {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .footerfixed {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: 'Courier New', Courier;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+}
+.ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .footerstrong {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .footerstrongfixed {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .frame {
+    background-color: #fafbfe;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+}
+.ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .graph > colgroup {
+    border-left: 1px solid #c1c1c1;
+    border-right: 1px solid #c1c1c1;
+}
+.ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .graph > tbody, .ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .graph > thead, .ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .graph > tfoot {
+    border-top: 1px solid #c1c1c1;
+    border-bottom: 1px solid #c1c1c1;
+}
+.ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .graph { border: hidden; }
+.ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .graph {
+    background-color: #fafbfe;
+    border: 1px solid #c1c1c1;
+    border-collapse: separate;
+    border-spacing: 1px;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    }
+.ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .header {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .headeremphasis {
+    background-color: #d8dbd3;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: italic;
+    font-weight: normal;
+}
+.ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .headeremphasisfixed {
+    background-color: #d8dbd3;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #000000;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: x-small;
+    font-style: italic;
+    font-weight: normal;
+}
+.ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .headerempty {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .headerfixed {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: 'Courier New', Courier;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+}
+.ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .headersandfooters {
+    background-color: #edf2f9;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .headerstrong {
+    background-color: #d8dbd3;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .headerstrongfixed {
+    background-color: #d8dbd3;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #000000;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .heading1, .ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .heading2, .ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .heading3, .ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .heading4, .ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .heading5, .ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .heading6 { font-family: Arial, Helvetica, sans-serif }
+.ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .index {
+    background-color: #fafbfe;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+}
+.ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .indexaction, .ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .indexitem {
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    list-style-type: none;
+    margin-left: 6pt;
+}
+.ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .indexprocname {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .indextitle {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: italic;
+    font-weight: bold;
+}
+.ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .layoutcontainer, .ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .layoutregion {
+    border-width: 0;
+    border-spacing: 30px;
+}
+.ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .linecontent {
+    background-color: #fafbfe;
+    border-color: #c1c1c1;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+}
+.ods_02ca8a08-ced6-47b1-b729-020eeede32b6 a:link { color: #0000ff }
+.ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .list {
+    background-color: #fafbfe;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    list-style-type: disc;
+}
+.ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .list10 {
+    background-color: #fafbfe;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    list-style-type: square;
+}
+.ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .list2 {
+    background-color: #fafbfe;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    list-style-type: circle;
+}
+.ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .list3, .ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .list4, .ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .list5, .ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .list6, .ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .list7, .ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .list8, .ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .list9 {
+    background-color: #fafbfe;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    list-style-type: square;
+}
+.ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .listitem {
+    background-color: #fafbfe;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    list-style-type: disc;
+}
+.ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .listitem10 {
+    background-color: #fafbfe;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    list-style-type: square;
+}
+.ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .listitem2 {
+    background-color: #fafbfe;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    list-style-type: circle;
+}
+.ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .listitem3, .ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .listitem4, .ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .listitem5, .ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .listitem6, .ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .listitem7, .ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .listitem8, .ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .listitem9 {
+    background-color: #fafbfe;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    list-style-type: square;
+}
+.ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .note {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+}
+.ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .notebanner {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .notecontent {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+}
+.ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .notecontentfixed {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: 'Courier New', Courier;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+}
+.ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .output > colgroup {
+    border-left: 1px solid #c1c1c1;
+    border-right: 1px solid #c1c1c1;
+}
+.ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .output > tbody, .ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .output > thead, .ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .output > tfoot {
+    border-top: 1px solid #c1c1c1;
+    border-bottom: 1px solid #c1c1c1;
+}
+.ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .output { border: hidden; }
+.ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .output {
+    background-color: #fafbfe;
+    border: 1px solid #c1c1c1;
+    border-collapse: separate;
+    border-spacing: 1px;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    }
+.ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .pageno {
+    background-color: #fafbfe;
+    border-spacing: 0;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+    text-align: right;
+    vertical-align: top;
+}
+.ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .pages {
+    background-color: #fafbfe;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    list-style-type: decimal;
+    margin-left: 8px;
+    margin-right: 8px;
+}
+.ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .pagesdate {
+    background-color: #fafbfe;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    width: 100%;
+}
+.ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .pagesitem {
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    list-style-type: none;
+    margin-left: 6pt;
+}
+.ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .pagesproclabel, .ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .pagesprocname {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .pagestitle {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: italic;
+    font-weight: bold;
+}
+.ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .paragraph {
+    background-color: #fafbfe;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+}
+.ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .parskip > col, .ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .parskip > colgroup > col, .ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .parskip > colgroup, .ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .parskip > tr, .ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .parskip > * > tr, .ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .parskip > thead, .ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .parskip > tbody, .ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .parskip > tfoot { border: none; }
+.ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .parskip {
+    border: none;
+    border-spacing: 0;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+    }
+.ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .prepage {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    text-align: left;
+}
+.ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .proctitle {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .proctitlefixed {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .rowfooter {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .rowfooteremphasis {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: italic;
+    font-weight: normal;
+}
+.ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .rowfooteremphasisfixed {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: x-small;
+    font-style: italic;
+    font-weight: normal;
+}
+.ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .rowfooterempty {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .rowfooterfixed {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: 'Courier New', Courier;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+}
+.ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .rowfooterstrong {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .rowfooterstrongfixed {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .rowheader {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .rowheaderemphasis {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: italic;
+    font-weight: normal;
+}
+.ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .rowheaderemphasisfixed {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: x-small;
+    font-style: italic;
+    font-weight: normal;
+}
+.ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .rowheaderempty {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .rowheaderfixed {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: 'Courier New', Courier;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+}
+.ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .rowheaderstrong {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .rowheaderstrongfixed {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .systemfooter, .ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .systemfooter10, .ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .systemfooter2, .ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .systemfooter3, .ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .systemfooter4, .ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .systemfooter5, .ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .systemfooter6, .ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .systemfooter7, .ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .systemfooter8, .ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .systemfooter9 {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+}
+.ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .systemtitle, .ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .systemtitle10, .ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .systemtitle2, .ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .systemtitle3, .ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .systemtitle4, .ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .systemtitle5, .ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .systemtitle6, .ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .systemtitle7, .ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .systemtitle8, .ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .systemtitle9 {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .systitleandfootercontainer > col, .ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .systitleandfootercontainer > colgroup > col, .ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .systitleandfootercontainer > colgroup, .ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .systitleandfootercontainer > tr, .ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .systitleandfootercontainer > * > tr, .ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .systitleandfootercontainer > thead, .ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .systitleandfootercontainer > tbody, .ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .systitleandfootercontainer > tfoot { border: none; }
+.ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .systitleandfootercontainer {
+    background-color: #fafbfe;
+    border: none;
+    border-spacing: 1px;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    width: 100%;
+}
+.ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .table > col, .ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .table > colgroup > col {
+    border-left: 1px solid #c1c1c1;
+    border-right: 0 solid #c1c1c1;
+}
+.ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .table > tr, .ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .table > * > tr {
+    border-top: 1px solid #c1c1c1;
+    border-bottom: 0 solid #c1c1c1;
+}
+.ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .table { border: hidden; }
+.ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .table {
+    border-color: #c1c1c1;
+    border-style: solid;
+    border-width: 1px 0 0 1px;
+    border-collapse: collapse;
+    border-spacing: 0;
+    }
+.ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .titleandnotecontainer > col, .ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .titleandnotecontainer > colgroup > col, .ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .titleandnotecontainer > colgroup, .ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .titleandnotecontainer > tr, .ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .titleandnotecontainer > * > tr, .ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .titleandnotecontainer > thead, .ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .titleandnotecontainer > tbody, .ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .titleandnotecontainer > tfoot { border: none; }
+.ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .titleandnotecontainer {
+    background-color: #fafbfe;
+    border: none;
+    border-spacing: 1px;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    width: 100%;
+}
+.ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .titlesandfooters {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .usertext {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+}
+.ods_02ca8a08-ced6-47b1-b729-020eeede32b6 a:visited { color: #800080 }
+.ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .warnbanner {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .warncontent {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+}
+.ods_02ca8a08-ced6-47b1-b729-020eeede32b6 .warncontentfixed {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: 'Courier New', Courier;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+}
+/*]]>*/
+</style>
+</head>
+<body class="body">
+<div id="div_02ca8a08-ced6-47b1-b729-020eeede32b6" class="c body">
+<h1 class="body toc">Results: Lab 6.sas</h1>
+<section data-name="Lifetest" data-sec-type="proc">
+<div id="IDX" class="proc_title_group">
+<p class="c proctitle">The LIFETEST Procedure</p>
+<p class="c proctitle">&#160;</p>
+<p class="c proctitle">Stratum 1: hepc = 0</p>
+</div>
+<h1 class="contentprocname toc">The Lifetest Procedure</h1>
+<section>
+<h1 class="contentfolder toc">Stratum 1</h1>
+<article aria-label="Product-Limit Estimates">
+<h1 class="contentitem toc">Product-Limit Estimates</h1>
+<table class="table" style="border-spacing: 0" aria-label="Product-Limit Estimates">
+<caption aria-label="Product-Limit Estimates"></caption>
+<colgroup><col/><col/></colgroup><colgroup><col/><col/><col/><col/><col/></colgroup>
+<thead>
+<tr>
+<th class="c b header" colspan="7" scope="colgroup">Product-Limit Survival Estimates</th>
+</tr>
+<tr>
+<th class="r b header" scope="col">pyears</th>
+<th class="r b header" scope="col"> &#160;</th>
+<th class="r b header" scope="col">Survival</th>
+<th class="r b header" scope="col">Failure</th>
+<th class="r b header" scope="col">Survival Standard Error</th>
+<th class="c b header" scope="col">Number<br/>Failed</th>
+<th class="c b header" scope="col">Number<br/>Left</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th class="r rowheader" scope="row">0.0000</th>
+<th class="r data">&#160;</th>
+<td class="r data">1.0000</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">227</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">0.4134</th>
+<th class="r data">*</th>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">0</td>
+<td class="r data">226</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">0.5804</th>
+<th class="r data">&#160;</th>
+<td class="r data">0.9956</td>
+<td class="r data">0.00442</td>
+<td class="r data">0.00441</td>
+<td class="r data">1</td>
+<td class="r data">225</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">0.6653</th>
+<th class="r data">&#160;</th>
+<td class="r data">0.9912</td>
+<td class="r data">0.00885</td>
+<td class="r data">0.00623</td>
+<td class="r data">2</td>
+<td class="r data">224</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">1.0815</th>
+<th class="r data">*</th>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">2</td>
+<td class="r data">223</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">1.5797</th>
+<th class="r data">&#160;</th>
+<td class="r data">0.9867</td>
+<td class="r data">0.0133</td>
+<td class="r data">0.00762</td>
+<td class="r data">3</td>
+<td class="r data">222</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">1.7467</th>
+<th class="r data">&#160;</th>
+<td class="r data">0.9823</td>
+<td class="r data">0.0177</td>
+<td class="r data">0.00879</td>
+<td class="r data">4</td>
+<td class="r data">221</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">1.9986</th>
+<th class="r data">*</th>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">4</td>
+<td class="r data">220</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">2.2450</th>
+<th class="r data">&#160;</th>
+<td class="r data">0.9778</td>
+<td class="r data">0.0222</td>
+<td class="r data">0.00982</td>
+<td class="r data">5</td>
+<td class="r data">219</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">2.3272</th>
+<th class="r data">&#160;</th>
+<td class="r data">0.9733</td>
+<td class="r data">0.0267</td>
+<td class="r data">0.0107</td>
+<td class="r data">6</td>
+<td class="r data">218</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">2.3354</th>
+<th class="r data">&#160;</th>
+<td class="r data">0.9689</td>
+<td class="r data">0.0311</td>
+<td class="r data">0.0116</td>
+<td class="r data">7</td>
+<td class="r data">217</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">2.5024</th>
+<th class="r data">*</th>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">7</td>
+<td class="r data">216</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">2.5845</th>
+<th class="r data">&#160;</th>
+<td class="r data">0.9644</td>
+<td class="r data">0.0356</td>
+<td class="r data">0.0124</td>
+<td class="r data">8</td>
+<td class="r data">215</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">2.6667</th>
+<th class="r data">*</th>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">8</td>
+<td class="r data">214</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">2.7543</th>
+<th class="r data">&#160;</th>
+<td class="r data">0.9599</td>
+<td class="r data">0.0401</td>
+<td class="r data">0.0131</td>
+<td class="r data">9</td>
+<td class="r data">213</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">2.9158</th>
+<th class="r data">*</th>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">9</td>
+<td class="r data">212</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">2.9979</th>
+<th class="r data">&#160;</th>
+<td class="r data">0.9553</td>
+<td class="r data">0.0447</td>
+<td class="r data">0.0138</td>
+<td class="r data">10</td>
+<td class="r data">211</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">3.0801</th>
+<th class="r data">*</th>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">10</td>
+<td class="r data">210</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">3.0856</th>
+<th class="r data">&#160;</th>
+<td class="r data">0.9508</td>
+<td class="r data">0.0492</td>
+<td class="r data">0.0145</td>
+<td class="r data">11</td>
+<td class="r data">209</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">3.2498</th>
+<th class="r data">&#160;</th>
+<td class="r data">0.9462</td>
+<td class="r data">0.0538</td>
+<td class="r data">0.0151</td>
+<td class="r data">12</td>
+<td class="r data">208</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">3.4141</th>
+<th class="r data">&#160;</th>
+<td class="r data">0.9417</td>
+<td class="r data">0.0583</td>
+<td class="r data">0.0157</td>
+<td class="r data">13</td>
+<td class="r data">207</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">3.4962</th>
+<th class="r data">&#160;</th>
+<td class="r data">0.9371</td>
+<td class="r data">0.0629</td>
+<td class="r data">0.0163</td>
+<td class="r data">14</td>
+<td class="r data">206</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">3.5811</th>
+<th class="r data">&#160;</th>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">15</td>
+<td class="r data">205</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">3.5811</th>
+<th class="r data">&#160;</th>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">16</td>
+<td class="r data">204</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">3.5811</th>
+<th class="r data">&#160;</th>
+<td class="r data">0.9235</td>
+<td class="r data">0.0765</td>
+<td class="r data">0.0178</td>
+<td class="r data">17</td>
+<td class="r data">203</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">3.5893</th>
+<th class="r data">&#160;</th>
+<td class="r data">0.9190</td>
+<td class="r data">0.0810</td>
+<td class="r data">0.0183</td>
+<td class="r data">18</td>
+<td class="r data">202</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">3.6715</th>
+<th class="r data">&#160;</th>
+<td class="r data">0.9144</td>
+<td class="r data">0.0856</td>
+<td class="r data">0.0188</td>
+<td class="r data">19</td>
+<td class="r data">201</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">3.8330</th>
+<th class="r data">&#160;</th>
+<td class="r data">0.9099</td>
+<td class="r data">0.0901</td>
+<td class="r data">0.0192</td>
+<td class="r data">20</td>
+<td class="r data">200</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">3.9179</th>
+<th class="r data">&#160;</th>
+<td class="r data">0.9053</td>
+<td class="r data">0.0947</td>
+<td class="r data">0.0197</td>
+<td class="r data">21</td>
+<td class="r data">199</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">4.2519</th>
+<th class="r data">&#160;</th>
+<td class="r data">0.9008</td>
+<td class="r data">0.0992</td>
+<td class="r data">0.0201</td>
+<td class="r data">22</td>
+<td class="r data">198</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">4.3340</th>
+<th class="r data">*</th>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">22</td>
+<td class="r data">197</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">4.4134</th>
+<th class="r data">&#160;</th>
+<td class="r data">0.8962</td>
+<td class="r data">0.1038</td>
+<td class="r data">0.0205</td>
+<td class="r data">23</td>
+<td class="r data">196</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">4.4189</th>
+<th class="r data">&#160;</th>
+<td class="r data">0.8916</td>
+<td class="r data">0.1084</td>
+<td class="r data">0.0209</td>
+<td class="r data">24</td>
+<td class="r data">195</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">4.5038</th>
+<th class="r data">&#160;</th>
+<td class="r data">0.8870</td>
+<td class="r data">0.1130</td>
+<td class="r data">0.0213</td>
+<td class="r data">25</td>
+<td class="r data">194</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">4.5038</th>
+<th class="r data">*</th>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">25</td>
+<td class="r data">193</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">4.5832</th>
+<th class="r data">&#160;</th>
+<td class="r data">0.8824</td>
+<td class="r data">0.1176</td>
+<td class="r data">0.0217</td>
+<td class="r data">26</td>
+<td class="r data">192</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">4.6653</th>
+<th class="r data">*</th>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">26</td>
+<td class="r data">191</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">4.6708</th>
+<th class="r data">&#160;</th>
+<td class="r data">0.8778</td>
+<td class="r data">0.1222</td>
+<td class="r data">0.0220</td>
+<td class="r data">27</td>
+<td class="r data">190</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">4.7502</th>
+<th class="r data">&#160;</th>
+<td class="r data">0.8732</td>
+<td class="r data">0.1268</td>
+<td class="r data">0.0224</td>
+<td class="r data">28</td>
+<td class="r data">189</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">4.7529</th>
+<th class="r data">&#160;</th>
+<td class="r data">0.8686</td>
+<td class="r data">0.1314</td>
+<td class="r data">0.0228</td>
+<td class="r data">29</td>
+<td class="r data">188</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">4.8323</th>
+<th class="r data">&#160;</th>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">30</td>
+<td class="r data">187</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">4.8323</th>
+<th class="r data">&#160;</th>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">31</td>
+<td class="r data">186</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">4.8323</th>
+<th class="r data">&#160;</th>
+<td class="r data">0.8547</td>
+<td class="r data">0.1453</td>
+<td class="r data">0.0238</td>
+<td class="r data">32</td>
+<td class="r data">185</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">4.9144</th>
+<th class="r data">&#160;</th>
+<td class="r data">0.8501</td>
+<td class="r data">0.1499</td>
+<td class="r data">0.0241</td>
+<td class="r data">33</td>
+<td class="r data">184</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">4.9993</th>
+<th class="r data">&#160;</th>
+<td class="r data">0.8455</td>
+<td class="r data">0.1545</td>
+<td class="r data">0.0244</td>
+<td class="r data">34</td>
+<td class="r data">183</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">5.1691</th>
+<th class="r data">&#160;</th>
+<td class="r data">0.8409</td>
+<td class="r data">0.1591</td>
+<td class="r data">0.0247</td>
+<td class="r data">35</td>
+<td class="r data">182</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">5.3306</th>
+<th class="r data">&#160;</th>
+<td class="r data">0.8362</td>
+<td class="r data">0.1638</td>
+<td class="r data">0.0250</td>
+<td class="r data">36</td>
+<td class="r data">181</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">5.3333</th>
+<th class="r data">&#160;</th>
+<td class="r data">0.8316</td>
+<td class="r data">0.1684</td>
+<td class="r data">0.0253</td>
+<td class="r data">37</td>
+<td class="r data">180</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">5.4127</th>
+<th class="r data">&#160;</th>
+<td class="r data">0.8270</td>
+<td class="r data">0.1730</td>
+<td class="r data">0.0255</td>
+<td class="r data">38</td>
+<td class="r data">179</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">5.5852</th>
+<th class="r data">&#160;</th>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">39</td>
+<td class="r data">178</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">5.5852</th>
+<th class="r data">&#160;</th>
+<td class="r data">0.8178</td>
+<td class="r data">0.1822</td>
+<td class="r data">0.0261</td>
+<td class="r data">40</td>
+<td class="r data">177</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">5.6646</th>
+<th class="r data">&#160;</th>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">41</td>
+<td class="r data">176</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">5.6646</th>
+<th class="r data">&#160;</th>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">42</td>
+<td class="r data">175</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">5.6646</th>
+<th class="r data">&#160;</th>
+<td class="r data">0.8039</td>
+<td class="r data">0.1961</td>
+<td class="r data">0.0268</td>
+<td class="r data">43</td>
+<td class="r data">174</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">5.9138</th>
+<th class="r data">&#160;</th>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">44</td>
+<td class="r data">173</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">5.9138</th>
+<th class="r data">&#160;</th>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">45</td>
+<td class="r data">172</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">5.9138</th>
+<th class="r data">&#160;</th>
+<td class="r data">0.7900</td>
+<td class="r data">0.2100</td>
+<td class="r data">0.0275</td>
+<td class="r data">46</td>
+<td class="r data">171</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">5.9165</th>
+<th class="r data">&#160;</th>
+<td class="r data">0.7854</td>
+<td class="r data">0.2146</td>
+<td class="r data">0.0278</td>
+<td class="r data">47</td>
+<td class="r data">170</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">5.9986</th>
+<th class="r data">&#160;</th>
+<td class="r data">0.7808</td>
+<td class="r data">0.2192</td>
+<td class="r data">0.0280</td>
+<td class="r data">48</td>
+<td class="r data">169</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">6.1656</th>
+<th class="r data">&#160;</th>
+<td class="r data">0.7762</td>
+<td class="r data">0.2238</td>
+<td class="r data">0.0282</td>
+<td class="r data">49</td>
+<td class="r data">168</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">6.1656</th>
+<th class="r data">*</th>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">49</td>
+<td class="r data">167</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">6.1684</th>
+<th class="r data">&#160;</th>
+<td class="r data">0.7715</td>
+<td class="r data">0.2285</td>
+<td class="r data">0.0284</td>
+<td class="r data">50</td>
+<td class="r data">166</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">6.3272</th>
+<th class="r data">&#160;</th>
+<td class="r data">0.7669</td>
+<td class="r data">0.2331</td>
+<td class="r data">0.0286</td>
+<td class="r data">51</td>
+<td class="r data">165</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">6.4120</th>
+<th class="r data">&#160;</th>
+<td class="r data">0.7622</td>
+<td class="r data">0.2378</td>
+<td class="r data">0.0288</td>
+<td class="r data">52</td>
+<td class="r data">164</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">6.4942</th>
+<th class="r data">&#160;</th>
+<td class="r data">0.7576</td>
+<td class="r data">0.2424</td>
+<td class="r data">0.0290</td>
+<td class="r data">53</td>
+<td class="r data">163</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">6.5791</th>
+<th class="r data">&#160;</th>
+<td class="r data">0.7529</td>
+<td class="r data">0.2471</td>
+<td class="r data">0.0292</td>
+<td class="r data">54</td>
+<td class="r data">162</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">6.5818</th>
+<th class="r data">&#160;</th>
+<td class="r data">0.7483</td>
+<td class="r data">0.2517</td>
+<td class="r data">0.0294</td>
+<td class="r data">55</td>
+<td class="r data">161</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">6.6639</th>
+<th class="r data">&#160;</th>
+<td class="r data">0.7436</td>
+<td class="r data">0.2564</td>
+<td class="r data">0.0296</td>
+<td class="r data">56</td>
+<td class="r data">160</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">6.7461</th>
+<th class="r data">&#160;</th>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">57</td>
+<td class="r data">159</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">6.7461</th>
+<th class="r data">&#160;</th>
+<td class="r data">0.7343</td>
+<td class="r data">0.2657</td>
+<td class="r data">0.0299</td>
+<td class="r data">58</td>
+<td class="r data">158</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">6.8309</th>
+<th class="r data">&#160;</th>
+<td class="r data">0.7297</td>
+<td class="r data">0.2703</td>
+<td class="r data">0.0301</td>
+<td class="r data">59</td>
+<td class="r data">157</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">6.9979</th>
+<th class="r data">&#160;</th>
+<td class="r data">0.7251</td>
+<td class="r data">0.2749</td>
+<td class="r data">0.0303</td>
+<td class="r data">60</td>
+<td class="r data">156</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">7.0007</th>
+<th class="r data">*</th>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">60</td>
+<td class="r data">155</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">7.2498</th>
+<th class="r data">&#160;</th>
+<td class="r data">0.7204</td>
+<td class="r data">0.2796</td>
+<td class="r data">0.0304</td>
+<td class="r data">61</td>
+<td class="r data">154</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">7.4141</th>
+<th class="r data">&#160;</th>
+<td class="r data">0.7157</td>
+<td class="r data">0.2843</td>
+<td class="r data">0.0306</td>
+<td class="r data">62</td>
+<td class="r data">153</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">7.4962</th>
+<th class="r data">&#160;</th>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">63</td>
+<td class="r data">152</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">7.4962</th>
+<th class="r data">&#160;</th>
+<td class="r data">0.7063</td>
+<td class="r data">0.2937</td>
+<td class="r data">0.0309</td>
+<td class="r data">64</td>
+<td class="r data">151</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">7.5044</th>
+<th class="r data">&#160;</th>
+<td class="r data">0.7017</td>
+<td class="r data">0.2983</td>
+<td class="r data">0.0310</td>
+<td class="r data">65</td>
+<td class="r data">150</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">7.6632</th>
+<th class="r data">&#160;</th>
+<td class="r data">0.6970</td>
+<td class="r data">0.3030</td>
+<td class="r data">0.0312</td>
+<td class="r data">66</td>
+<td class="r data">149</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">7.7481</th>
+<th class="r data">&#160;</th>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">67</td>
+<td class="r data">148</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">7.7481</th>
+<th class="r data">&#160;</th>
+<td class="r data">0.6876</td>
+<td class="r data">0.3124</td>
+<td class="r data">0.0315</td>
+<td class="r data">68</td>
+<td class="r data">147</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">7.9151</th>
+<th class="r data">&#160;</th>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">69</td>
+<td class="r data">146</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">7.9151</th>
+<th class="r data">&#160;</th>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">70</td>
+<td class="r data">145</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">7.9151</th>
+<th class="r data">&#160;</th>
+<td class="r data">0.6736</td>
+<td class="r data">0.3264</td>
+<td class="r data">0.0318</td>
+<td class="r data">71</td>
+<td class="r data">144</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">8.0000</th>
+<th class="r data">&#160;</th>
+<td class="r data">0.6689</td>
+<td class="r data">0.3311</td>
+<td class="r data">0.0320</td>
+<td class="r data">72</td>
+<td class="r data">143</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">8.0849</th>
+<th class="r data">&#160;</th>
+<td class="r data">0.6642</td>
+<td class="r data">0.3358</td>
+<td class="r data">0.0321</td>
+<td class="r data">73</td>
+<td class="r data">142</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">8.4189</th>
+<th class="r data">&#160;</th>
+<td class="r data">0.6596</td>
+<td class="r data">0.3404</td>
+<td class="r data">0.0322</td>
+<td class="r data">74</td>
+<td class="r data">141</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">8.5010</th>
+<th class="r data">&#160;</th>
+<td class="r data">0.6549</td>
+<td class="r data">0.3451</td>
+<td class="r data">0.0323</td>
+<td class="r data">75</td>
+<td class="r data">140</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">8.7474</th>
+<th class="r data">&#160;</th>
+<td class="r data">0.6502</td>
+<td class="r data">0.3498</td>
+<td class="r data">0.0324</td>
+<td class="r data">76</td>
+<td class="r data">139</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">8.7529</th>
+<th class="r data">&#160;</th>
+<td class="r data">0.6455</td>
+<td class="r data">0.3545</td>
+<td class="r data">0.0325</td>
+<td class="r data">77</td>
+<td class="r data">138</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">8.8323</th>
+<th class="r data">&#160;</th>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">78</td>
+<td class="r data">137</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">8.8323</th>
+<th class="r data">&#160;</th>
+<td class="r data">0.6362</td>
+<td class="r data">0.3638</td>
+<td class="r data">0.0327</td>
+<td class="r data">79</td>
+<td class="r data">136</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">8.8378</th>
+<th class="r data">&#160;</th>
+<td class="r data">0.6315</td>
+<td class="r data">0.3685</td>
+<td class="r data">0.0328</td>
+<td class="r data">80</td>
+<td class="r data">135</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">8.9993</th>
+<th class="r data">&#160;</th>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">81</td>
+<td class="r data">134</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">8.9993</th>
+<th class="r data">&#160;</th>
+<td class="r data">0.6221</td>
+<td class="r data">0.3779</td>
+<td class="r data">0.0330</td>
+<td class="r data">82</td>
+<td class="r data">133</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">9.0842</th>
+<th class="r data">&#160;</th>
+<td class="r data">0.6175</td>
+<td class="r data">0.3825</td>
+<td class="r data">0.0331</td>
+<td class="r data">83</td>
+<td class="r data">132</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">9.1608</th>
+<th class="r data">&#160;</th>
+<td class="r data">0.6128</td>
+<td class="r data">0.3872</td>
+<td class="r data">0.0331</td>
+<td class="r data">84</td>
+<td class="r data">131</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">9.1663</th>
+<th class="r data">&#160;</th>
+<td class="r data">0.6081</td>
+<td class="r data">0.3919</td>
+<td class="r data">0.0332</td>
+<td class="r data">85</td>
+<td class="r data">130</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">9.1663</th>
+<th class="r data">*</th>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">85</td>
+<td class="r data">129</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">9.1663</th>
+<th class="r data">*</th>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">85</td>
+<td class="r data">128</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">9.1691</th>
+<th class="r data">&#160;</th>
+<td class="r data">0.6034</td>
+<td class="r data">0.3966</td>
+<td class="r data">0.0333</td>
+<td class="r data">86</td>
+<td class="r data">127</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">9.2512</th>
+<th class="r data">&#160;</th>
+<td class="r data">0.5986</td>
+<td class="r data">0.4014</td>
+<td class="r data">0.0334</td>
+<td class="r data">87</td>
+<td class="r data">126</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">9.3333</th>
+<th class="r data">&#160;</th>
+<td class="r data">0.5939</td>
+<td class="r data">0.4061</td>
+<td class="r data">0.0334</td>
+<td class="r data">88</td>
+<td class="r data">125</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">9.6619</th>
+<th class="r data">*</th>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">88</td>
+<td class="r data">124</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">9.6646</th>
+<th class="r data">&#160;</th>
+<td class="r data">0.5891</td>
+<td class="r data">0.4109</td>
+<td class="r data">0.0335</td>
+<td class="r data">89</td>
+<td class="r data">123</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">9.6646</th>
+<th class="r data">*</th>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">89</td>
+<td class="r data">122</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">9.6701</th>
+<th class="r data">&#160;</th>
+<td class="r data">0.5842</td>
+<td class="r data">0.4158</td>
+<td class="r data">0.0336</td>
+<td class="r data">90</td>
+<td class="r data">121</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">9.7495</th>
+<th class="r data">&#160;</th>
+<td class="r data">0.5794</td>
+<td class="r data">0.4206</td>
+<td class="r data">0.0336</td>
+<td class="r data">91</td>
+<td class="r data">120</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">9.7550</th>
+<th class="r data">*</th>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">91</td>
+<td class="r data">119</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">9.8316</th>
+<th class="r data">&#160;</th>
+<td class="r data">0.5745</td>
+<td class="r data">0.4255</td>
+<td class="r data">0.0337</td>
+<td class="r data">92</td>
+<td class="r data">118</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">9.9986</th>
+<th class="r data">&#160;</th>
+<td class="r data">0.5697</td>
+<td class="r data">0.4303</td>
+<td class="r data">0.0338</td>
+<td class="r data">93</td>
+<td class="r data">117</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">9.9986</th>
+<th class="r data">*</th>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">93</td>
+<td class="r data">116</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">10.0808</th>
+<th class="r data">&#160;</th>
+<td class="r data">0.5648</td>
+<td class="r data">0.4352</td>
+<td class="r data">0.0338</td>
+<td class="r data">94</td>
+<td class="r data">115</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">10.2423</th>
+<th class="r data">&#160;</th>
+<td class="r data">0.5599</td>
+<td class="r data">0.4401</td>
+<td class="r data">0.0339</td>
+<td class="r data">95</td>
+<td class="r data">114</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">10.5818</th>
+<th class="r data">*</th>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">95</td>
+<td class="r data">113</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">10.5845</th>
+<th class="r data">*</th>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">95</td>
+<td class="r data">112</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">10.6639</th>
+<th class="r data">*</th>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">95</td>
+<td class="r data">111</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">10.6667</th>
+<th class="r data">&#160;</th>
+<td class="r data">0.5548</td>
+<td class="r data">0.4452</td>
+<td class="r data">0.0340</td>
+<td class="r data">96</td>
+<td class="r data">110</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">10.8309</th>
+<th class="r data">&#160;</th>
+<td class="r data">0.5498</td>
+<td class="r data">0.4502</td>
+<td class="r data">0.0340</td>
+<td class="r data">97</td>
+<td class="r data">109</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">10.9131</th>
+<th class="r data">&#160;</th>
+<td class="r data">0.5447</td>
+<td class="r data">0.4553</td>
+<td class="r data">0.0341</td>
+<td class="r data">98</td>
+<td class="r data">108</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">10.9185</th>
+<th class="r data">&#160;</th>
+<td class="r data">0.5397</td>
+<td class="r data">0.4603</td>
+<td class="r data">0.0341</td>
+<td class="r data">99</td>
+<td class="r data">107</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">10.9979</th>
+<th class="r data">&#160;</th>
+<td class="r data">0.5346</td>
+<td class="r data">0.4654</td>
+<td class="r data">0.0342</td>
+<td class="r data">100</td>
+<td class="r data">106</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">11.0007</th>
+<th class="r data">*</th>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">100</td>
+<td class="r data">105</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">11.5811</th>
+<th class="r data">&#160;</th>
+<td class="r data">0.5295</td>
+<td class="r data">0.4705</td>
+<td class="r data">0.0343</td>
+<td class="r data">101</td>
+<td class="r data">104</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">11.8385</th>
+<th class="r data">*</th>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">101</td>
+<td class="r data">103</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">11.9233</th>
+<th class="r data">&#160;</th>
+<td class="r data">0.5244</td>
+<td class="r data">0.4756</td>
+<td class="r data">0.0343</td>
+<td class="r data">102</td>
+<td class="r data">102</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">12.5804</th>
+<th class="r data">&#160;</th>
+<td class="r data">0.5193</td>
+<td class="r data">0.4807</td>
+<td class="r data">0.0343</td>
+<td class="r data">103</td>
+<td class="r data">101</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">12.8296</th>
+<th class="r data">*</th>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">103</td>
+<td class="r data">100</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">12.8323</th>
+<th class="r data">*</th>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">103</td>
+<td class="r data">99</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">12.9993</th>
+<th class="r data">&#160;</th>
+<td class="r data">0.5140</td>
+<td class="r data">0.4860</td>
+<td class="r data">0.0344</td>
+<td class="r data">104</td>
+<td class="r data">98</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">13.3279</th>
+<th class="r data">*</th>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">104</td>
+<td class="r data">97</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">13.4127</th>
+<th class="r data">*</th>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">104</td>
+<td class="r data">96</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">13.4127</th>
+<th class="r data">*</th>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">104</td>
+<td class="r data">95</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">13.8344</th>
+<th class="r data">&#160;</th>
+<td class="r data">0.5086</td>
+<td class="r data">0.4914</td>
+<td class="r data">0.0345</td>
+<td class="r data">105</td>
+<td class="r data">94</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">13.9165</th>
+<th class="r data">&#160;</th>
+<td class="r data">0.5032</td>
+<td class="r data">0.4968</td>
+<td class="r data">0.0345</td>
+<td class="r data">106</td>
+<td class="r data">93</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">13.9986</th>
+<th class="r data">*</th>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">106</td>
+<td class="r data">92</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">14.3272</th>
+<th class="r data">&#160;</th>
+<td class="r data">0.4977</td>
+<td class="r data">0.5023</td>
+<td class="r data">0.0346</td>
+<td class="r data">107</td>
+<td class="r data">91</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">14.3299</th>
+<th class="r data">*</th>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">107</td>
+<td class="r data">90</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">14.4969</th>
+<th class="r data">&#160;</th>
+<td class="r data">0.4922</td>
+<td class="r data">0.5078</td>
+<td class="r data">0.0346</td>
+<td class="r data">108</td>
+<td class="r data">89</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">14.5791</th>
+<th class="r data">&#160;</th>
+<td class="r data">0.4867</td>
+<td class="r data">0.5133</td>
+<td class="r data">0.0347</td>
+<td class="r data">109</td>
+<td class="r data">88</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">14.6667</th>
+<th class="r data">*</th>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">109</td>
+<td class="r data">87</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">14.7488</th>
+<th class="r data">*</th>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">109</td>
+<td class="r data">86</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">14.8337</th>
+<th class="r data">&#160;</th>
+<td class="r data">0.4810</td>
+<td class="r data">0.5190</td>
+<td class="r data">0.0347</td>
+<td class="r data">110</td>
+<td class="r data">85</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">15.9179</th>
+<th class="r data">&#160;</th>
+<td class="r data">0.4753</td>
+<td class="r data">0.5247</td>
+<td class="r data">0.0348</td>
+<td class="r data">111</td>
+<td class="r data">84</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">16.0849</th>
+<th class="r data">&#160;</th>
+<td class="r data">0.4697</td>
+<td class="r data">0.5303</td>
+<td class="r data">0.0348</td>
+<td class="r data">112</td>
+<td class="r data">83</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">16.1615</th>
+<th class="r data">&#160;</th>
+<td class="r data">0.4640</td>
+<td class="r data">0.5360</td>
+<td class="r data">0.0349</td>
+<td class="r data">113</td>
+<td class="r data">82</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">16.1670</th>
+<th class="r data">*</th>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">113</td>
+<td class="r data">81</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">16.1670</th>
+<th class="r data">*</th>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">113</td>
+<td class="r data">80</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">16.2464</th>
+<th class="r data">&#160;</th>
+<td class="r data">0.4582</td>
+<td class="r data">0.5418</td>
+<td class="r data">0.0349</td>
+<td class="r data">114</td>
+<td class="r data">79</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">16.5010</th>
+<th class="r data">*</th>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">114</td>
+<td class="r data">78</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">16.5859</th>
+<th class="r data">&#160;</th>
+<td class="r data">0.4524</td>
+<td class="r data">0.5476</td>
+<td class="r data">0.0349</td>
+<td class="r data">115</td>
+<td class="r data">77</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">16.6653</th>
+<th class="r data">*</th>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">115</td>
+<td class="r data">76</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">16.8323</th>
+<th class="r data">*</th>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">115</td>
+<td class="r data">75</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">16.9993</th>
+<th class="r data">&#160;</th>
+<td class="r data">0.4463</td>
+<td class="r data">0.5537</td>
+<td class="r data">0.0350</td>
+<td class="r data">116</td>
+<td class="r data">74</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">17.1663</th>
+<th class="r data">&#160;</th>
+<td class="r data">0.4403</td>
+<td class="r data">0.5597</td>
+<td class="r data">0.0350</td>
+<td class="r data">117</td>
+<td class="r data">73</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">17.5003</th>
+<th class="r data">*</th>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">117</td>
+<td class="r data">72</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">17.8316</th>
+<th class="r data">*</th>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">117</td>
+<td class="r data">71</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">18.0835</th>
+<th class="r data">*</th>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">117</td>
+<td class="r data">70</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">18.1656</th>
+<th class="r data">&#160;</th>
+<td class="r data">0.4340</td>
+<td class="r data">0.5660</td>
+<td class="r data">0.0351</td>
+<td class="r data">118</td>
+<td class="r data">69</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">18.1656</th>
+<th class="r data">*</th>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">118</td>
+<td class="r data">68</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">18.2505</th>
+<th class="r data">&#160;</th>
+<td class="r data">0.4276</td>
+<td class="r data">0.5724</td>
+<td class="r data">0.0352</td>
+<td class="r data">119</td>
+<td class="r data">67</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">18.3326</th>
+<th class="r data">&#160;</th>
+<td class="r data">0.4212</td>
+<td class="r data">0.5788</td>
+<td class="r data">0.0352</td>
+<td class="r data">120</td>
+<td class="r data">66</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">18.4148</th>
+<th class="r data">*</th>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">120</td>
+<td class="r data">65</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">18.5845</th>
+<th class="r data">&#160;</th>
+<td class="r data">0.4148</td>
+<td class="r data">0.5852</td>
+<td class="r data">0.0353</td>
+<td class="r data">121</td>
+<td class="r data">64</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">18.6612</th>
+<th class="r data">&#160;</th>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">122</td>
+<td class="r data">63</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">18.6612</th>
+<th class="r data">&#160;</th>
+<td class="r data">0.4018</td>
+<td class="r data">0.5982</td>
+<td class="r data">0.0353</td>
+<td class="r data">123</td>
+<td class="r data">62</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">19.4141</th>
+<th class="r data">*</th>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">123</td>
+<td class="r data">61</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">19.4990</th>
+<th class="r data">&#160;</th>
+<td class="r data">0.3952</td>
+<td class="r data">0.6048</td>
+<td class="r data">0.0354</td>
+<td class="r data">124</td>
+<td class="r data">60</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">19.5811</th>
+<th class="r data">*</th>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">124</td>
+<td class="r data">59</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">19.8330</th>
+<th class="r data">&#160;</th>
+<td class="r data">0.3885</td>
+<td class="r data">0.6115</td>
+<td class="r data">0.0354</td>
+<td class="r data">125</td>
+<td class="r data">58</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">19.9179</th>
+<th class="r data">*</th>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">125</td>
+<td class="r data">57</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">19.9179</th>
+<th class="r data">*</th>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">125</td>
+<td class="r data">56</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">20.0000</th>
+<th class="r data">*</th>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">125</td>
+<td class="r data">55</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">20.2519</th>
+<th class="r data">*</th>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">125</td>
+<td class="r data">54</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">20.3285</th>
+<th class="r data">*</th>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">125</td>
+<td class="r data">53</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">20.5804</th>
+<th class="r data">*</th>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">125</td>
+<td class="r data">52</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">20.6653</th>
+<th class="r data">*</th>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">125</td>
+<td class="r data">51</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">20.6653</th>
+<th class="r data">*</th>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">125</td>
+<td class="r data">50</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">20.6653</th>
+<th class="r data">*</th>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">125</td>
+<td class="r data">49</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">20.8323</th>
+<th class="r data">*</th>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">125</td>
+<td class="r data">48</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">20.9172</th>
+<th class="r data">*</th>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">125</td>
+<td class="r data">47</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">20.9172</th>
+<th class="r data">*</th>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">125</td>
+<td class="r data">46</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">20.9172</th>
+<th class="r data">*</th>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">125</td>
+<td class="r data">45</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">20.9172</th>
+<th class="r data">*</th>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">125</td>
+<td class="r data">44</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">20.9993</th>
+<th class="r data">*</th>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">125</td>
+<td class="r data">43</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">20.9993</th>
+<th class="r data">*</th>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">125</td>
+<td class="r data">42</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">21.0842</th>
+<th class="r data">*</th>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">125</td>
+<td class="r data">41</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">21.2512</th>
+<th class="r data">*</th>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">125</td>
+<td class="r data">40</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">21.2512</th>
+<th class="r data">*</th>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">125</td>
+<td class="r data">39</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">21.2512</th>
+<th class="r data">*</th>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">125</td>
+<td class="r data">38</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">21.2512</th>
+<th class="r data">*</th>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">125</td>
+<td class="r data">37</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">21.2512</th>
+<th class="r data">*</th>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">125</td>
+<td class="r data">36</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">21.2512</th>
+<th class="r data">*</th>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">125</td>
+<td class="r data">35</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">21.3279</th>
+<th class="r data">*</th>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">125</td>
+<td class="r data">34</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">21.3279</th>
+<th class="r data">*</th>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">125</td>
+<td class="r data">33</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">21.3279</th>
+<th class="r data">*</th>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">125</td>
+<td class="r data">32</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">21.3279</th>
+<th class="r data">*</th>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">125</td>
+<td class="r data">31</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">21.4127</th>
+<th class="r data">*</th>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">125</td>
+<td class="r data">30</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">21.4127</th>
+<th class="r data">*</th>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">125</td>
+<td class="r data">29</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">21.4127</th>
+<th class="r data">*</th>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">125</td>
+<td class="r data">28</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">21.4127</th>
+<th class="r data">*</th>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">125</td>
+<td class="r data">27</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">21.4127</th>
+<th class="r data">*</th>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">125</td>
+<td class="r data">26</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">21.4127</th>
+<th class="r data">*</th>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">125</td>
+<td class="r data">25</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">21.4127</th>
+<th class="r data">*</th>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">125</td>
+<td class="r data">24</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">21.4127</th>
+<th class="r data">*</th>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">125</td>
+<td class="r data">23</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">21.4976</th>
+<th class="r data">*</th>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">125</td>
+<td class="r data">22</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">21.4976</th>
+<th class="r data">*</th>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">125</td>
+<td class="r data">21</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">21.4976</th>
+<th class="r data">*</th>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">125</td>
+<td class="r data">20</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">21.4976</th>
+<th class="r data">*</th>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">125</td>
+<td class="r data">19</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">21.4976</th>
+<th class="r data">*</th>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">125</td>
+<td class="r data">18</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">21.4976</th>
+<th class="r data">*</th>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">125</td>
+<td class="r data">17</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">21.4976</th>
+<th class="r data">*</th>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">125</td>
+<td class="r data">16</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">21.4976</th>
+<th class="r data">*</th>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">125</td>
+<td class="r data">15</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">21.5797</th>
+<th class="r data">*</th>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">125</td>
+<td class="r data">14</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">21.5797</th>
+<th class="r data">*</th>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">125</td>
+<td class="r data">13</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">21.5797</th>
+<th class="r data">*</th>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">125</td>
+<td class="r data">12</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">21.5797</th>
+<th class="r data">*</th>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">125</td>
+<td class="r data">11</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">21.5797</th>
+<th class="r data">*</th>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">125</td>
+<td class="r data">10</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">21.5797</th>
+<th class="r data">*</th>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">125</td>
+<td class="r data">9</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">21.5797</th>
+<th class="r data">*</th>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">125</td>
+<td class="r data">8</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">21.5797</th>
+<th class="r data">*</th>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">125</td>
+<td class="r data">7</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">21.5797</th>
+<th class="r data">*</th>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">125</td>
+<td class="r data">6</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">21.5797</th>
+<th class="r data">*</th>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">125</td>
+<td class="r data">5</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">21.5797</th>
+<th class="r data">*</th>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">125</td>
+<td class="r data">4</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">21.6646</th>
+<th class="r data">*</th>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">125</td>
+<td class="r data">3</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">21.6646</th>
+<th class="r data">*</th>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">125</td>
+<td class="r data">2</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">21.6646</th>
+<th class="r data">*</th>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">125</td>
+<td class="r data">1</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">21.6646</th>
+<th class="r data">*</th>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">125</td>
+<td class="r data">0</td>
+</tr>
+</tbody>
+</table>
+<div class="proc_note_group">
+<p class="c note"><span class="c notebanner">Note:</span><span class="c notecontent">The marked survival times are censored observations.</span></p>
+</div>
+</article>
+<section>
+<h1 class="contentfolder toc">Summary of pyears</h1>
+<div class="proc_note_group">
+<p class="c proctitle">Summary Statistics for Time Variable pyears</p>
+</div>
+<article id="IDX1" aria-label="Quartiles of the Survival Distribution">
+<h1 class="contentitem toc">Quartiles of the Survival Distribution</h1>
+<table class="table" style="border-spacing: 0" aria-label="Quartiles of the Survival Distribution">
+<caption aria-label="Quartiles of the Survival Distribution"></caption>
+<colgroup><col/><col/><col/><col/><col/></colgroup>
+<thead>
+<tr>
+<th class="c b header" colspan="5" scope="colgroup">Quartile Estimates</th>
+</tr>
+<tr>
+<th class="r b header" rowspan="2" scope="col">Percent</th>
+<th class="r b header" rowspan="2" scope="col">Point<br/>Estimate</th>
+<th class="c b header" colspan="3" scope="colgroup">95% Confidence Interval</th>
+</tr>
+<tr>
+<th class="b header" scope="col">Transform</th>
+<th class="r b header" scope="col">[Lower</th>
+<th class="r b header" scope="col">Upper)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th class="r rowheader" scope="row">75</th>
+<td class="r data">.</td>
+<td class="data">LOGLOG</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">50</th>
+<td class="r data">14.3272</td>
+<td class="data">LOGLOG</td>
+<td class="r data">10.0808</td>
+<td class="r data">18.2505</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">25</th>
+<td class="r data">6.5818</td>
+<td class="data">LOGLOG</td>
+<td class="r data">5.6646</td>
+<td class="r data">7.7481</td>
+</tr>
+</tbody>
+</table>
+</article>
+<article id="IDX2" aria-label="Mean">
+<h1 class="contentitem toc">Mean</h1>
+<table class="table" style="border-spacing: 0" aria-label="Mean">
+<caption aria-label="Mean"></caption>
+<colgroup><col/><col/></colgroup>
+<thead>
+<tr>
+<th class="r b header" scope="col">Mean</th>
+<th class="r b header" scope="col">Standard<br/>Error</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="r data">13.0582</td>
+<td class="r data">0.4535</td>
+</tr>
+</tbody>
+</table>
+<div class="proc_note_group">
+<p class="c note"><span class="c notebanner">Note:</span><span class="c notecontent">The mean survival time and its standard error were underestimated because the largest observation was censored and the estimation was restricted to the largest event time.</span></p>
+</div>
+</article>
+</section>
+</section>
+<hr class="pagebreak"/>
+<div id="IDX3" class="proc_title_group">
+<p class="c proctitle">The LIFETEST Procedure</p>
+<p class="c proctitle">&#160;</p>
+<p class="c proctitle">Stratum 2: hepc = 1</p>
+</div>
+<section>
+<h1 class="contentfolder toc">Stratum 2</h1>
+<article aria-label="Product-Limit Estimates">
+<h1 class="contentitem toc">Product-Limit Estimates</h1>
+<table class="table" style="border-spacing: 0" aria-label="Product-Limit Estimates">
+<caption aria-label="Product-Limit Estimates"></caption>
+<colgroup><col/><col/></colgroup><colgroup><col/><col/><col/><col/><col/></colgroup>
+<thead>
+<tr>
+<th class="c b header" colspan="7" scope="colgroup">Product-Limit Survival Estimates</th>
+</tr>
+<tr>
+<th class="r b header" scope="col">pyears</th>
+<th class="r b header" scope="col"> &#160;</th>
+<th class="r b header" scope="col">Survival</th>
+<th class="r b header" scope="col">Failure</th>
+<th class="r b header" scope="col">Survival Standard Error</th>
+<th class="c b header" scope="col">Number<br/>Failed</th>
+<th class="c b header" scope="col">Number<br/>Left</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th class="r rowheader" scope="row">0.0000</th>
+<th class="r data">&#160;</th>
+<td class="r data">1.0000</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">102</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">1.1663</th>
+<th class="r data">&#160;</th>
+<td class="r data">0.9902</td>
+<td class="r data">0.00980</td>
+<td class="r data">0.00976</td>
+<td class="r data">1</td>
+<td class="r data">101</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">2.2478</th>
+<th class="r data">&#160;</th>
+<td class="r data">0.9804</td>
+<td class="r data">0.0196</td>
+<td class="r data">0.0137</td>
+<td class="r data">2</td>
+<td class="r data">100</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">2.7488</th>
+<th class="r data">&#160;</th>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">3</td>
+<td class="r data">99</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">2.7488</th>
+<th class="r data">&#160;</th>
+<td class="r data">0.9608</td>
+<td class="r data">0.0392</td>
+<td class="r data">0.0192</td>
+<td class="r data">4</td>
+<td class="r data">98</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">2.7515</th>
+<th class="r data">*</th>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">4</td>
+<td class="r data">97</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">2.9158</th>
+<th class="r data">&#160;</th>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">5</td>
+<td class="r data">96</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">2.9158</th>
+<th class="r data">&#160;</th>
+<td class="r data">0.9410</td>
+<td class="r data">0.0590</td>
+<td class="r data">0.0234</td>
+<td class="r data">6</td>
+<td class="r data">95</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">3.0856</th>
+<th class="r data">&#160;</th>
+<td class="r data">0.9311</td>
+<td class="r data">0.0689</td>
+<td class="r data">0.0251</td>
+<td class="r data">7</td>
+<td class="r data">94</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">3.1650</th>
+<th class="r data">&#160;</th>
+<td class="r data">0.9212</td>
+<td class="r data">0.0788</td>
+<td class="r data">0.0268</td>
+<td class="r data">8</td>
+<td class="r data">93</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">3.3374</th>
+<th class="r data">&#160;</th>
+<td class="r data">0.9113</td>
+<td class="r data">0.0887</td>
+<td class="r data">0.0282</td>
+<td class="r data">9</td>
+<td class="r data">92</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">3.5866</th>
+<th class="r data">&#160;</th>
+<td class="r data">0.9014</td>
+<td class="r data">0.0986</td>
+<td class="r data">0.0296</td>
+<td class="r data">10</td>
+<td class="r data">91</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">3.7481</th>
+<th class="r data">&#160;</th>
+<td class="r data">0.8914</td>
+<td class="r data">0.1086</td>
+<td class="r data">0.0309</td>
+<td class="r data">11</td>
+<td class="r data">90</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">3.7481</th>
+<th class="r data">*</th>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">11</td>
+<td class="r data">89</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">3.8385</th>
+<th class="r data">&#160;</th>
+<td class="r data">0.8814</td>
+<td class="r data">0.1186</td>
+<td class="r data">0.0321</td>
+<td class="r data">12</td>
+<td class="r data">88</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">3.9151</th>
+<th class="r data">*</th>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">12</td>
+<td class="r data">87</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">3.9179</th>
+<th class="r data">&#160;</th>
+<td class="r data">0.8713</td>
+<td class="r data">0.1287</td>
+<td class="r data">0.0333</td>
+<td class="r data">13</td>
+<td class="r data">86</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">4.2519</th>
+<th class="r data">&#160;</th>
+<td class="r data">0.8612</td>
+<td class="r data">0.1388</td>
+<td class="r data">0.0344</td>
+<td class="r data">14</td>
+<td class="r data">85</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">4.5038</th>
+<th class="r data">&#160;</th>
+<td class="r data">0.8510</td>
+<td class="r data">0.1490</td>
+<td class="r data">0.0355</td>
+<td class="r data">15</td>
+<td class="r data">84</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">4.5859</th>
+<th class="r data">*</th>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">15</td>
+<td class="r data">83</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">4.6708</th>
+<th class="r data">*</th>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">15</td>
+<td class="r data">82</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">5.5003</th>
+<th class="r data">&#160;</th>
+<td class="r data">0.8407</td>
+<td class="r data">0.1593</td>
+<td class="r data">0.0366</td>
+<td class="r data">16</td>
+<td class="r data">81</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">5.5031</th>
+<th class="r data">&#160;</th>
+<td class="r data">0.8303</td>
+<td class="r data">0.1697</td>
+<td class="r data">0.0375</td>
+<td class="r data">17</td>
+<td class="r data">80</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">5.8316</th>
+<th class="r data">&#160;</th>
+<td class="r data">0.8199</td>
+<td class="r data">0.1801</td>
+<td class="r data">0.0385</td>
+<td class="r data">18</td>
+<td class="r data">79</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">5.9165</th>
+<th class="r data">&#160;</th>
+<td class="r data">0.8095</td>
+<td class="r data">0.1905</td>
+<td class="r data">0.0394</td>
+<td class="r data">19</td>
+<td class="r data">78</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">6.2533</th>
+<th class="r data">*</th>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">19</td>
+<td class="r data">77</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">6.6721</th>
+<th class="r data">&#160;</th>
+<td class="r data">0.7990</td>
+<td class="r data">0.2010</td>
+<td class="r data">0.0402</td>
+<td class="r data">20</td>
+<td class="r data">76</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">6.8337</th>
+<th class="r data">&#160;</th>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">21</td>
+<td class="r data">75</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">6.8337</th>
+<th class="r data">&#160;</th>
+<td class="r data">0.7780</td>
+<td class="r data">0.2220</td>
+<td class="r data">0.0418</td>
+<td class="r data">22</td>
+<td class="r data">74</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">6.9158</th>
+<th class="r data">&#160;</th>
+<td class="r data">0.7675</td>
+<td class="r data">0.2325</td>
+<td class="r data">0.0426</td>
+<td class="r data">23</td>
+<td class="r data">73</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">6.9979</th>
+<th class="r data">&#160;</th>
+<td class="r data">0.7570</td>
+<td class="r data">0.2430</td>
+<td class="r data">0.0433</td>
+<td class="r data">24</td>
+<td class="r data">72</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">7.0856</th>
+<th class="r data">*</th>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">24</td>
+<td class="r data">71</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">7.3347</th>
+<th class="r data">&#160;</th>
+<td class="r data">0.7463</td>
+<td class="r data">0.2537</td>
+<td class="r data">0.0440</td>
+<td class="r data">25</td>
+<td class="r data">70</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">7.4962</th>
+<th class="r data">&#160;</th>
+<td class="r data">0.7356</td>
+<td class="r data">0.2644</td>
+<td class="r data">0.0446</td>
+<td class="r data">26</td>
+<td class="r data">69</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">7.5838</th>
+<th class="r data">&#160;</th>
+<td class="r data">0.7250</td>
+<td class="r data">0.2750</td>
+<td class="r data">0.0452</td>
+<td class="r data">27</td>
+<td class="r data">68</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">7.6660</th>
+<th class="r data">&#160;</th>
+<td class="r data">0.7143</td>
+<td class="r data">0.2857</td>
+<td class="r data">0.0458</td>
+<td class="r data">28</td>
+<td class="r data">67</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">7.6687</th>
+<th class="r data">&#160;</th>
+<td class="r data">0.7037</td>
+<td class="r data">0.2963</td>
+<td class="r data">0.0463</td>
+<td class="r data">29</td>
+<td class="r data">66</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">7.7481</th>
+<th class="r data">&#160;</th>
+<td class="r data">0.6930</td>
+<td class="r data">0.3070</td>
+<td class="r data">0.0468</td>
+<td class="r data">30</td>
+<td class="r data">65</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">8.0000</th>
+<th class="r data">&#160;</th>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">31</td>
+<td class="r data">64</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">8.0000</th>
+<th class="r data">&#160;</th>
+<td class="r data">0.6717</td>
+<td class="r data">0.3283</td>
+<td class="r data">0.0478</td>
+<td class="r data">32</td>
+<td class="r data">63</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">8.3340</th>
+<th class="r data">&#160;</th>
+<td class="r data">0.6610</td>
+<td class="r data">0.3390</td>
+<td class="r data">0.0482</td>
+<td class="r data">33</td>
+<td class="r data">62</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">8.5010</th>
+<th class="r data">&#160;</th>
+<td class="r data">0.6503</td>
+<td class="r data">0.3497</td>
+<td class="r data">0.0486</td>
+<td class="r data">34</td>
+<td class="r data">61</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">8.5038</th>
+<th class="r data">&#160;</th>
+<td class="r data">0.6397</td>
+<td class="r data">0.3603</td>
+<td class="r data">0.0489</td>
+<td class="r data">35</td>
+<td class="r data">60</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">8.7502</th>
+<th class="r data">&#160;</th>
+<td class="r data">0.6290</td>
+<td class="r data">0.3710</td>
+<td class="r data">0.0493</td>
+<td class="r data">36</td>
+<td class="r data">59</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">8.9144</th>
+<th class="r data">&#160;</th>
+<td class="r data">0.6184</td>
+<td class="r data">0.3816</td>
+<td class="r data">0.0496</td>
+<td class="r data">37</td>
+<td class="r data">58</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">8.9993</th>
+<th class="r data">&#160;</th>
+<td class="r data">0.6077</td>
+<td class="r data">0.3923</td>
+<td class="r data">0.0498</td>
+<td class="r data">38</td>
+<td class="r data">57</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">9.2457</th>
+<th class="r data">&#160;</th>
+<td class="r data">0.5970</td>
+<td class="r data">0.4030</td>
+<td class="r data">0.0501</td>
+<td class="r data">39</td>
+<td class="r data">56</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">9.2485</th>
+<th class="r data">&#160;</th>
+<td class="r data">0.5864</td>
+<td class="r data">0.4136</td>
+<td class="r data">0.0503</td>
+<td class="r data">40</td>
+<td class="r data">55</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">9.3279</th>
+<th class="r data">&#160;</th>
+<td class="r data">0.5757</td>
+<td class="r data">0.4243</td>
+<td class="r data">0.0505</td>
+<td class="r data">41</td>
+<td class="r data">54</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">9.6619</th>
+<th class="r data">&#160;</th>
+<td class="r data">0.5651</td>
+<td class="r data">0.4349</td>
+<td class="r data">0.0507</td>
+<td class="r data">42</td>
+<td class="r data">53</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">9.6646</th>
+<th class="r data">&#160;</th>
+<td class="r data">0.5544</td>
+<td class="r data">0.4456</td>
+<td class="r data">0.0509</td>
+<td class="r data">43</td>
+<td class="r data">52</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">9.6646</th>
+<th class="r data">*</th>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">43</td>
+<td class="r data">51</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">9.7495</th>
+<th class="r data">&#160;</th>
+<td class="r data">0.5435</td>
+<td class="r data">0.4565</td>
+<td class="r data">0.0510</td>
+<td class="r data">44</td>
+<td class="r data">50</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">9.7550</th>
+<th class="r data">&#160;</th>
+<td class="r data">0.5327</td>
+<td class="r data">0.4673</td>
+<td class="r data">0.0511</td>
+<td class="r data">45</td>
+<td class="r data">49</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">10.0753</th>
+<th class="r data">&#160;</th>
+<td class="r data">0.5218</td>
+<td class="r data">0.4782</td>
+<td class="r data">0.0512</td>
+<td class="r data">46</td>
+<td class="r data">48</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">10.9185</th>
+<th class="r data">*</th>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">46</td>
+<td class="r data">47</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">11.2471</th>
+<th class="r data">&#160;</th>
+<td class="r data">0.5107</td>
+<td class="r data">0.4893</td>
+<td class="r data">0.0513</td>
+<td class="r data">47</td>
+<td class="r data">46</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">11.3347</th>
+<th class="r data">&#160;</th>
+<td class="r data">0.4996</td>
+<td class="r data">0.5004</td>
+<td class="r data">0.0514</td>
+<td class="r data">48</td>
+<td class="r data">45</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">11.4141</th>
+<th class="r data">*</th>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">48</td>
+<td class="r data">44</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">11.5811</th>
+<th class="r data">&#160;</th>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">49</td>
+<td class="r data">43</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">11.5811</th>
+<th class="r data">&#160;</th>
+<td class="r data">0.4769</td>
+<td class="r data">0.5231</td>
+<td class="r data">0.0515</td>
+<td class="r data">50</td>
+<td class="r data">42</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">11.7481</th>
+<th class="r data">&#160;</th>
+<td class="r data">0.4655</td>
+<td class="r data">0.5345</td>
+<td class="r data">0.0515</td>
+<td class="r data">51</td>
+<td class="r data">41</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">12.0000</th>
+<th class="r data">&#160;</th>
+<td class="r data">0.4542</td>
+<td class="r data">0.5458</td>
+<td class="r data">0.0515</td>
+<td class="r data">52</td>
+<td class="r data">40</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">12.0821</th>
+<th class="r data">&#160;</th>
+<td class="r data">0.4428</td>
+<td class="r data">0.5572</td>
+<td class="r data">0.0514</td>
+<td class="r data">53</td>
+<td class="r data">39</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">13.0869</th>
+<th class="r data">&#160;</th>
+<td class="r data">0.4315</td>
+<td class="r data">0.5685</td>
+<td class="r data">0.0514</td>
+<td class="r data">54</td>
+<td class="r data">38</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">13.3279</th>
+<th class="r data">&#160;</th>
+<td class="r data">0.4201</td>
+<td class="r data">0.5799</td>
+<td class="r data">0.0513</td>
+<td class="r data">55</td>
+<td class="r data">37</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">13.3306</th>
+<th class="r data">&#160;</th>
+<td class="r data">0.4087</td>
+<td class="r data">0.5913</td>
+<td class="r data">0.0511</td>
+<td class="r data">56</td>
+<td class="r data">36</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">13.5003</th>
+<th class="r data">*</th>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">56</td>
+<td class="r data">35</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">13.6646</th>
+<th class="r data">&#160;</th>
+<td class="r data">0.3971</td>
+<td class="r data">0.6029</td>
+<td class="r data">0.0510</td>
+<td class="r data">57</td>
+<td class="r data">34</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">13.7522</th>
+<th class="r data">&#160;</th>
+<td class="r data">0.3854</td>
+<td class="r data">0.6146</td>
+<td class="r data">0.0508</td>
+<td class="r data">58</td>
+<td class="r data">33</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">14.2533</th>
+<th class="r data">*</th>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">58</td>
+<td class="r data">32</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">14.3354</th>
+<th class="r data">&#160;</th>
+<td class="r data">0.3733</td>
+<td class="r data">0.6267</td>
+<td class="r data">0.0506</td>
+<td class="r data">59</td>
+<td class="r data">31</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">14.4997</th>
+<th class="r data">*</th>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">59</td>
+<td class="r data">30</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">14.5845</th>
+<th class="r data">&#160;</th>
+<td class="r data">0.3609</td>
+<td class="r data">0.6391</td>
+<td class="r data">0.0504</td>
+<td class="r data">60</td>
+<td class="r data">29</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">14.8337</th>
+<th class="r data">*</th>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">60</td>
+<td class="r data">28</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">15.0007</th>
+<th class="r data">&#160;</th>
+<td class="r data">0.3480</td>
+<td class="r data">0.6520</td>
+<td class="r data">0.0502</td>
+<td class="r data">61</td>
+<td class="r data">27</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">15.2526</th>
+<th class="r data">&#160;</th>
+<td class="r data">0.3351</td>
+<td class="r data">0.6649</td>
+<td class="r data">0.0500</td>
+<td class="r data">62</td>
+<td class="r data">26</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">15.2526</th>
+<th class="r data">*</th>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">62</td>
+<td class="r data">25</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">15.4962</th>
+<th class="r data">*</th>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">62</td>
+<td class="r data">24</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">15.5893</th>
+<th class="r data">&#160;</th>
+<td class="r data">0.3212</td>
+<td class="r data">0.6788</td>
+<td class="r data">0.0498</td>
+<td class="r data">63</td>
+<td class="r data">23</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">15.9151</th>
+<th class="r data">&#160;</th>
+<td class="r data">0.3072</td>
+<td class="r data">0.6928</td>
+<td class="r data">0.0496</td>
+<td class="r data">64</td>
+<td class="r data">22</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">15.9179</th>
+<th class="r data">&#160;</th>
+<td class="r data">0.2932</td>
+<td class="r data">0.7068</td>
+<td class="r data">0.0493</td>
+<td class="r data">65</td>
+<td class="r data">21</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">15.9179</th>
+<th class="r data">*</th>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">65</td>
+<td class="r data">20</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">15.9179</th>
+<th class="r data">*</th>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">65</td>
+<td class="r data">19</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">16.0821</th>
+<th class="r data">&#160;</th>
+<td class="r data">0.2778</td>
+<td class="r data">0.7222</td>
+<td class="r data">0.0490</td>
+<td class="r data">66</td>
+<td class="r data">18</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">16.0849</th>
+<th class="r data">&#160;</th>
+<td class="r data">0.2624</td>
+<td class="r data">0.7376</td>
+<td class="r data">0.0487</td>
+<td class="r data">67</td>
+<td class="r data">17</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">16.4983</th>
+<th class="r data">*</th>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">67</td>
+<td class="r data">16</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">16.5859</th>
+<th class="r data">&#160;</th>
+<td class="r data">0.2460</td>
+<td class="r data">0.7540</td>
+<td class="r data">0.0483</td>
+<td class="r data">68</td>
+<td class="r data">15</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">16.9993</th>
+<th class="r data">*</th>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">68</td>
+<td class="r data">14</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">16.9993</th>
+<th class="r data">*</th>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">68</td>
+<td class="r data">13</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">17.0815</th>
+<th class="r data">*</th>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">68</td>
+<td class="r data">12</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">18.3299</th>
+<th class="r data">*</th>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">68</td>
+<td class="r data">11</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">18.3299</th>
+<th class="r data">*</th>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">68</td>
+<td class="r data">10</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">18.6667</th>
+<th class="r data">*</th>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">68</td>
+<td class="r data">9</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">18.6667</th>
+<th class="r data">*</th>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">68</td>
+<td class="r data">8</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">18.8337</th>
+<th class="r data">*</th>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">68</td>
+<td class="r data">7</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">19.2526</th>
+<th class="r data">*</th>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">68</td>
+<td class="r data">6</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">19.3292</th>
+<th class="r data">*</th>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">68</td>
+<td class="r data">5</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">19.4141</th>
+<th class="r data">*</th>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">68</td>
+<td class="r data">4</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">19.4141</th>
+<th class="r data">*</th>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">68</td>
+<td class="r data">3</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">19.6660</th>
+<th class="r data">*</th>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">68</td>
+<td class="r data">2</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">20.4956</th>
+<th class="r data">&#160;</th>
+<td class="r data">0.1230</td>
+<td class="r data">0.8770</td>
+<td class="r data">0.0903</td>
+<td class="r data">69</td>
+<td class="r data">1</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">20.4983</th>
+<th class="r data">*</th>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">69</td>
+<td class="r data">0</td>
+</tr>
+</tbody>
+</table>
+<div class="proc_note_group">
+<p class="c note"><span class="c notebanner">Note:</span><span class="c notecontent">The marked survival times are censored observations.</span></p>
+</div>
+</article>
+<section>
+<h1 class="contentfolder toc">Summary of pyears</h1>
+<div class="proc_note_group">
+<p class="c proctitle">Summary Statistics for Time Variable pyears</p>
+</div>
+<article id="IDX4" aria-label="Quartiles of the Survival Distribution">
+<h1 class="contentitem toc">Quartiles of the Survival Distribution</h1>
+<table class="table" style="border-spacing: 0" aria-label="Quartiles of the Survival Distribution">
+<caption aria-label="Quartiles of the Survival Distribution"></caption>
+<colgroup><col/><col/><col/><col/><col/></colgroup>
+<thead>
+<tr>
+<th class="c b header" colspan="5" scope="colgroup">Quartile Estimates</th>
+</tr>
+<tr>
+<th class="r b header" rowspan="2" scope="col">Percent</th>
+<th class="r b header" rowspan="2" scope="col">Point<br/>Estimate</th>
+<th class="c b header" colspan="3" scope="colgroup">95% Confidence Interval</th>
+</tr>
+<tr>
+<th class="b header" scope="col">Transform</th>
+<th class="r b header" scope="col">[Lower</th>
+<th class="r b header" scope="col">Upper)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th class="r rowheader" scope="row">75</th>
+<td class="r data">16.5859</td>
+<td class="data">LOGLOG</td>
+<td class="r data">15.2526</td>
+<td class="r data">.</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">50</th>
+<td class="r data">11.3347</td>
+<td class="data">LOGLOG</td>
+<td class="r data">9.2457</td>
+<td class="r data">13.6646</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">25</th>
+<td class="r data">7.3347</td>
+<td class="data">LOGLOG</td>
+<td class="r data">5.5031</td>
+<td class="r data">8.3340</td>
+</tr>
+</tbody>
+</table>
+</article>
+<article id="IDX5" aria-label="Mean">
+<h1 class="contentitem toc">Mean</h1>
+<table class="table" style="border-spacing: 0" aria-label="Mean">
+<caption aria-label="Mean"></caption>
+<colgroup><col/><col/></colgroup>
+<thead>
+<tr>
+<th class="r b header" scope="col">Mean</th>
+<th class="r b header" scope="col">Standard<br/>Error</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="r data">12.0180</td>
+<td class="r data">0.6338</td>
+</tr>
+</tbody>
+</table>
+<div class="proc_note_group">
+<p class="c note"><span class="c notebanner">Note:</span><span class="c notecontent">The mean survival time and its standard error were underestimated because the largest observation was censored and the estimation was restricted to the largest event time.</span></p>
+</div>
+</article>
+</section>
+</section>
+<article id="IDX6" aria-label="Censored Summary">
+<h1 class="contentitem toc">Censored Summary</h1>
+<table class="table" style="border-spacing: 0" aria-label="Censored Summary">
+<caption aria-label="Censored Summary"></caption>
+<colgroup><col/><col/></colgroup><colgroup><col/><col/><col/><col/></colgroup>
+<thead>
+<tr>
+<th class="c b header" colspan="6" scope="colgroup">Summary of the Number of Censored and Uncensored Values</th>
+</tr>
+<tr>
+<th class="r b header" scope="col">Stratum</th>
+<th class="r b header" scope="col">hepc</th>
+<th class="r b header" scope="col">Total</th>
+<th class="r b header" scope="col">Failed</th>
+<th class="r b header" scope="col">Censored</th>
+<th class="r b header" scope="col">Percent<br/>Censored</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th class="r rowheader" scope="row">1</th>
+<th class="r data">0</th>
+<td class="r data">227</td>
+<td class="r data">125</td>
+<td class="r data">102</td>
+<td class="r data">44.93</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">2</th>
+<th class="r data">1</th>
+<td class="r data">102</td>
+<td class="r data">69</td>
+<td class="r data">33</td>
+<td class="r data">32.35</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">Total</th>
+<th class="r data">&#160;</th>
+<td class="r data">329</td>
+<td class="r data">194</td>
+<td class="r data">135</td>
+<td class="r data">41.03</td>
+</tr>
+</tbody>
+</table>
+</article>
+<section>
+<h1 class="contentfolder toc">Strata Homogeneity</h1>
+<hr class="pagebreak"/>
+<div id="IDX7" class="proc_title_group">
+<p class="c proctitle">The LIFETEST Procedure</p>
+</div>
+<div class="proc_note_group">
+<p class="c proctitle">Testing Homogeneity of Survival Curves for pyears over Strata</p>
+</div>
+<article aria-label="Rank Statistics">
+<h1 class="contentitem toc">Rank Statistics</h1>
+<table class="table" style="border-spacing: 0" aria-label="Rank Statistics">
+<caption aria-label="Rank Statistics"></caption>
+<colgroup><col/><col/><col/></colgroup>
+<thead>
+<tr>
+<th class="c b header" colspan="3" scope="colgroup">Rank Statistics</th>
+</tr>
+<tr>
+<th class="b header" scope="col">hepc</th>
+<th class="r b header" scope="col">Log-Rank</th>
+<th class="r b header" scope="col">Wilcoxon</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th class="rowheader" scope="row">0</th>
+<td class="r data" style="white-space: nowrap">-13.492</td>
+<td class="r data" style="white-space: nowrap">-1736.0</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">1</th>
+<td class="r data">13.492</td>
+<td class="r data">1736.0</td>
+</tr>
+</tbody>
+</table>
+</article>
+<article id="IDX8" aria-label="Log-Rank Covariance">
+<h1 class="contentitem toc">Log-Rank Covariance</h1>
+<table class="table" style="border-spacing: 0" aria-label="Log-Rank Covariance">
+<caption aria-label="Log-Rank Covariance"></caption>
+<colgroup><col/></colgroup><colgroup><col/><col/></colgroup>
+<thead>
+<tr>
+<th class="c b header" colspan="3" scope="colgroup">Covariance Matrix for the Log-Rank Statistics</th>
+</tr>
+<tr>
+<th class="b header" scope="col">hepc</th>
+<th class="r b header" scope="col">0</th>
+<th class="r b header" scope="col">1</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th class="rowheader" scope="row">0</th>
+<td class="r data">38.9730</td>
+<td class="r data" style="white-space: nowrap">-38.9730</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">1</th>
+<td class="r data" style="white-space: nowrap">-38.9730</td>
+<td class="r data">38.9730</td>
+</tr>
+</tbody>
+</table>
+</article>
+<article id="IDX9" aria-label="Wilcoxon Covariance">
+<h1 class="contentitem toc">Wilcoxon Covariance</h1>
+<table class="table" style="border-spacing: 0" aria-label="Wilcoxon Covariance">
+<caption aria-label="Wilcoxon Covariance"></caption>
+<colgroup><col/></colgroup><colgroup><col/><col/></colgroup>
+<thead>
+<tr>
+<th class="c b header" colspan="3" scope="colgroup">Covariance Matrix for the Wilcoxon Statistics</th>
+</tr>
+<tr>
+<th class="b header" scope="col">hepc</th>
+<th class="r b header" scope="col">0</th>
+<th class="r b header" scope="col">1</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th class="rowheader" scope="row">0</th>
+<td class="r data">2003016</td>
+<td class="r data" style="white-space: nowrap">-2003016</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">1</th>
+<td class="r data" style="white-space: nowrap">-2003016</td>
+<td class="r data">2003016</td>
+</tr>
+</tbody>
+</table>
+</article>
+<article id="IDX10" aria-label="Homogeneity Tests">
+<h1 class="contentitem toc">Homogeneity Tests</h1>
+<table class="table" style="border-spacing: 0" aria-label="Homogeneity Tests">
+<caption aria-label="Homogeneity Tests"></caption>
+<colgroup><col/><col/><col/><col/></colgroup>
+<thead>
+<tr>
+<th class="c b header" colspan="4" scope="colgroup">Test of Equality over Strata</th>
+</tr>
+<tr>
+<th class="b header" scope="col">Test</th>
+<th class="r b header" scope="col">Chi-Square</th>
+<th class="r b header" scope="col">DF</th>
+<th class="c b header" scope="col">Pr &gt;<br/>Chi-Square</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th class="rowheader" scope="row">Log-Rank</th>
+<td class="r data">4.6708</td>
+<td class="r data">1</td>
+<td class="r data">0.0307</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">Wilcoxon</th>
+<td class="r data">1.5046</td>
+<td class="r data">1</td>
+<td class="r data">0.2200</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">-2Log(LR)</th>
+<td class="r data">4.9423</td>
+<td class="r data">1</td>
+<td class="r data">0.0262</td>
+</tr>
+</tbody>
+</table>
+</article>
+</section>
+<article id="IDX11" aria-label="Survival Curves">
+<h1 class="contentitem toc">Survival Curves</h1>
+<div class="c">
+<img style="height: 480px; width: 640px" alt="Product-Limit Survival Curves" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAoAAAAHgCAIAAAC6s0uzAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAgAElEQVR4nO3dfXxMd97/8e8ZSYxMEEHiLhJb0q1WUlWqiXJpd1lU3GalFD+GcuHS2geh1QiKpYt6VHUrVxMkj17tqOuqiq29yLrYvfRmqw+daHGp1s26S+KeRN3O74+zO3s6d5mZzMx3bl7Ph4fHyTlnznzmdJq37805RzGbzQIAAARWlBAiPT1ddhkAAESQiooKnewaAACIRAQwAAASEMAAAEhAAAMAIAEBDACABAQwAAASEMAAAEhAAAMAIAEBDACABAQwAAASEMAAAEhAAAMAIAEBjBCm/FRsbOxvfvMbHx7ZJ4fy6OBNmzZt2rSp+4dyf//8/Pz4+HidTqcoisFgGD58+LVr19x/I98W45Cz06I4EcjaAH8ggBE+bt68+cYbb/z2t7+VXYj3+X3//n2v93fxprNmzVqyZMnVq1ctFosQora29qOPPurQoYMXFbpZjHQ2Z8NXtfn1X2aINAQwQp7FYrFYLGfPnu3du7cQYuXKlbIr8t7169evXr3q8/1///vfCyGee+65ysrKgwcPFhQUxMfHjx8/3vtC61GMdyx2gqc2wDsEMMJE69atP/jgAyHE5cuX1TVqY2Xr1q0xMTHR0dHqSqPRGBMToyhKTEzMlClTtEcYO3ZsgwYNGjRoMHnyZO16m0aPzY/vvvtuy5YtdTqdTqdLSEhYsWKFdasXrSXtS9TlGTNm6PX6qKioGTNmZGZmNmjQIDo6et26dTb7u37T27dvCyE6deqUmJj4yCOPLFy48PLly6tXr67zA9qcQ/XHL774wrrzF198oa48fvy4uvD999+73u3tt99u27atesbatm1bUVHh0SmysWvXrlatWqlHa9GixapVqxyeDU9PrMMiHZ7ksrKy5OTkBg0atGrVauvWra4LA37CbDbb/9MSCAnqd1hdPn/+vNoC1uv12q1NmjQRQnTs2NFisRQUFNh8/5cuXaru/Lvf/c7+/w77d7H5UW1ZajVu3NjhQZyV7WKTi/9tY2NjbfZ3/aZdu3ZV1zdo0CAtLW3+/Pk1NTXO6rGvwXoOu3TpIoTo3r27defHH39cCJGRkaF9oevdoqKitKW2bdvW9WlxeAasW2NjY7Xro6KiHJ4NT0+swyLtD1tSUmKzsqSkxEVhgJXZbCaAEcIc/g6dMGGCdmt0dPTnn3+urlGD5Kmnnjp9+nTPnj2FEE2bNlU3JSQkCCF69ux54sSJ4cOH2/++tnlTdTk+Pl4I0aFDh2PHju3YsSM+Pn7WrFn2L3FYdp2b1OX+/furLXshxMCBA0tLS53V5uKwt27dGjRokLUbQD0tO3bsqPMD2pzD3bt3CyEURTl79qzFYjl9+rTaENyzZ4/2ha5369at23PPPXf27NmioiJ1N9f1O/yvbN2qHnnQoEF//etfJ06caE39Oj+U6xPrZpHq12bKlCmXL1+ePn26ECIpKcl1YYCKAEZos/ml3KhRo0mTJtlsXbZsmXWN+jvx1KlTFovlhx9+0P5i1el0QogffvhB+1r7ZYebDh8+rP54+fLlW7duOdzHxQHtP5HN8p07dxwuu67ToW3btj377LMxMTFC84+POj+g9hy2adNGCDFkyBCLxZKdnS2cNGFd7FZdXf3UU0/p9Xo3T4vrzzV06FB1B51ON3XqVGev8vTEulmkfW+/9RvlrDBARQAjtLn+1Wy/Vf11eeLECYvFcuzYMe2vS202Wxz9vr5586azTd9++63649WrV/0RwF4su3b48GGPPqD2tWqve1RU1OXLl9V+2sLCQvudXezWrl07m9ByXX+dn2vz5s3t27dXd3vyyScdvsrTE+hmkcIR14UBKgIYoc31r2b7rWoXdK9evc6ePdu9e3ehaQVaN504caJ///72v3PnzJlz8ODBjIwM7SZtF/R///d/JyQkaLugN2/e7GnZnuaE/bLDN501a1aTJk1mz5594MCBs2fP9u3bVwgRHR1d5wd0WGpcXJwQQm3jxsXFOftcrnd7+eWXs7Ky6nwv16fLYrH06NHjpZdeOn/+/IIFC4RdX7H1bHh3Mp0VaT2s+gUYPHiw9Z9udRYGqAhghDZPA9jFJKylS5cKO+omdZzP4aa33nrLZr2aNNauS3Xyl8PCHB6wPssu3tThRzAajXV+QO2y1axZs6y7zZ4929kJd7abzfwmIYQ6I8zhezk7XdY9bY5mnUVlczY8PZnOirQ5rP0XID4+3nVhgIoARmhz9ivbxdaJEyeqc5Gio6O1A8bqJp1O16BBgxkzZmhfW15ert5ESa/XWy/dsb7q97//fUJCgnpdStOmTdVE37hxozoJ1uHcVxdxUp9lF296/fr15557Tp2hrShKfHz88uXLrVtdfECH5/DWrVtqukRFRald7g53drbb3LlzdTpdVFTU+PHj1R12797t7L2cnS7rnitWrGjWrJl6/lu0aLF9+3aHZ8PTk+msSPuTvG7dumbNmqkntlmzZtYT66wwQGU2mxWz2Zyenu7sKw4AAHyuoqKCG3EAACABAQwAgAQEMAAAEhDAAABIQAADACABAQwAgAQEMAAAEhDAAABIYHu7tdD13of/dePGDdlVAAAg2rRKGjygv+t9wieAb9y4MWXCONlVAAAg1m8oqXMfuqABAJBAcgAfOHCgR48e9g+1VhmNRr1er9frjUZjgAsDAMCvJHdBd+vWLTEx0eEmo9FoMpnKy8t1Op36fNaioqLAVgcAgL9IDuD79+8LIRy2gE0m0/z583v16iWEKCgoWLRoUbAF8C9Hrdtlmi67CgAIJRUVFbJL8BdPHy0YvJOwamtrR44cqS5nZ2fn5eXJrQcA4BNh+QxcL/5hEbyTsCwWS3Jysrqcmppqcf5cbgAAQk7wtoAVRTl16lRaWpoQorq62qabetuOnefOn/d3DaWz88Vn22xWlrR7wbr8y1Hr1IVxpwvrPFpJuxfU3cbuM/uuRgBASAreADYYDCaTKT8/XwhRVlZmMBi0W7MH9LPZ352Lrjw1duVrQrxmu/IfC9ox4F+O+vtKF6PCJaPWjd1nLs3K8HWZABC2Dh8+PGfOnL1790ZFRT377LOvv/5669atZRclhBCKotSzazZ4u6BzcnKWL1/+5z//+fPPP8/LyxsxYoTsilzZZZrOhCwA8K0TJ048++yzEydOPHPmzJ49e27evPnKK6/ILspngrEFnJiYWFVVVVxcLITo16+fxWLJzc3duHGj7LrcYu2Udrq13Qslo9a502Vtz9qJrUWHNoBwtWjRooKCguHDhwshMjIytmzZYt10/fr1iRMn7tq1q2/fvqWlpXFxcUIIRVGKiooWL158586doqKiX/3qV0KIU6dOTZo06dNPP01JSVmyZMmwYcOEEFeuXBk3btzevXv79u27adOmpk2bqi//8MMPCwsLd+7c6fD4Fy5cyM3N3b9//1tvveWDj2c2my1h4Z3iTbJLqMMvfv2WO/to/9R5hJLMdJ/VBwD+5zB0hBAOd27Xrt2tW7ccbnrxxRfXrl1bU1Pz4Ycfzp0713qcF198saqqqrCwsFOnTurKxx577E9/+lNNTc3HH3+cm5urrpw+ffrixYuvXbu2YMGCmTNnWl/+1ltvuTj+pEmTTCZTbW3tb37zG5uabT5XnZFkNpsJ4MBxJ4Bd708AAwh1HgVw27ZtnR2nffv21dXVFoulpqbmgQcesDnOrVu3dDqdupyenj5//vyTJ09qX56cnHzp0iWLxXL+/Pn27dtbX/7NN9+4OH6bNm1u3LhhsVguXrxY/wAOxi5oWNl3aNus4ekTAEKa9QoXdcHy02lNd+/e/fHHH/V6vf0LKysrW7ZsqS7HxMTYbI2JiVFv9CSE+Mtf/rJy5co+ffokJiauXr06KytLfXmTJk2EEAkJCZWVldYXPvzwwy6Of/HixUaNGqmv8vYT/xMBHDieztKy39/+3lulWYXuTKtmnBhAcFIT19mM4t69e2/atGnKlCn2m1q3bv3ll1+2aNGizrdo0qTJ4sWLFy9evGXLlpycnLNnzwohkpKSqqurW7VqdeHChaSkJDeP36pVq5qamsaNG1++fNnND+hC8M6ChjtK2r2g/hm7z2z9Y/Oj7BoBwEv5+fmvvvrqunXrzp07d+nSpfLy8hde+PudGEaOHLlo0aJr166Vl5c///zzLg6Sm5v70Ucf1dbWJiQkdOjQQV2ZnZ29Zs2a69evr1mzZsiQIfavcnj8QYMGbd26taampqCgoP6fjgAObXVe/uR6VjYABAOHzV8hRJcuXbZv375ly5YHHnigY8eO77333muv/f3eDAsXLrx27VpKSsqLL77oMEGtRo0a9dprryUlJS1duvSDDz5QVy5ZsuTQoUPt2rU7fPjw4sWL7V/l8PiLFy8uKSlp27Ztjx49vP+0/0AXdCjx+lLj0qwMmsIAQtETTzzxP//zP/brDQbDpk2bbFZqg9y6PGzYMPXSI634+Pht22xvdKh9ucPjN2/efNeuXeqy62a3OwjgMGHT0nXR8OUhTgAQDAjgcGATqDbpq96+w2HuEsYAIAsBHJ7UWNVOkB53urA0q1AIITQPkwCAwAvjRwJ7hAAOZ2P3mdU2bmlWhsOHOAFAgIXlw4C9QwCHIYe9ypoHNzkeLaYvGgACiQAOc3WGMbkLAFIQwBHBxTVI2gYxYQwAAUMAR5xxpwuF+GfQalvDhDEABAwBHNG0KatdZpYWAPgbARyJtJcnOeudVjOYdjAA+AkBHHG0ievsSUpq7tIOBgD/4WEMcMVmYBgA4CsEMJyq81FLAACvEcCRrjQrw1lHNADAfwjgiDZ2n5nHFAKAFAQwAAASMAsaQrh3YRIAwIcIYNR9YRLXBAOAzxHAqIP1mmBuVAkAPkQAw5Z9I3jsPjM3qgQA3yKA8RP2A8DedUrzoEMAcI0Ahsccdkrb7wAAcIEAhpecpSwd1ADgDgIYdXP/IiU1fbV/CxrEAOAIAYw6uPP0JCtr1qpjwIwEA4Az3AkLfkenNADYowWMumkbvtZlN2+YZZO+tIkBQEULGHVTn9mgJq71b9fd0WrK8kBDAHCGFjD8Rdv2pRcaAGwQwPAX7YQs7XpmRwOAIIDhEWvPs/Zv4cZ4sM3saH/WCAChgQCGZ6xZW5qV4d2DC3m2EgAIJmEhAGyylugFAEELGPXhbCK0i5Yx6QsAKgIYXnKWsnXeLUtFRzSACEcXNCTg+mAAIIABAJCALmj4nn0vtHr9kvVvKVUBQFAhgOFj9vnq5qgwAEQUuqAh0y9HreMulQAiEy1g+Jf9nbOsDeJx/9yn0M2j0X0NIGwQwPAvmztnORsDducWlXRlAwgnBDCChbYvmouUAIQ9AhhBQZu4jAoDiAQEMAJE7Xl2cxCX1jCAsEcAI+jQGgYQCbgMCQAACWgBI9hpH9vgxfOXACA4EcAIamru/v1+He1e0K604vIkAKGIAEYIYFQYQPhhDBgAAAkIYIQe+ztIl2ZlOOuIpoMaQHAigBFidpmm24wBj91nZhIWgJAjOYCNRqNer9fr9Uaj0WbT119/nZycrNPpdDpdamrqoUOHpFQIAIA/yJyEZTQaTSZTeXm5Tqfr37+/EKKoqMi69Re/+EWnTp3+/Oc/379/f/To0f/yL/9SVVUlr1iEAK97oWlAAwg8mQFsMpnmz5/fq1cvIURBQcGiRYu0AXzx4sVvv/02KSlJCLFly5b27dtLKxShwFmIOnv+knYH/1QEAK7IDODa2tqRI0eqy9nZ2Xl5edqtrVq1mjRpUmFhYW1t7a9//es2bdrIqBHBy/56JO4aDSCEyAxgi8WSnJysLqemplosFu3WP/3pTxkZGWruRkdHf/311xJKRLCyz1quDwYQWmQGsKIop06dSktLE0JUV1criqLd+vTTT/ft21ftlJ40adIzzzxz7tw569ZtO3aeO38+wAUjFLkzvqvthWY8GEBgyAxgg8FgMpny8/OFEGVlZQaDQbu1srJy06ZNrVu3FkKUlJS0atVKuzV7QD+bo63fUOLnehGetInLeDCAgJEZwDk5OcuXL+/Tp09MTExeXt6IESO0W1u2bJmdnf3BBx/ExsZOmjSpZcuWsuoEAMDnZAZwcXGxEKJfv34WiyU3N3fjxo3q+sTExKqqqj179gwcOLBTp05CiOTk5D179sirFAAAH5P8MIbi4mI1hrXU6307d+584sQJCTUBAOB/3IoS4cPmHtHMiwYQzHgcIcLET54cDABBjwBGWKn/k4PVidBcjATA3whghBuHvdBu3iRLzV0uRgIQAIwBI9yozyu0SVz6pQEEG1rACGfWGCaAAQQbWsCIFB7Nz7L2QtMdDcBPCGCELW0vtH2ntAvMwAIQAAQwIgvXKQEIEowBI4LYXCvsuk3soheaJjKA+iOAEXGsMexiH2vElmZl2MQto8IAfIIuaAAAJCCAEbkYDwYgEV3QiFDudEQLJ8O92l5oxoMBeIcARqRzZ0KWljZxGQ8G4DW6oBHRPLo+GAB8iAAGAEACAhgQwtGELDfnZ5VmZdARDcALBDDgfUf02H1mJmEB8A6TsIB/4qokAAFDAAN/Z39hkn0eO2soq73QtIYBuI8ABn5C+whhm7h11j5Wc5eRYAAeIYABD2gzmOuXANQHAQy4S5u4jBYDqCdmQQOO1dnA5VbSAOqDAAa8wS20ANQTAQwAgAQEMAAAEjAJC6gX6zDwOK4GBuAJAhjw3k/nRYtdpulcDQzATXRBAz7DpGgA7qMFDPiG2houzSq0bwTTKQ3AHgEM+FJJuxdsLk+iUxqAQwQw4GPcrhKAOwhgwJe4XSUANzEJCwAACQhgAAAkIIABAJCAAAb8iGFgAM4wCQvwFxdXBqu4PhiIZAQw4F8l7V5QF7g+GIAWAQz4l5q7vxy1zqY7etw/Oqi5VhiITAQwEAj2KVuaVTjudKG6IOiOBiKPNwF8/PjxDh06+LwUIKKoias2gtUkBhBRvAngtLS0zp07r1mzpm/fvj4vCIgo1ola9vOl6ZoGwps3AVxZWTljxowBAwY0b948Pz9/6tSpPi8LiDQ2ccv1S0DY8+Y64ISEhP/4j/+ora2dNGnSK6+80rhx41mzZt2+fdvnxQEAEK68vxGHTqdbtGjRpUuXRo0atWbNmsaNGy9ZssSHlQEAEMa8nwV9//79xYsXv/nmmzU1NTk5OSNGjJg8efKPP/5IDAM+wUVKQHjzJoAvXbo0c+bMLVu2xMXFzZw5c8GCBTqdTgjRpUuXrl27EsBA/VmvHpZdCAB/8SaAk5KSOnXq9OGHHw4ePFi7vnPnzg0bNvRRYUBksb8xFlcGA+HNmwC+e/fuoUOHtGuaNWt2+fJlIcS1a9d8UxcQSeyzlhtVAmHPB3fC+uSTT27evFn/4wCwp+2FZjwYCCeeBbCiKDYLQojY2Ng//OEPviwKgBClWRnj/rE8dp+Z8WAgzHgWwBaLRQihKIq6AMBPtJ3SdEcDYcmb64BJXwAA6smzAE5KShJCKI74pzwA/2T/TEMAocuzAK6srBRCWBzxT3kAhFDHg08XOnu0MIBQ5P2tKH3CaDTq9Xq9Xm80Gu23LlmyJDY2VlGURo0azZo1K/DlAcFg7D6zdUh4l2k6c6GB8OBZADvsfPa6C9poNJpMpvLy8t27d2/evNkmg9evX7948eJly5adPXt2wYIFW7Zs8eItAAAITt7MgvYVk8k0f/78Xr16CSEKCgoWLVpUVFRk3bpw4cLZs2e/9NJLQoiXX3755Zdf9uFbA6FI2/NsXaZBDIQomV3QtbW1I0eOVJezs7Nramq0W6uqqv73f/83KiqqUaNGq1atklEgEFzGnS5U/1iXSV8gdMmcBW2xWJKTk9Xl1NRUm+b1/fv3f/jhh3379h04cGDdunVvvPGGF28BhA11JNg6HlzS7gXX+zNRCwhynnVBW2dB++S9FUU5depUWlqaEKK6utomxRVF+eyzz9SE3r59++OPP66dh7Vtx85z58/7pAwgFO0yTS/NKpRdBQDv+eBe0F4zGAwmkyk/P18IUVZWZjAYtFvj4uK2bds2ffp0IYROp7N5zlL2gH42R1u/ocTP9QLBwtrzzDODgdDlTQAfOXJk6NChx44du3fvXlRUVJcuXT766KOUlBRPj5OTk7N8+fI+ffrExMTk5eWNGDFCu3X8+PFz5sxJS0v72c9+lp2dnZeX50WpQHjbZZru4rJgJmoBwcybAM7MzOzWrdvWrVtTU1OPHj06Y8aMxx9/vLq62tPjFBcXCyH69etnsVhyc3M3btyork9MTKyqqlq7dq1erx86dOjt27dHjhzJLGjAIWfh+stR68hdIJgpZrM5PT3do9fodLozZ860bt1a/fHMmTPJycn379/3Q3keWL+hZMqEcXXvB4SL0qwM+wcJO2wNk8RAgNUZSRUVFd5chjR69OgBAwbU1tYKIaqqqgYPHjxx4kQvawRQD6VZGTbPSlJvlaUmrvZvAMHGy+cBCyG0c6YOHDjw7rvv+qwoAG5Qm78uHlbIlUhAMJN5JywAfsI9s4Dg54M7Yd2+ffvTTz+t/3EA+IqLjmiaxUCQ8GYW9Jo1a+bNm3fr1i3rGp1Od+/ePd9VBcADznqhtVO0yF0g2HgTwHPnzh0zZszq1aubNWt29erV7t27P/PMMz6vDIA77CdCq7SprO18JomBIOFNAN++fXvlypXx8fFRUVGHDh0ymUxPPPHE22+/7fPiANSTw55nN0eF1SuJuZ4Y8BNvxoANBsOSJUuEEImJiQsXLjx8+PCdO3d8XRgAX7IfFRZCqHfRok0MSOFNC3j27NnFxcWrV68uLCwcPnz4zp07p02b5vPKAPgPndKAdN4E8MKFCxcuXCiEGDRokHYqFoAQ5fpu0lzIBPiDzKchAQg8+xB1fTdpxoABP5H5NCQAPqed/GxddjZT2k3a9jFhDPiKN5OwMjMzk5OTv/nmm5s3b3711VdxcXGPP/64zysD4IWx+8zqH/GP3K1n+oqfTuBi0hbgK960gK9cuVJSUqI+DSk9Pf39999PTk72dWEAJLN/loM1g6XVBIQRnoYEwGNkMFB/ngWwoiiKorz33ntms9lgMCiKkpSUdODAgaKiIj/VB8A79e95dobbSgM+4VkAW5zzU30AglM905fwBnzwNCQAkYa50ED9eTMJ6+TJk0OGDPn222/v3r0bFRX18MMPl5WVMQ8LCE7uPCvJIw5vK10nMhuw4U0AP/HEEw8++OCBAwd+9rOfHT169IUXXujRo8e5c+d8XhyAenLnWUme2mWaXpqVMXaf2f17dDi8eIkbbCHCeRPAVVVVZrM5KSlJCPHoo49+9NFHNH8BuGAfsb66zRY36kLo8iaAExMTn3/++cLCwrZt2x45cmTKlCmJiYk+rwxAJPB0NhZxi7DhTQB/8cUXgwcP7tSp07179xo0aNC5c+cvvvjC55UB8Kv69EKrLx8nRGlWoXalp+PKnqapd3Onuak1gpM3AZySklJRUeHzUgAETD2vElbHgO1Xun8Er7PQxVhyfQ4LBJ43AdyiRYsLFy74vBQAcM3ZWLJ1OeAVAd7zJoDHjh2bm5s7ZsyYwYMH+7wgAPCamw82dkgb5LSkEQDeBPCaNWuEECaTSbuSm2EBkaPOq5v8dyNMF+rzYGNazwg8b+6Exa0oAdjTPglR1HuSl5t82FSt80mLhDR8y5sWMACEGbWJLNzrrAZ8wrMAPnLkyFNPPXXx4sW2bdt++umn3H8DQPCzf7Cxi92E8zFgUhm+5VkAP/vss88///yiRYuWLVs2YMCAb775xk9lAQhRas+z9m+VlFFhn3B272smaqGePAvg48ePFxQUNGnSJC8vb+XKlX6qCUDo0o4BB3g82E8ctoxtUpkbfcALnk3Cun//fnx8vBAiISHh3r17/ikJAGSqzxMmAPfxPGAA8Ngu03Tau6gnZkED8IvQHfR1xiZx7WdN84BFeMTjFrDyD9pl9UcAiBxqI1g7xdrN6daAyrMWMDfcAADXfD4wTKKHK7qgAQRCeFySVCefhyXzvMIYAQzA77SJG9KXJDnk755nLj4OVwQwAAQvbeJap3oRw+GBy5AAIGTQIx1OaAEDCDT7XugwHhX2IbXh6+KZx7SMQ4tnAeziciMmSANwh33Wht+osD84vCU1iRvSPOuCdvgkYJ4HDAD+5uyyY4ecPUACQcUHXdC3b9/ev39/ZmZm/Q8FAHCTfbKStaHFmwBes2bNvHnzbt26ZV2j0+l4NgMAr6m90IwEu8+++at9KBNJHBK8CeC5c+eOGTNm9erVzZo1u3r1avfu3Z955hmfVwYgQqi5y0iwm+rseba5MbXgSuJg5c1lSLdv3165cmV8fHxUVNShQ4dMJlNRUZHPKwMAeMRmnNjhcp1czLJ2c0+4yZsWsMFgWLJkyerVqxMTExcuXDh+/Pg7d+74vDIAgPu8yFdaw3J5E8CzZ88uLi5evXp1YWHh8OHDd+7cOW3aNJ9XBiDS+KoXmrFkZ+zvq1V/XH/sNcVsNqenp3v0mm+++eaRRx7xU0FeW7+hZMqEcbKrACBZaVYGAewO33Ygk8E26oykiooKb1rAjz76aJMmTX71q18tWLDg5z//ubflAQCkcRaZzlq09uu18679UmK482YS1o8//jhv3rz9+/d37ty5efPm48aN++6773xeGQAgaNnMuFb/yC4qxHgTwFFRUXl5eUePHv3b3/7WtGnT0tLStLQ0n1cGAN4pzcqw+SO7ojBkf08u2sGe8qYL+u7du2vWrPn3f//3Y8eONWvWbMKECfn5+T6vDAC8wL2m68lZjtqvt++RVlfSKe0mbwJYr9c3adJk4MCBZWVltH0BAK6f1ASHvAngr7/+OghnQQMAAo/Grtc8C+CkpKTKysouXbrYb+KBSAAQyZzdCJOEdsazAK6srBRCHDx4kBYwgFDEVcL+Yw1a7RgwndIueDML+tFHH01ISBg9evSRI4uXW2cAABN2SURBVEfq+fZGo1Gv1+v1eqPR6Gyf//qv/1IUpZ5vBACQgiuUnJF5HbDRaDSZTOXl5bt37968ebPDDL527dq4cdzfCgBCkvsPgbAX9rEt8zpgk8k0f/78Xr16ZWZmFhQUbN682X6fp59++umnn/bi4ABgpb0gmOuD/Y1BXzd5E8B3795duXLlgw8+2L59+2vXrk2YMOGHH37w4ji1tbUjR45Ul7Ozs2tqamx2eOONN44fP75161YvDg4AqrH7zNY/2h9l14VIJ/M6YIvFkpycrC6npqbazKM+efLkK6+8smfPHp3Om38lAACCh3f9ydZXheX9PbwJ4Li4uEuXLtX/vRVFOXXqlBrh1dXVNjOt+vTpM2nSpCeeeMLha7ft2Hnu/Pn61wAA8DfvgtOauOE6GOxN43LChAm5ubllZWX1fG+DwWAymdTlsrIyg8Gg3Xry5Mm33npLURQ1mG3iOXtAvykTxmn/1LMYAJHApueZkeAwYH/lsafr7a9gdmers+O7z5sW8Jo1a4QQ1uxUeXEjjpycnOXLl/fp0ycmJiYvL2/EiBHODqgoCjf6AOBbahi7E8BcPSyR67QL6U5pbwLYV1lYXFwshOjXr5/FYsnNzd24caO6PjExsaqqyidvAQAIUTYPWXL4QGIJZfmOYjab09PTZZfhA+s3lNARDcBT7rRuaQEHA5sADsL01ZZXZyRVVFR40wJ2eF8quogBhCg3e6HVBZI4SNi0jB22j91cr13j/lZnx3dffbugb9y48dhjj40aNcq7twcAudwJVLUFrG0H0yYOvJAe7nWovpfYxsXF7dix47e//a1PqgEAIELUdwz4xo0b06ZNe++99+7du+fDsrzAGDAAP6EFDE8FaAw4Ojr6lVde8eI4ABAStLlrXcmoMOpJ5mVIABBCtEFr3ybWrg94aQhJ3GYZAAAJPAvgysrKxx57zPrjiBEjdDpdYmLiuXPnfF0YAADhzLMu6F//+tcDBw5Ul2fOnLlnz57jx4/n5uYOGzbs888/90N5ABCMHI4K26+hOxoueBbAn3322bvvvqsub9y4ccmSJSkpKW+++WZmZqYfagOAoGafrzYzpQNeEUKJZ13Qd+7c6dSpkxDiq6++qq2tnTZtmhDioYceunv3rl+qAwAgTHkWwA0bNlQXli1b1qVLl6ioKCHEV199FR0d7fvSAAAIX551QXft2vXLL780GAzbt29///331ZUffvhh9+7d/VAbAIQYBn3hPs8CeNOmTT179rx69erMmTOHDx+urvzjH/+4d+9eP9QGAKHN4TAwIQ2VZwGclpZ26dIlm5XHjh3zXT0AECYcBq1NJHPjjkjGjTgAAJCAAAYAQAJv7gUNAPCIw6c42PxIX3SkIYABwO+cPcfQ+iN37YhAdEEDACABAQwAgAQEMAAEjs1AL+O+kYwxYAAICs6GgQnpcEUAA4B8zlKWyVlhjC5oAAAkIIABAJCAAAYAQAICGAAACQhgAAAkIIABAJCAAAYAQAICGAAACbgRBwAEHWePL+SuWOGEAAaAoOPw8YXcFSvM0AUNAIAEBDAAABIQwAAQvBj0DWMEMAAAEhDAAABIQAADQDhgjnTIIYABAJCAAAYAQAJuxAEAIcN1P7N1K3OnQwIBDAChwXWsqvfM0t45C0GOLmgAACQggAEgUqh91P6bL+3syM6eLeFsZxd1htNkbwIYAMIBPc8hhwAGAEACJmEBQFhxZ6Z0kPdCC5d11qf4oOonIIABIHzInSnt7Mg2TzWus0ghhLM661N8sI0f0wUNAIAEBDAAABLQBQ0AkULtvPXfOKizI2vX1/nu1h0c7hlUg7j1RAsYAAAJCGAAACQggAEAkIAABgBAAgIYAAAJCGAAACSQHMBGo1Gv1+v1eqPRaLNp1apVLVq00Ol0DRo06Nix43fffSelQgAA/EFmABuNRpPJVF5evnv37s2bN9tk8Ouvvz5kyJCKiopz585169atd+/esuoEAMDnZN6Iw2QyzZ8/v1evXkKIgoKCRYsWFRUVWbdWVlZal9euXduqVSsJJQIA4B8yW8C1tbUjR45Ul7Ozs2tqapzt+fHHH8fGxgaqLgAA/E5mAFssluTkZHU5NTXVYrE43K2ysnLWrFnLli0LYGkAAPiXzC5oRVFOnTqVlpYmhKiurlYUxX6fQ4cOPfnkk1OnTp05c6Z2/bYdO8+dPx+gQgEA8DWZAWwwGEwmU35+vhCirKzMYDDY7GAymYxG44oVK6ZPn26zKXtAP5s16zeU+K9UAAB8S2YA5+TkLF++vE+fPjExMXl5eSNGjNBunTdv3ttvv71z587MzExZFQIA4CcyA7i4uFgI0a9fP4vFkpubu3HjRnV9YmJiVVXVihUrhBBZWVnW/Z0NEgMAEHIkPw+4uLhYjWGtqqoqQdwCAMIat6IEAEACAhgAAAkIYAAAJCCAAQCQgAAGAEACAhgAAAkIYAAAJCCAAQCQgAAGAEACAhgAAAkIYAAAJCCAAQCQgAAGAEACAhgAAAkIYAAAJCCAAQCQgAAGAEACAhgAAAkIYAAAJCCAAQCQgAAGAECCKNkFAADgR6VZGfbLY/eZJZXzTwQwACCcWbO2NCsjGHLXii5oAAAkIIABAJCAAAYARISg6n8WBDAAAFIQwAAASEAAAwAgAQEMAIAEBDAAABIQwAAASEAAAwAgAQEMAIAEBDAAABIQwAAASEAAAwAgAQEMAIAEBDAAABIQwAAASEAAAwAgAQEMAIAEBDAAABIQwAAASEAAAwAgAQEMAIAEBDAAABIQwAAASEAAAwAgAQEMAIAEBDAAABIQwAAASEAAAwAgAQEMAIAEBDAAABIQwAAASEAAAwAgAQEMAIAEkgPYaDTq9Xq9Xm80Gj3dCgBA6IqS+N5Go9FkMpWXl+t0uv79+wshioqK3NwKAEBIk9kCNplM8+fP79WrV2ZmZkFBwebNm93fCgBASJMZwLW1tSNHjlSXs7Oza2pq3N8KAEBIkxnAFoslOTlZXU5NTbVYLO5vBQAgpMkcA1YU5dSpU2lpaUKI6upqRVHc37ptx85z588HsloAAHxIZgAbDAaTyZSfny+EKCsrMxgM7m/NHtDP5mjrN5T4uV4AAHxGZgDn5OQsX768T58+MTExeXl5I0aMcH8rAAAhTWYAFxcXCyH69etnsVhyc3M3btyork9MTKyqqnK2FQCAMCAzgIUQxcXFatBqVVVVudgKAEAY4FaUAABIQAADACABAQwAgASSx4B9qGFMDFciAQCCQePGhjr3CZ8A/n9jcn1+zPUbSqZMGOfzw8IepzpgONUBw6kOpFA823RBAwAgAQEMAIAEBDAAABIQwAAASEAAu9KmdZLsEiIFpzpgONUBw6kOpFA824rZbE5PT5ddBgAAEaSiooIWMAAAEhDAAABIQAADACABAeyA0WjU6/V6vd5oNMquJcwpdmRXFG4OHDjQo0cPmxPLN9wf7E81X28/WbVqVYsWLXQ6XYMGDTp27Pjdd9+p60Puix0+t6L0FaPRaDKZysvLdTpd//79hRBFRUWyiwpnFotFdgnhrFu3bomJido1fMP9xP5UC77e/vH6668PGTJk1qxZiYmJ//Zv/9a7d+9z586F5BfbbDZboGEwGJYtW6Yu/+53v4uLi5NbT3gTQsguISJozzPfcL/Snmq+3gFQWVmpKIolBL/YZrOZLmhbtbW1I0eOVJezs7Nramrk1hPedDpdVFSUoih6vf6ll16SXU5E4BseMHy9A+Djjz+OjY0VofnFJoBtWSyW5ORkdTk1NdVCD5I/3bt37+7duzdv3vzggw9KS0tXrVolu6Lwxzc8YPh6+1tlZeWsWbOWLVsmQvOLTQDbUhTl1KlT6nJ1dTXzJgJAr9cPHTq0vLy8oKBAdi3hj294gPH19pNDhw6lpaVNnTp15syZIjS/2ASwLYPBYDKZ1OWysjKDoe6HKsMnbt++HR0dLbuK8Mc3XAq+3r5lMpl69OixbNmylStXqmtC8ovNJCwbEyZMiI2N3bt372effda4cePx48fLriicJSUlzZo16+jRo/v27UtMTHznnXdkVxSehGY2EN9wv9Kear7efjJ37tzGjRvv27dPuzLkvthms5kAdmDChAkNGzaMiYkZN26c7FrC3NKlS+Pj4xVFiY2NffXVV2WXE7bET6fj8g33H+2p5uvtJ/YtSXV9aH2xzWYzD2MAACDQeBgDAAByEMAAAEhAAAMAIAEBDACABAQwAAASEMAAAEhAAAMAIAEBDACABAQwAAASEMAAAEhAAAMAIAEBDACABAQwAAASEMAAAEhAAAPhSVGUOXPm6HS65s2bf/fdd99//310dPSlS5esO1y6dCk6Ovr48ePnzp1LTk7W6XRt2rSprKxUty5cuDAuLk5RFL1ev3btWusxZ8+e3aJFCyHEypUrY2Nj1R3mzZsX+A8IhDoCGAhbu3btOnny5GOPPZadnf3AAw906tRp5syZ1q0zZszo3Llzhw4dBg4c+OSTT1ZVVY0ePXro0KHq1qKiookTJ1ZXV48ePXrOnDnWV/3tb3+7cOGCEGLu3LmvvfZadXX17Nmz33///QB/NCAMKGazOT09XXYZAHxMUZQTJ06kpKQcOXLkkUceuXv3bllZWU5OTm1trU6nu3//fmxs7I4dO/r27RsdHf3tt9+mpaVduHChTZs2t2/f1h7nypUrzZo1s1gs6jG3bt06ZMgQIUTDhg27d+++cuXKnj17yvmEQCirqKigBQyErZSUFCFEamrqvXv3hBCDBw+Oi4tbvHixEGLRokXNmzfv27evEOLu3bsPPvigoigtW7a8c+eO+tpPPvkkOTk5Ojq6WbNm2mOq6SuE2Lt3b01NzVNPPRUXF/fOO+8E8nMB4YEABsLW999/L4Q4evRoVFSUumbGjBlvvvmmEGLt2rX5+fnqyqioqOrqass/qCuHDRv285///C9/+cvVq1cdHrxnz54HDhy4c+fO1KlTp0+f7vcPA4QdAhgIWzk5OWfOnJk5c2aXLl3UNQsWLKipqZk8ebIanOrKrl27/uu//uuFCxdef/31Dh06qCvv3LkzceLEJk2aqD3MNv3SQoiUlJR58+ZduHChdevWOh2/SQCPRckuAIC/9O7dOzk5uXnz5vv371fX6HS6IUOGvPvuuy+99JJ1t+3bt2dmZiYmJsbExEybNk1dOW3atDFjxkRHRxuNxv/7v//bv39/Zmam9uDPPffcm2++uWLFCr1ev2rVqoB9KCBsMAkLCE+Kolj7k7VMJtO4ceOuX78eExMT+KoAqJiEBUSWQ4cOTZ48OT8/n/QFpKMLGogUTZo0uXXr1pw5c1599VXZtQAggIEwZd//fO3aNSmVAHCILmgAACQggAEAkIAABgBAAgIYAAAJCGAAACQggAEAkIAABgBAAgIYAAAJCGAAACQggAEAkIAABgBAAgIYAAAJeBgDIlFFRYXsEhCSeHo6fIgARoTiNyk8xb/b4Ft0QQMAIAEBDACABAQwIIQQiqLILiGUbNiw4eGHH3744Yc3bNgguxafOXv27Jw5c/gmIGAYAwbgmQ0bNrz99tt/+MMfFEXJzc0VQkyYMEF2UT7w0EMP9e7dW3YViCC0gIG/Ky4uTk1Nbdu27R//+Ed1zfXr13NycuLj44cNG3bjxg11paIo//mf/5mQkPCLX/zi4sWL6so7d+7MnTu3devWHTp02Lhxo5T6A+add95ZunRpampqSkrKkiVL1q9fL7si37h69WpZWZnsKhBBCGDg7yoqKr788suFCxfOnDlTXZOfn9+nT5+zZ8+OGTNmyZIl1j337t17/Pjxvn37vvzyy+qa5cuX63S6I0eOfPLJJ7t375ZQfQAdPny4W7du6nJGRsahQ4fk1gOEKMVsNnM9BiJNRUWFzddeURSLxSKEuH37dqNGje7duyeESElJ+eqrr1q0aFFbW5uenn7s2DF1z8uXL8fHx1dXV3ft2vX06dNCiI4dO/71r39NSEiof22/HLWu/gfxoV2m6TZrGjRocOvWraioKCHEvXv3GjZsePfuXdcHKc3K8Fd9Xhm7z+xsk/WbYM/+awN4raKigjFg4CdiYmLu37+vLldWVrZs2dK63rpPfHy8EKJZs2YXLlxQ15w5c0ZdWX/2gRds4uLirly50qJFCyFETU1NXFxcnS9xEXhAxKILGnCqdevWNTU1FovFYrHcunXLuv7SpUtCiAsXLrRu3Vpd065duytXrsipMuA6d+785ZdfqssHDx586KGH5NYDhCgCGHBq5MiRRUVFtbW15eXlzz//vHX9a6+9du3atXfeeWfo0KHqmvHjx69evfratWsHDx4cM2aMpHoDZPLkya+++urx48dPnTqVl5c3adIk2RUBIYkABpxauHDh/v3727Zt++KLLw4ZMsS6vmfPnikpKZ9//nlBQYG6Zu7cuTdv3uzUqdOQIUP69esnqd4AmThx4vTp0wcNGtS/f/8JEyYYjUbZFQEhiUlYiET1mU3jYpIOwhuTsOBDFRUVtIABAJCAAAYAQAICGPAM/c8AfILrgBGheLYrALkIYEQiptIAkI4uaAAAJCCAAQCQgAAGAEACAhgAAAkIYAAAJCCAAQCQgAAGAEACAhgAAAkIYAAAJIgS3JMPAICA+/92wrShvLYEoQAAAABJRU5ErkJggg=="/>
+</div>
+</article>
+</section>
+</div>
+</body>
+</html>

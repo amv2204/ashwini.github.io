@@ -6,7 +6,7 @@ output:
     toc_float: true
 ---
 
-### NHANES Analysis 2015-2016:
+## NHANES Analysis 2015-2016:
 
 The full abstract for this project can be found [here](NHANES.pdf).
 
@@ -17,7 +17,7 @@ The full abstract for this project can be found [here](NHANES.pdf).
 * Predictors: Sexual identity, monthly family income, and gender
 * EMM: current age
 
-#### Code:
+### Code:
 
 **IMPORTING NHANES 2015-16 DATA**; 
 
@@ -166,5 +166,80 @@ proc logistic data = project;
 	class sexual_id (ref = '0') / param = ref;  	
 	model STI_status = SXD031 age_cat RIAGENDR monthly_inccat sexual_id SXD031*age_cat / cl scale = none;  
 run;  
+
+
+
+## Survival Analysis Example:
+
+**Dataset of Interest:** This data is a subset of data from a cohort study on human immunodeficiency virus (HIV) infection. The study includes medical, epidemiologic, and behavioral information from individuals who are HIV positive. Below is the data dictionary:
+
+<center>
+<img src="images/codebook.jpg" style="width:80%">
+</center>
+
+**Research question: We will examine if having a diagnosis of hepatitis C is associated with a shorter median survival time compared to not having hepatitis C.**
+
+### Code:
+
+**Creating a libname to refer to shared folder:**
+
+libname Epi3 "/home/u60713693/my_shared_file_links/u2704008";
+
+**Copy and explore the data:**
+
+data hivhepc;   
+set Epi3.hivhepc;   
+run;
+
+proc contents data= hivhepc;    
+run;
+
+**Calculate person-time for each individual:**
+
+data hivhepc2;    
+set hivhepc;    
+if death=1 then days=death_date-cohort_date;    
+else if death=0 then days=last_alive_date-cohort_date;    
+pyears=days/365.25;  *gives time-to-event in years;   
+run;
+
+### General survival curve:
+
+proc lifetest data= hivhepc2 method=km plots=(s) graphics;    
+time pyears*death(0);   
+run;
+
+The full results of the proc lifetest can be seen [here](survival.html).
+
+Below is the survival curve:
+
+<center>
+<img src="images/general_survival.jpg" style="width:90%">
+</center>
+
+There were 194 people who died and 135 were censored. The median survival time is 12.08 years, which is interpreted as: We expect 50% of people to survive beyond 12.08 years.
+
+Another interpreatation example: Using the table and the 'pyears' value closest to 5 (which is 4.9993), the 5-year survival probability is 0.8470, which means that probability of surviving beyond 5 years from the time of HIV diagnosis is 0.8470.
+
+### Survival curve by Hep. C diagnosis:
+
+proc lifetest data= hivhepc2 method=km plots=(s)graphics;   
+time pyears*death(0);   
+strata HepC;    
+run;
+
+The full results of the proc lifetest can be seen [here](hepc.html).
+
+Below is the survival curve:
+
+<center>
+<img src="images/hepc.jpg" style="width:80%">
+</center>
+
+The median survival proportion for those with a Hep. C diagnosis is 11.33 years and for those without a Hep. C diagnosis is 14.33 years. This means that individuals who are HIV+ survive longer if they don't have a Hep. C diagnosis.
+
+### Significance of survival curves:
+
+The log-rank test has a null hypothesis that the two survival curves are homogeneous (not different from one another). Given the p-value of the statistic (p=0.0307), we can reject the null hypothesis and conclude that the survival curves ARE NOT HOMOGENOUS and are STATISTICALLY significantly different.
 
 
