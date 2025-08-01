@@ -1,10 +1,15 @@
 ---
-title: "Ashwini M. Varghese"
+title: "Ashwini M. Varghese, MPH"
 output: 
   html_document:
     toc: true
     toc_float: true
 ---
+
+&nbsp;
+
+&nbsp;A Highly organized and self-motivated Data Analyst with 3 years of experience and a strong quantitative aptitude. Skilled at interpreting complex data with exceptional attention to detail and hands-on analysis experience using R and SAS. Proven to excel in a fast-paced, collaborative environment while always eager to be challenged and learn new analytic techniques
+
 
 &nbsp;
 
@@ -14,22 +19,28 @@ output:
 
 &nbsp;
 
-# About me
+# About me:
 
 
-I am a second year Master's in Public Health candidate in the Epidemiology department at the Columbia University Mailman School of Public Health in New York City. I am also completing a certificate in Infectious Disease Epidemiology. I currently work as a Recruiter and Data Analyst at the Herbert Irving Comprehensive Cancer Center at New-York Presbyterian/CUIMC. I will be graduating in May 2023 and am looking forward to working in the public health field after graduation. I am looking for data analyst roles in research and clinical research. My research interests lie in health disparities, cancer epidemiology, and infectious disease epidemiology.  
+I am a Data Analyst at NYU Langone Health in New York City for the [Cardiovascular Digital Health Lab](https://med.nyu.edu/departments-institutes/medicine/divisions/cardiology/research/cardiovascular-digital-health-laboratory) in the Division of Cardiology. 
+
+<center>
+<img src="images/nyu.jpg" style="width:40%">
+</center>
+
+I completed a Master's in Public Health degree in Epidemiology, with a certificate in Infectious Disease Epidemiology, at the Columbia University Mailman School of Public Health in New York City in 2023.
 
 <center>
 <img src="images/mailman.png" style="width:40%">
 </center>
 
-Raised across the river in the sister state of New Jersey, I am the oldest of 3 and grew up in Edison, New Jersey. I completed a Bachelor of Science in Public Health with a minor in Biological Sciences and a certificate in Health Disparities at Rutgers University - New Brunswick in 2020.
+I completed a Bachelor of Science in Public Health with a minor in Biological Sciences and a certificate in Health Disparities at Rutgers University - New Brunswick in 2020.
 
 <center>                                               
 <img src="images/rut.png" style="width:40%">          
 </center> 
 
-My favorite activities are to cook new recipes and touring NYC restaurants and all the activities the city has to offer. One of my life goals is to travel to one new country every year and explore the world!
+My favorite activities are to cook new recipes and exploring NYC restaurants and all the activities the city has to offer. One of my life goals is to travel to one new country every year and explore the world!
 
 &nbsp;
 
@@ -44,23 +55,27 @@ _____________________________________________________________________________
 
 
 
-# Upcoming projects:
-
-
-### Master's Thesis: Pancreatic Cancer Risk and the DASH diet
-
-A collaborative effort with the [Harvard University Pooling Project of Prospective Studies of Diet and Cancer](https://www.hsph.harvard.edu/pooling-project/)  
+# Upcoming project:
 
 &nbsp;
 
+### Behavioral Economics Trial To Enhance Regulation of Blood Pressure [(BETTER-BP)](https://www.sciencedirect.com/science/article/pii/S2772487522000320?via%3Dihub)
+
+&nbsp;
+
+Funded by the National Heart, Lung, And Blood Institute (NHLBI) of the National Institutes of Health (NIH), this is a randomized clinical trial (RCT) founded on behavioral economics and tests whether a lottery incentive program promotes adherence to anti hypertensive medication and blood pressure control at 6 and 12 months. 
+
+&nbsp;
+
+**Current status:**
+
+Enrollment has been completed and analysis of the primary and secondary process and efficacy outcomes are projected to be completed by the end of 2025  
+
+
 <center>                                               
-<img src="images/harvard.png" style="width:50%">          
+<img src="images/nih.png" style="width:50%">          
 </center>  
 
 &nbsp;
 
-### GIS spatial analysis poster project: Solar power plant distribution and lung cancer incidence
 
-<center>                                               
-<img src="images/gis.png" style="width:50%">          
-</center>  
