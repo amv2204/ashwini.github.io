@@ -1,19 +1,19 @@
 ---
-title: "Academic and Professional History"
+#title: "Resume"
 output: 
   html_document:
     toc: true
     toc_float: true
 ---
 
+&nbsp;
 
 ## Education:
 
 **Columbia University Mailman School of Public Health - New York, NY**  
-Expected Graduation: May 2023  
+May 2023  
 Master of Public Health in Epidemiology, Certificate in Infectious Disease Epidemiology  
 Columbia Public Health Scholarship Award  
-Cumulative GPA: 3.858
 
 	
 **Rutgers University - New Brunswick, NJ**  
@@ -22,50 +22,46 @@ Bachelor of Science in Public Health, Minor in Biological Sciences, Certificate 
 Magna Cum Laude, Highest Honors, and Dean’s List  
 
 
+&nbsp;
+
+
 ## Work Experiences:
 
-**Herbert Irving Comprehensive Cancer Center, NYP/CUIMC – New York, NY**  
-July 2022 – present  
+
+**Cardiovascular Digital Health Lab, NYU Langone Health - New York, NY**  
+August 2023 - present  
+Data Analyst  
+
+* Lead the management of multiple database projects for 4+ clinical trials using a research and statistical framework for complex health research data up to the reporting standards of the NIH 
+* Prepare interim reports and conduct statistical analysis in R and SAS for timely reporting of accurate data to the team and collaborators
+* Contribute in the development of publications and conference materials, including drafting manuscripts, abstracts, and data visualizations 
+
+
+**Columbia University Mailman School of Public Health - New York, NY**         
+April 2023 - June 2023  
+Epidemiology Student Researcher  
+
+* Developed methods for improved visual aids such as tables and graphs of statistical outputs from analysis on COVID-19 and air pollution in R using the ggplot package
+* Collaborated with research members on refining documentation for grant submission and acceptance 
+
+
+**Herbert Irving Comprehensive Cancer Center, NYP/CUIMC – New York, NY**    
+July 2022 – May 2023  
 Recruiter and Data Analyst for the DISCover cohort  							
 
-* Build and maintain a repository of biological samples, clinical data, and epidemiologic data of more than 7000 patients by enrolling and obtaining informed consent of patients who are at risk or who have cancer
-* Coordinate the collection and transfer of blood, saliva, tissues, and other biospecimens from the clinic to their designated laboratories for analysis.
-* Clean and analyze data that has been collected from 3800+ questionnaires and the electronic health record of individuals who have consented to the DBSR protocol
+* Built and maintained a repository of biological samples, clinical data, and epidemiological data of more than 7000 patients who were at risk or had cancer
+* Coordinated health research activities such as collection and transfer of blood, saliva, tissues, and other bio specimens for bio marker analysis, adding to more than 4000 accumulated bio specimens
+* Cleaned and analyzed data that has been collected from 3800+ questionnaires and the electronic health records (EHR) of individuals consented to the DBSR protocol
+
 
 **Public Health Environmental Laboratories, NJ Department of Health - Ewing, NJ**  
-July 2020 – July 2021  
-Newborn Screening Laboratory Technician
-
-* Mastered the workflow of 3 different genetic test units (Receiving, MS/MS, Lysosomal Storage Disease) via bi-monthly rotations to conduct the appropriate test for a disorder  
-* Processed more than 250 and up to 800 specimens daily for the appropriate assay to test for genetic disorders 
-* Operated and maintained the function of essential screening equipment (Panthera Puncher, Waters ACQUITY TQD Mass Spectrometry, etc.) to facilitate daily testing procedures 
-	      
+January 2020 – May 2020  
 Molecular Virology Intern  
-January 2020 – May 2020
 
 * Improved the surveillance informatics system of the Molecular Virology department by creating an interactive database of over 400 historical arboviral and influenza specimens stored in the freezers and merged qualitative data of test results from JerseySurv (VectorSurv) with the new database
 * Attained knowledge of the routine lab procedures by shadowing extractions and PCR tests  
 * Surveyed for geographic trends by NJ county in positive influenza specimens
 
-**Digestive Disease Consultants - Metuchen, NJ**  
-January 2019 – March 2020  
-Office assistant
-	
-* Analyzed Medicare and Medicaid insurance payments for discrepancies and ensure accuracy to maximize revenue
-* Guided patients in successful preparation for their consultations and gastroenterology procedures  
-
-
-## Volunteer Experience:
-
-**Rutgers University Global Brigades - Nicaragua**  
-January 2018  
-Medical and Public Health Brigader 
-
-* Served the community of Sabana De En Medio in Nicaragua by building latrines for access to sanitation
-* Performed patient care for over 1,000 community members of El Charco in a medical clinic where free consultations, medications, and dental health education were given. Tasks included data informatics, patient triaging, pharmacy rotations, and health education	
-
-
-## Additional Experience:
 
 **Institute for Health, Health Care Policy, and Aging Research - New Brunswick, NJ**  
 Summer 2019  
@@ -79,11 +75,7 @@ serve or advocate for this community
 *  Participated in holistic seminar series led by distinguished faculty of the Institute to explore research processes and possibilities
 
 
-## Projects:
-
-* Analysis of NHANES 2015-2016 data: The association of ever being diagnosed with having an STI with age at first intercourse – Tools used: SAS, CDC NHANES data, MS Word and Excel
-* The effect of artificial sweeteners on water quality – Tools used: MS PowerPoint, Word and Excel, LabQuest  
-* **Master's Thesis pending: Pancreatic cancer risk and the DASH diet, in collaboration with Harvard University Pooling Project of Prospective Studies of Diet and Cancer**
+&nbsp;
 
 
 ## Certifications/Trainings:
@@ -92,17 +84,36 @@ serve or advocate for this community
 * CITI program certifications: Good Clinical Practice (GCP), Clinical Research Coordinator (CRC), Human Subjects Protection Training, HIPAA, Bloodborne Pathogens, FDA Regulated Research  
 * NYC DOHMH Team Epi Outbreak Investigator 
 
+&nbsp;
+
 
 ## Skills:
 
-* Laboratory skills: PerkinElmer NeoBase2 and NeoLSD assays for Newborn Genetic Screening, cell culturing, sterilization techniques, pipetting, microscopy, aseptic technique, fume hood work, etc. 
-* Operation of: Panthera Puncher, Waters ACQUITY TQD Mass Spectrometry, TriNest, Centrifuge, Sonicator, Apricot S1 and S2 Multi-channel pipettors 
-* Software skills: Screening Center on Specimen Gate, JerseySurv (VectorSurv), EPIC, Velos, Qualtrics, GitHub
+* Software skills: Screening Center on Specimen Gate, JerseySurv (VectorSurv), EPIC, Velos, Qualtrics, GitHub, REDCap
 * Statistical software skills: SAS, R, R Markdown, Flex-dashboards, Plotly, Shiny App, QGIS, GeoDa, SaTScan
 * Microsoft Office (Word, PowerPoint, Excel) 
 * Literature Reviews 
 * Public Speaking 
 * Writing skills via development of lab reports and research papers 
 * Meticulous, detail oriented, organized 
+
+&nbsp;
+
+## Publications & Projects:
+
+* [Rehabilitation at Home Using Mobile Health in Older Adults After Hospitalization for Ischemic Heart Disease: The RESILIENT Randomized Clinical Trial](https://jamanetwork.com/journals/jamanetworkopen/fullarticle/2828802)
+  - A NIA/NIH funded randomized clinical trial (RCT) examining mobile health cardiac rehabilitation in adults with ischemic heart disease
+  - Published in JAMA Network Open in January 2025
+  - Presented at the 2024 European Society of Cardiology (ESC) Congress in London
+* [Assessing Sex Differences in the Relationship Between Social Isolation and Incident Atherosclerotic Cardiovascular Disease and Death Using Data from the U.S. Health and Retirement Study](https://www.ahajournals.org/doi/10.1161/circ.150.suppl_1.4134572)
+  - Published in Circulation in November 2024
+  - Presented at American Heart Association (AHA) 2024 Scientific Session
+* [Angina Among Older Adults With Ischemic Heart Disease: Findings From The RESILIENT Trial](https://www.jacc.org/doi/abs/10.1016/S0735-1097%2825%2902971-7)
+  - Published in JACC in March 2025
+  - Presented at ACC 2025
+* Imaging analysis of hepatic abnormalities in adults with congenital heart disease
+  - Presented at 34th Annual International Symposium on Adults with Congenital Heart Disease in June 2025 in Toronto, Canada
+* Master’s Thesis: Pancreatic cancer risk and the DASH diet, in collaboration with Harvard University’s Pooling Project of Prospective Studies of Diet and Cancer
+* Analysis of NHANES 2015-2016 data: The association of ever being diagnosed with having an STI with  age at first intercourse 
 
 
