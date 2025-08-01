@@ -15,6 +15,10 @@ navbar:
         href: dashboard.html
     - text: "Deliverables from Experiences"
       menu: 
+      - text: "Masters Thesis"
+        href: Full_Thesis_Final_AV.pdf
+      - text: "GIS Spatial Analysis"
+        href: GIS_poster.pdf
       - text: "NYP Cancer Center Poster"
         href: poster.pdf
       - text: "NJ DOH Abstract"
